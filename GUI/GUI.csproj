@@ -46,8 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Componentes Personalizad\ButtonOFSolution.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Componentes Personalizad\ComboBoxOFSolution.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Componentes Personalizad\ComboBoxOFSolution.Designer.cs">
+      <DependentUpon>ComboBoxOFSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes Personalizad\MenuSnapAsisstOFSolution.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Componentes Personalizad\TextBoxOFSolution.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Componentes Personalizad\TextBoxOFSolution.Designer.cs">
+      <DependentUpon>TextBoxOFSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLogin.Designer.cs">
+      <DependentUpon>formLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Componentes Personalizad\TextBoxOFSolution.resx">
+      <DependentUpon>TextBoxOFSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -70,5 +98,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="RecursoVisual\CON FONDO\OFSolution - Fondo Claro.jpg" />
+    <Content Include="RecursoVisual\CON FONDO\OFSolution - Fondo Oscuro.jpg" />
+    <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Con Fondo - OFSolution.jpg" />
+    <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Sin Fondo -OFSolution.png" />
+    <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo-OFSolution.ico" />
+    <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoClaro.ico" />
+    <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoOscuro.ico" />
+    <Content Include="RecursoVisual\SIN FONDO\OFSolution - Claro.png" />
+    <Content Include="RecursoVisual\SIN FONDO\OFSolution - Oscuro.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Left-Bottom.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Left-Top.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Left.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Right-Bottom.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Right-Top.png" />
+    <Content Include="RecursoVisual\SnapAsisstImage\Right.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
