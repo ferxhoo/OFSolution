@@ -16,7 +16,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(); //Agregar el formulario de login
+            Application.Run(new formLogin()); 
         }
     }
 }
