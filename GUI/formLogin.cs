@@ -170,12 +170,12 @@ namespace GUI
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             // Crear una instancia del formulario MenuForm y pasar la referencia del formulario de inicio de sesión
-            //MenuPrincipal menu = new MenuPrincipal();
+            formMenuPrincipal menu = new formMenuPrincipal();
             // Mostrar el formulario MenuForm
-            //menu.Show();
+            menu.Show();
             this.Hide();
 
-            //menu.FormClosing += frm_closing;
+            menu.FormClosing += frm_closing;
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
