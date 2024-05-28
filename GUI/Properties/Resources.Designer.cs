@@ -63,6 +63,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconoTitulo_Sin_Fondo__OFSolution {
+            get {
+                object obj = ResourceManager.GetObject("IconoTitulo Sin Fondo -OFSolution", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Left {
             get {
                 object obj = ResourceManager.GetObject("Left", resourceCulture);
@@ -86,6 +96,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap Left_Top {
             get {
                 object obj = ResourceManager.GetObject("Left_Top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OFSolution___Claro {
+            get {
+                object obj = ResourceManager.GetObject("OFSolution - Claro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
