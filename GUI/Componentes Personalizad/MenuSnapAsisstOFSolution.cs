@@ -8,6 +8,7 @@ namespace GUI.Componentes_Personalizad
 {
     public class MenuSnapAsisstOFSolution : ToolStripDropDown
     {
+
         #region Campos de Componente
         private Timer closeMenuTimer;
         private TableLayoutPanel tableLayoutPanel;
@@ -76,7 +77,7 @@ namespace GUI.Componentes_Personalizad
             ConfigureButton(5, "Un Cuarto de Pantalla (Abajo - Derecha)", Properties.Resources.Right_Bottom, ButtonQuarterRightScreen_Click);
         }
 
-        private void ButtonLeft_Click(object sender, EventArgs e)
+        public void ButtonLeft_Click(object sender, EventArgs e)
         {
             // Ajustar a la mitad izquierda de la pantalla
             ownerForm.WindowState = FormWindowState.Normal;
@@ -85,16 +86,16 @@ namespace GUI.Componentes_Personalizad
             this.Close();
         }
 
-        private void ButtonRight_Click(object sender, EventArgs e)
+        public void ButtonRight_Click(object sender, EventArgs e)
         {
             // Ajustar a la mitad derecha de la pantalla
             ownerForm.WindowState = FormWindowState.Normal;
             ownerForm.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height);
-            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2, 0);
+            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - ownerForm.Width, 0);
             Close();
         }
 
-        private void ButtonQuarterTopLeftScreen_Click(object sender, EventArgs e)
+        public void ButtonQuarterTopLeftScreen_Click(object sender, EventArgs e)
         {
             // Ajustar a la esquina superior izquierda
             ownerForm.WindowState = FormWindowState.Normal;
@@ -103,30 +104,30 @@ namespace GUI.Componentes_Personalizad
             Close();
         }
 
-        private void ButtonQuarterTopRightScreen_Click(object sender, EventArgs e)
+        public void ButtonQuarterTopRightScreen_Click(object sender, EventArgs e)
         {
             // Ajustar a la esquina superior derecha
             ownerForm.WindowState = FormWindowState.Normal;
             ownerForm.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
-            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2, 0);
+            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - ownerForm.Width, 0);
             Close();
         }
 
-        private void ButtonQuarterLeftScreen_Click(object sender, EventArgs e)
+        public void ButtonQuarterLeftScreen_Click(object sender, EventArgs e)
         {
             // Ajustar a la esquina inferior izquierda
             ownerForm.WindowState = FormWindowState.Normal;
             ownerForm.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
-            ownerForm.Location = new Point(0, Screen.PrimaryScreen.WorkingArea.Height / 2);
+            ownerForm.Location = new Point(0, Screen.PrimaryScreen.WorkingArea.Height - ownerForm.Height);
             Close();
         }
 
-        private void ButtonQuarterRightScreen_Click(object sender, EventArgs e)
+        public void ButtonQuarterRightScreen_Click(object sender, EventArgs e)
         {
             // Ajustar a la esquina inferior derecha
             ownerForm.WindowState = FormWindowState.Normal;
             ownerForm.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
-            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
+            ownerForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - ownerForm.Width, Screen.PrimaryScreen.WorkingArea.Height - ownerForm.Height);
             Close();
         }
         #endregion
@@ -207,6 +208,18 @@ namespace GUI.Componentes_Personalizad
             Close();
             closeMenuTimer.Stop();
         }
+
+        public bool IsMenuVisible()
+        {
+            return this.Visible;
+        }
+
+        public void UpdateMenuPosition(Point newPosition)
+        {
+            this.Location = newPosition;
+        }
+
         #endregion
+
     }
 }
