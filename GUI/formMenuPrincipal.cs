@@ -1,4 +1,5 @@
-﻿using ENTITY;
+﻿using BLL;
+using ENTITY;
 using FontAwesome.Sharp;
 using GUI.Componentes_Personalizad;
 using System;
@@ -22,8 +23,8 @@ namespace GUI
         #region propiedades graficas
 
         #region propiedades de botones de menu
-        private IconButton currentBtn;
-        private Form currentFormSecundario;
+        private IconButton currentBtn = null;
+        private Form currentFormSecundario = null;
         private Color borderLeftColor = Color.Transparent;
         // Almacenar los colores originales de los botones
         private Dictionary<IconButton, Color> originalColors = new Dictionary<IconButton, Color>();
@@ -66,6 +67,42 @@ namespace GUI
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+
+        private void formMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            List<Permiso> permisos = new ServicioPermiso().Listar(usuarioActual.idUsuario);
+            List<IconButton> btnMenu = botonesMenu();
+            foreach (IconButton item in btnMenu)
+            {
+                bool encontrado = permisos.Any(p => p.nombreMenu == item.Name);
+
+                if (!encontrado)
+                {
+                    item.Visible = false;
+                }
+            }
+
+            lblNombreUsuario.Text = usuarioActual.nombreCompleto;
+        }
+
+        public List<IconButton> botonesMenu()
+        {
+            // Inicializa la lista
+            List<IconButton> listaBotones = new List<IconButton>();
+
+            // Agrega elementos a la lista
+            listaBotones.Add(btnProductos);
+            listaBotones.Add(btnFacturas);
+            listaBotones.Add(btnClientes);
+            listaBotones.Add(btnProveedores);
+            listaBotones.Add(btnReportes);
+            listaBotones.Add(btnAjustes);
+            listaBotones.Add(btnSobreMi);
+
+            return listaBotones;
+        }
+
+
         #endregion
 
         #region barra de titulos y redimensionamiento
@@ -389,6 +426,7 @@ namespace GUI
         {
             ActivateButton(btnProductos, RGBColors.ColorSeleccion);
             hideSubmenu();
+            OpenFormSecundario(new formProductos());
         }
 
         private void btnFacturas_Click(object sender, EventArgs e)
@@ -409,11 +447,13 @@ namespace GUI
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
             ActivateButton(btnRegistrarVenta, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formVentas());
         }
 
         private void btnVerDetalleVenta_Click(object sender, EventArgs e)
         {
             ActivateButton(btnVerDetalleVenta, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formVerDetallesVenta());
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
@@ -427,23 +467,27 @@ namespace GUI
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
             ActivateButton(btnRegistrarCompra, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formCompras());
         }
 
         private void btnVerDetalleCompra_Click(object sender, EventArgs e)
         {
             ActivateButton(btnVerDetalleCompra, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formVerDetallesCompra());
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             ActivateButton(btnClientes, RGBColors.ColorSeleccion);
             hideSubmenu();
+            OpenFormSecundario(new formClientes());
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             ActivateButton(btnProveedores, RGBColors.ColorSeleccion);
             hideSubmenu();
+            OpenFormSecundario(new formProveedores());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -455,11 +499,13 @@ namespace GUI
         private void btnReportesPorVenta_Click(object sender, EventArgs e)
         {
             ActivateButton(btnReportesPorVenta, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formReporteVentas());
         }
 
         private void btnReportesPorCompras_Click(object sender, EventArgs e)
         {
             ActivateButton(btnReportesPorCompras, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formReporteCompras());
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
@@ -471,33 +517,35 @@ namespace GUI
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             ActivateButton(btnCategorias, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formCategorias());
         }
 
         private void btnMeseros_Click(object sender, EventArgs e)
         {
             ActivateButton(btnMeseros, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formMeseros());
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             ActivateButton(btnUsuarios, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formUsuario());
         }
 
         private void btnNegocio_Click(object sender, EventArgs e)
         {
             ActivateButton(btnNegocio, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formNegocio());
         }
 
         private void btnSobreMi_Click(object sender, EventArgs e)
         {
             ActivateButton(btnSobreMi, RGBColors.ColorSeleccion);
+            OpenFormSecundario(new formInformacion());
         }
 
         #endregion
 
-        private void formMenuPrincipal_Load(object sender, EventArgs e)
-        {
-            lblNombreUsuario.Text = usuarioActual.nombreCompleto;
-        }
+        
     }
 }

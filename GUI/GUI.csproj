@@ -71,6 +71,30 @@
     <Compile Include="Componentes Personalizad\TextBoxOFSolution.Designer.cs">
       <DependentUpon>TextBoxOFSolution.cs</DependentUpon>
     </Compile>
+    <Compile Include="formCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCategorias.Designer.cs">
+      <DependentUpon>formCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formClientes.Designer.cs">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCompras.Designer.cs">
+      <DependentUpon>formCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInformacion.Designer.cs">
+      <DependentUpon>formInformacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +106,66 @@
     </Compile>
     <Compile Include="formMenuPrincipal.Designer.cs">
       <DependentUpon>formMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMeseros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMeseros.Designer.cs">
+      <DependentUpon>formMeseros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formNegocio.Designer.cs">
+      <DependentUpon>formNegocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProductos.Designer.cs">
+      <DependentUpon>formProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProveedores.Designer.cs">
+      <DependentUpon>formProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formReporteCompras.Designer.cs">
+      <DependentUpon>formReporteCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formReporteVentas.Designer.cs">
+      <DependentUpon>formReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formUsuario.Designer.cs">
+      <DependentUpon>formUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVentas.Designer.cs">
+      <DependentUpon>formVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formVerDetallesCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVerDetallesCompra.Designer.cs">
+      <DependentUpon>formVerDetallesCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formVerDetallesVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVerDetallesVenta.Designer.cs">
+      <DependentUpon>formVerDetallesVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

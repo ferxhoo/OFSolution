@@ -33,9 +33,7 @@
             this.panelVistaFormularios = new System.Windows.Forms.Panel();
             this.ImagenLogoVista = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.InfoUser = new System.Windows.Forms.Panel();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.PictureUser = new FontAwesome.Sharp.IconPictureBox();
+            this.menu = new System.Windows.Forms.Panel();
             this.btnSobreMi = new FontAwesome.Sharp.IconButton();
             this.panelAjustes = new System.Windows.Forms.Panel();
             this.btnNegocio = new FontAwesome.Sharp.IconButton();
@@ -60,6 +58,9 @@
             this.btnVentas = new FontAwesome.Sharp.IconButton();
             this.btnFacturas = new FontAwesome.Sharp.IconButton();
             this.btnProductos = new FontAwesome.Sharp.IconButton();
+            this.InfoUser = new System.Windows.Forms.Panel();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.PictureUser = new FontAwesome.Sharp.IconPictureBox();
             this.LogoBarraMenu = new System.Windows.Forms.PictureBox();
             this.BarraTituloMenu = new System.Windows.Forms.Panel();
             this.LogoBarraTituloMenu = new System.Windows.Forms.PictureBox();
@@ -71,13 +72,14 @@
             this.panelVistaFormularios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenLogoVista)).BeginInit();
             this.panelMenu.SuspendLayout();
-            this.InfoUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
+            this.menu.SuspendLayout();
             this.panelAjustes.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelFacturas.SuspendLayout();
             this.panelCompras.SuspendLayout();
             this.panelVentas.SuspendLayout();
+            this.InfoUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBarraMenu)).BeginInit();
             this.BarraTituloMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTituloMenu)).BeginInit();
@@ -122,17 +124,8 @@
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(19)))));
+            this.panelMenu.Controls.Add(this.menu);
             this.panelMenu.Controls.Add(this.InfoUser);
-            this.panelMenu.Controls.Add(this.btnSobreMi);
-            this.panelMenu.Controls.Add(this.panelAjustes);
-            this.panelMenu.Controls.Add(this.btnAjustes);
-            this.panelMenu.Controls.Add(this.panelReportes);
-            this.panelMenu.Controls.Add(this.btnReportes);
-            this.panelMenu.Controls.Add(this.btnProveedores);
-            this.panelMenu.Controls.Add(this.btnClientes);
-            this.panelMenu.Controls.Add(this.panelFacturas);
-            this.panelMenu.Controls.Add(this.btnFacturas);
-            this.panelMenu.Controls.Add(this.btnProductos);
             this.panelMenu.Controls.Add(this.LogoBarraMenu);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 30);
@@ -140,49 +133,24 @@
             this.panelMenu.Size = new System.Drawing.Size(217, 616);
             this.panelMenu.TabIndex = 0;
             // 
-            // InfoUser
+            // menu
             // 
-            this.InfoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(19)))));
-            this.InfoUser.Controls.Add(this.lblNombreUsuario);
-            this.InfoUser.Controls.Add(this.PictureUser);
-            this.InfoUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.InfoUser.Location = new System.Drawing.Point(0, 950);
-            this.InfoUser.Name = "InfoUser";
-            this.InfoUser.Padding = new System.Windows.Forms.Padding(10, 3, 2, 1);
-            this.InfoUser.Size = new System.Drawing.Size(197, 45);
-            this.InfoUser.TabIndex = 26;
-            // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(45, 3);
-            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Padding = new System.Windows.Forms.Padding(5, 12, 0, 0);
-            this.lblNombreUsuario.Size = new System.Drawing.Size(124, 28);
-            this.lblNombreUsuario.TabIndex = 1;
-            this.lblNombreUsuario.Text = "Usuario Logueado";
-            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PictureUser
-            // 
-            this.PictureUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(19)))));
-            this.PictureUser.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PictureUser.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.PictureUser.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
-            this.PictureUser.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.PictureUser.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.PictureUser.IconSize = 35;
-            this.PictureUser.Location = new System.Drawing.Point(10, 3);
-            this.PictureUser.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.PictureUser.Name = "PictureUser";
-            this.PictureUser.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.PictureUser.Size = new System.Drawing.Size(35, 41);
-            this.PictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureUser.TabIndex = 0;
-            this.PictureUser.TabStop = false;
+            this.menu.AutoScroll = true;
+            this.menu.Controls.Add(this.btnSobreMi);
+            this.menu.Controls.Add(this.panelAjustes);
+            this.menu.Controls.Add(this.btnAjustes);
+            this.menu.Controls.Add(this.panelReportes);
+            this.menu.Controls.Add(this.btnReportes);
+            this.menu.Controls.Add(this.btnProveedores);
+            this.menu.Controls.Add(this.btnClientes);
+            this.menu.Controls.Add(this.panelFacturas);
+            this.menu.Controls.Add(this.btnFacturas);
+            this.menu.Controls.Add(this.btnProductos);
+            this.menu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menu.Location = new System.Drawing.Point(0, 174);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(217, 397);
+            this.menu.TabIndex = 1;
             // 
             // btnSobreMi
             // 
@@ -197,10 +165,10 @@
             this.btnSobreMi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSobreMi.IconSize = 32;
             this.btnSobreMi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSobreMi.Location = new System.Drawing.Point(0, 910);
+            this.btnSobreMi.Location = new System.Drawing.Point(0, 760);
             this.btnSobreMi.Name = "btnSobreMi";
             this.btnSobreMi.Size = new System.Drawing.Size(197, 40);
-            this.btnSobreMi.TabIndex = 25;
+            this.btnSobreMi.TabIndex = 35;
             this.btnSobreMi.Text = "Acerca de";
             this.btnSobreMi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSobreMi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -215,10 +183,10 @@
             this.panelAjustes.Controls.Add(this.btnMeseros);
             this.panelAjustes.Controls.Add(this.btnCategorias);
             this.panelAjustes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAjustes.Location = new System.Drawing.Point(0, 740);
+            this.panelAjustes.Location = new System.Drawing.Point(0, 590);
             this.panelAjustes.Name = "panelAjustes";
             this.panelAjustes.Size = new System.Drawing.Size(197, 170);
-            this.panelAjustes.TabIndex = 24;
+            this.panelAjustes.TabIndex = 34;
             // 
             // btnNegocio
             // 
@@ -329,10 +297,10 @@
             this.btnAjustes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAjustes.IconSize = 32;
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(0, 700);
+            this.btnAjustes.Location = new System.Drawing.Point(0, 550);
             this.btnAjustes.Name = "btnAjustes";
             this.btnAjustes.Size = new System.Drawing.Size(197, 40);
-            this.btnAjustes.TabIndex = 23;
+            this.btnAjustes.TabIndex = 33;
             this.btnAjustes.Text = "Ajustes";
             this.btnAjustes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -345,10 +313,10 @@
             this.panelReportes.Controls.Add(this.btnReportesPorCompras);
             this.panelReportes.Controls.Add(this.btnReportesPorVenta);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 610);
+            this.panelReportes.Location = new System.Drawing.Point(0, 460);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(197, 90);
-            this.panelReportes.TabIndex = 22;
+            this.panelReportes.TabIndex = 32;
             // 
             // btnReportesPorCompras
             // 
@@ -411,10 +379,10 @@
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 32;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 570);
+            this.btnReportes.Location = new System.Drawing.Point(0, 420);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(197, 40);
-            this.btnReportes.TabIndex = 21;
+            this.btnReportes.TabIndex = 31;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -434,10 +402,10 @@
             this.btnProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProveedores.IconSize = 32;
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 530);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 380);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(197, 40);
-            this.btnProveedores.TabIndex = 20;
+            this.btnProveedores.TabIndex = 30;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -457,10 +425,10 @@
             this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClientes.IconSize = 32;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 490);
+            this.btnClientes.Location = new System.Drawing.Point(0, 340);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(197, 40);
-            this.btnClientes.TabIndex = 19;
+            this.btnClientes.TabIndex = 29;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -475,10 +443,10 @@
             this.panelFacturas.Controls.Add(this.panelVentas);
             this.panelFacturas.Controls.Add(this.btnVentas);
             this.panelFacturas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFacturas.Location = new System.Drawing.Point(0, 230);
+            this.panelFacturas.Location = new System.Drawing.Point(0, 80);
             this.panelFacturas.Name = "panelFacturas";
             this.panelFacturas.Size = new System.Drawing.Size(197, 260);
-            this.panelFacturas.TabIndex = 7;
+            this.panelFacturas.TabIndex = 28;
             // 
             // panelCompras
             // 
@@ -655,10 +623,10 @@
             this.btnFacturas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFacturas.IconSize = 32;
             this.btnFacturas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFacturas.Location = new System.Drawing.Point(0, 190);
+            this.btnFacturas.Location = new System.Drawing.Point(0, 40);
             this.btnFacturas.Name = "btnFacturas";
             this.btnFacturas.Size = new System.Drawing.Size(197, 40);
-            this.btnFacturas.TabIndex = 6;
+            this.btnFacturas.TabIndex = 27;
             this.btnFacturas.Text = "Facturas";
             this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -678,15 +646,59 @@
             this.btnProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProductos.IconSize = 32;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 150);
+            this.btnProductos.Location = new System.Drawing.Point(0, 0);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(197, 40);
-            this.btnProductos.TabIndex = 5;
+            this.btnProductos.TabIndex = 26;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // InfoUser
+            // 
+            this.InfoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(19)))));
+            this.InfoUser.Controls.Add(this.lblNombreUsuario);
+            this.InfoUser.Controls.Add(this.PictureUser);
+            this.InfoUser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.InfoUser.Location = new System.Drawing.Point(0, 571);
+            this.InfoUser.Name = "InfoUser";
+            this.InfoUser.Padding = new System.Windows.Forms.Padding(10, 3, 2, 1);
+            this.InfoUser.Size = new System.Drawing.Size(217, 45);
+            this.InfoUser.TabIndex = 26;
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(45, 3);
+            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Padding = new System.Windows.Forms.Padding(5, 12, 0, 0);
+            this.lblNombreUsuario.Size = new System.Drawing.Size(124, 28);
+            this.lblNombreUsuario.TabIndex = 1;
+            this.lblNombreUsuario.Text = "Usuario Logueado";
+            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PictureUser
+            // 
+            this.PictureUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(19)))));
+            this.PictureUser.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PictureUser.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.PictureUser.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            this.PictureUser.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.PictureUser.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.PictureUser.IconSize = 35;
+            this.PictureUser.Location = new System.Drawing.Point(10, 3);
+            this.PictureUser.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PictureUser.Name = "PictureUser";
+            this.PictureUser.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.PictureUser.Size = new System.Drawing.Size(35, 41);
+            this.PictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureUser.TabIndex = 0;
+            this.PictureUser.TabStop = false;
             // 
             // LogoBarraMenu
             // 
@@ -694,7 +706,7 @@
             this.LogoBarraMenu.Image = global::GUI.Properties.Resources.OFSolution___Oscuro;
             this.LogoBarraMenu.Location = new System.Drawing.Point(0, 0);
             this.LogoBarraMenu.Name = "LogoBarraMenu";
-            this.LogoBarraMenu.Size = new System.Drawing.Size(197, 150);
+            this.LogoBarraMenu.Size = new System.Drawing.Size(217, 174);
             this.LogoBarraMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogoBarraMenu.TabIndex = 1;
             this.LogoBarraMenu.TabStop = false;
@@ -807,14 +819,15 @@
             this.panelVistaFormularios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImagenLogoVista)).EndInit();
             this.panelMenu.ResumeLayout(false);
-            this.InfoUser.ResumeLayout(false);
-            this.InfoUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).EndInit();
+            this.menu.ResumeLayout(false);
             this.panelAjustes.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
             this.panelFacturas.ResumeLayout(false);
             this.panelCompras.ResumeLayout(false);
             this.panelVentas.ResumeLayout(false);
+            this.InfoUser.ResumeLayout(false);
+            this.InfoUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBarraMenu)).EndInit();
             this.BarraTituloMenu.ResumeLayout(false);
             this.BarraTituloMenu.PerformLayout();
@@ -839,6 +852,7 @@
         private System.Windows.Forms.Panel InfoUser;
         private System.Windows.Forms.Label lblNombreUsuario;
         private FontAwesome.Sharp.IconPictureBox PictureUser;
+        private System.Windows.Forms.Panel menu;
         private FontAwesome.Sharp.IconButton btnSobreMi;
         private System.Windows.Forms.Panel panelAjustes;
         private FontAwesome.Sharp.IconButton btnNegocio;
