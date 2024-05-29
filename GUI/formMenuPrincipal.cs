@@ -51,12 +51,17 @@ namespace GUI
         #endregion
 
         #region Configuracion Inicial del menu
-        public formMenuPrincipal(Usuario usuarioLogueado)
+        //public formMenuPrincipal(Usuario usuarioLogueado)
+        public formMenuPrincipal(Usuario usuarioLogueado = null)
         {
             InitializeComponent();
 
-            usuarioActual = usuarioLogueado;
-            
+            if (usuarioLogueado == null)
+                usuarioActual = new Usuario() { nombreCompleto = "User Root", idUsuario = 1 };
+            else usuarioActual = usuarioActual = usuarioLogueado;
+
+            //usuarioActual = usuarioLogueado;
+
             customizeDesing();
 
             // Inicializar menuSnap
@@ -541,6 +546,7 @@ namespace GUI
         private void btnSobreMi_Click(object sender, EventArgs e)
         {
             ActivateButton(btnSobreMi, RGBColors.ColorSeleccion);
+            hideSubmenu();
             OpenFormSecundario(new formInformacion());
         }
 

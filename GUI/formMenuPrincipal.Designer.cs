@@ -94,7 +94,7 @@
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPrincipal.Location = new System.Drawing.Point(2, 2);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1096, 646);
+            this.panelPrincipal.Size = new System.Drawing.Size(1496, 816);
             this.panelPrincipal.TabIndex = 1;
             // 
             // panelVistaFormularios
@@ -103,7 +103,7 @@
             this.panelVistaFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelVistaFormularios.Location = new System.Drawing.Point(217, 30);
             this.panelVistaFormularios.Name = "panelVistaFormularios";
-            this.panelVistaFormularios.Size = new System.Drawing.Size(879, 616);
+            this.panelVistaFormularios.Size = new System.Drawing.Size(1279, 786);
             this.panelVistaFormularios.TabIndex = 2;
             // 
             // ImagenLogoVista
@@ -115,7 +115,7 @@
             this.ImagenLogoVista.Location = new System.Drawing.Point(198, 58);
             this.ImagenLogoVista.Margin = new System.Windows.Forms.Padding(100);
             this.ImagenLogoVista.Name = "ImagenLogoVista";
-            this.ImagenLogoVista.Size = new System.Drawing.Size(483, 500);
+            this.ImagenLogoVista.Size = new System.Drawing.Size(883, 670);
             this.ImagenLogoVista.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImagenLogoVista.TabIndex = 0;
             this.ImagenLogoVista.TabStop = false;
@@ -130,7 +130,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 30);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(217, 616);
+            this.panelMenu.Size = new System.Drawing.Size(217, 786);
             this.panelMenu.TabIndex = 0;
             // 
             // menu
@@ -149,7 +149,7 @@
             this.menu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu.Location = new System.Drawing.Point(0, 174);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(217, 397);
+            this.menu.Size = new System.Drawing.Size(217, 567);
             this.menu.TabIndex = 1;
             // 
             // btnSobreMi
@@ -662,7 +662,7 @@
             this.InfoUser.Controls.Add(this.lblNombreUsuario);
             this.InfoUser.Controls.Add(this.PictureUser);
             this.InfoUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.InfoUser.Location = new System.Drawing.Point(0, 571);
+            this.InfoUser.Location = new System.Drawing.Point(0, 741);
             this.InfoUser.Name = "InfoUser";
             this.InfoUser.Padding = new System.Windows.Forms.Padding(10, 3, 2, 1);
             this.InfoUser.Size = new System.Drawing.Size(217, 45);
@@ -723,7 +723,7 @@
             this.BarraTituloMenu.Location = new System.Drawing.Point(0, 0);
             this.BarraTituloMenu.Name = "BarraTituloMenu";
             this.BarraTituloMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.BarraTituloMenu.Size = new System.Drawing.Size(1096, 30);
+            this.BarraTituloMenu.Size = new System.Drawing.Size(1496, 30);
             this.BarraTituloMenu.TabIndex = 1;
             this.BarraTituloMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTituloMenu_MouseDown);
             // 
@@ -758,7 +758,7 @@
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMinimizar.IconSize = 20;
-            this.btnMinimizar.Location = new System.Drawing.Point(991, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1391, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(35, 30);
             this.btnMinimizar.TabIndex = 2;
@@ -775,7 +775,7 @@
             this.btnMaximizar.IconColor = System.Drawing.Color.White;
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMaximizar.IconSize = 20;
-            this.btnMaximizar.Location = new System.Drawing.Point(1026, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1426, 0);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(35, 30);
             this.btnMaximizar.TabIndex = 1;
@@ -794,7 +794,7 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(1061, 0);
+            this.btnClose.Location = new System.Drawing.Point(1461, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(35, 30);
             this.btnClose.TabIndex = 0;
@@ -805,7 +805,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1100, 650);
+            this.ClientSize = new System.Drawing.Size(1500, 820);
             this.Controls.Add(this.panelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
