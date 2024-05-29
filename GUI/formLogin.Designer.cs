@@ -273,9 +273,9 @@
             this.InformacionCampoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InformacionCampoUsuario.Location = new System.Drawing.Point(95, 53);
             this.InformacionCampoUsuario.Name = "InformacionCampoUsuario";
-            this.InformacionCampoUsuario.Size = new System.Drawing.Size(41, 15);
+            this.InformacionCampoUsuario.Size = new System.Drawing.Size(34, 15);
             this.InformacionCampoUsuario.TabIndex = 11;
-            this.InformacionCampoUsuario.Text = "label2";
+            this.InformacionCampoUsuario.Text = "label";
             // 
             // formLogin
             // 

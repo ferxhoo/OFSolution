@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using ENTITY;
+using FontAwesome.Sharp;
 using GUI.Componentes_Personalizad;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace GUI
 {
     public partial class formMenuPrincipal : Form
     {
+
+        private static Usuario usuarioActual;
 
         #region propiedades graficas
 
@@ -47,9 +50,12 @@ namespace GUI
         #endregion
 
         #region Configuracion Inicial del menu
-        public formMenuPrincipal()
+        public formMenuPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
+
+            usuarioActual = usuarioLogueado;
+            
             customizeDesing();
 
             // Inicializar menuSnap
@@ -489,5 +495,9 @@ namespace GUI
 
         #endregion
 
+        private void formMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            lblNombreUsuario.Text = usuarioActual.nombreCompleto;
+        }
     }
 }

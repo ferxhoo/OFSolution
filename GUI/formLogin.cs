@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using ENTITY;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -169,13 +171,26 @@ namespace GUI
         #region botones de login 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Crear una instancia del formulario MenuForm y pasar la referencia del formulario de inicio de sesión
-            formMenuPrincipal menu = new formMenuPrincipal();
-            // Mostrar el formulario MenuForm
-            menu.Show();
-            this.Hide();
 
-            menu.FormClosing += frm_closing;
+            List<Usuario> listaUsuario = new ServicioUsuario().Listar();
+
+            Usuario usuario = new ServicioUsuario().Listar().Where(u => u.nombreUsuario == txtUsuario.Texts && u.clave == txtPassword.Texts).FirstOrDefault();
+
+            if (usuario != null)
+            {
+                formMenuPrincipal menu = new formMenuPrincipal(usuario);
+                menu.Show();
+                this.Hide();
+
+                menu.FormClosing += frm_closing;
+            }
+            else
+            {
+                InformacionCampoUsuario.ForeColor = Color.Red;
+                InformacionCampoUsuario.Text = "No se encontro el usuario";
+            }
+
+
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)

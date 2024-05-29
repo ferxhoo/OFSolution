@@ -14,16 +14,16 @@ namespace ENTITY
         public string descripcion { get; set; }
         public Categoria categoria { get; set; }
         public int stock { get; set; }
-        public bool estado { get; set; }
         public decimal precioCompra { get; set; }
         public decimal precioVenta { get; set; }
+        public bool estado { get; set; }
         public string fechaRegistro { get; set; }
 
         public Producto()
         {
         }
 
-        public Producto(int idProducto, string codigo, string nombre, string descripcion, Categoria categoria, int stock, bool estado, decimal precioCompra, decimal precioVenta, string fechaRegistro)
+        public Producto(int idProducto, string codigo, string nombre, string descripcion, Categoria categoria, int stock, decimal precioCompra, decimal precioVenta, bool estado, string fechaRegistro)
         {
             this.idProducto = idProducto;
             this.codigo = codigo;

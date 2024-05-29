@@ -9,15 +9,15 @@ namespace ENTITY
     public class DetalleCompra : Detalle
     {
         public int idDetalleCompra { get; set; }
-        public Compra compra { get; set; }
         public decimal precioCompra { get; set; }
+        
         public decimal montoTotal { get; set; }
 
         public DetalleCompra()
         {
         }
 
-        public DetalleCompra(int idDetalleCompra, Compra compra, Producto producto, decimal precioCompra, decimal precioVenta, int cantidad, decimal montoTotal, string fechaRegistro)
+        public DetalleCompra(int idDetalleCompra, Producto producto, decimal precioCompra, decimal precioVenta, int cantidad, decimal montoTotal, string fechaRegistro)
         : base(producto, precioVenta, cantidad, fechaRegistro)
         {
             this.idDetalleCompra = idDetalleCompra;

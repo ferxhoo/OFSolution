@@ -802,6 +802,7 @@
             this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formMenuPrincipal";
+            this.Load += new System.EventHandler(this.formMenuPrincipal_Load);
             this.panelPrincipal.ResumeLayout(false);
             this.panelVistaFormularios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImagenLogoVista)).EndInit();

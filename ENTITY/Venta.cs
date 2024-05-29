@@ -14,17 +14,19 @@ namespace ENTITY
         public string nombreCliente { get; set; }
         public decimal montoCambio { get; set; }
         public decimal montoPago { get; set; }
+        public List<DetalleVenta> detallesVenta { get; set; }
 
         public Venta()
         {
         }
-        public Venta(int idVenta, Usuario usuario, Mesero mesero, string tipoDocumento, string numeroDocumento, string documentoCliente, string nombreCliente, decimal montoCambio, decimal montoPago,  decimal montoTotal, string fechaRegistro)
+        public Venta(int idVenta, Usuario usuario, Mesero mesero, string tipoDocumento, string numeroDocumento, string documentoCliente, string nombreCliente, List<DetalleVenta> detallesVenta, decimal montoCambio, decimal montoPago,  decimal montoTotal, string fechaRegistro)
         : base(usuario, tipoDocumento, numeroDocumento, montoTotal, fechaRegistro)
         {
             this.idVenta = idVenta;
             this.mesero = mesero;
             this.documentoCliente = documentoCliente;
             this.nombreCliente = nombreCliente;
+            this.detallesVenta = detallesVenta;
             this.montoCambio = montoCambio;
             this.montoPago = montoPago;
         }
