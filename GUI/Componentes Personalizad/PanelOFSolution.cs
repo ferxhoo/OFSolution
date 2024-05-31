@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing.Drawing2D;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace GUI.Componentes_Personalizad
 {
+
     public class PanelOFSolution : Panel
     {
         // Fields
@@ -86,7 +83,7 @@ namespace GUI.Componentes_Personalizad
             {
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - 1F))
-                using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
+                using (Pen penSurface = new Pen(this.Parent?.BackColor ?? Color.White, 2))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
                     penBorder.Alignment = PenAlignment.Inset;
@@ -121,7 +118,10 @@ namespace GUI.Componentes_Personalizad
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            if (this.Parent != null)
+            {
+                this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            }
         }
 
         protected override void OnBackColorChanged(EventArgs e)
@@ -135,4 +135,5 @@ namespace GUI.Componentes_Personalizad
             this.Invalidate();
         }
     }
+
 }

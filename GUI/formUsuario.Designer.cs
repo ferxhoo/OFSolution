@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelConsulta = new System.Windows.Forms.Panel();
             this.panelConteinerTable = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel14 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,18 +94,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnEliminar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.lblTituloRegistro = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TLPForm.SuspendLayout();
             this.panelConsulta.SuspendLayout();
             this.panelConteinerTable.SuspendLayout();
@@ -163,7 +163,7 @@
             this.panelConteinerTable.Location = new System.Drawing.Point(1, 0);
             this.panelConteinerTable.Name = "panelConteinerTable";
             this.panelConteinerTable.Size = new System.Drawing.Size(992, 729);
-            this.panelConteinerTable.TabIndex = 3;
+            this.panelConteinerTable.TabIndex = 5;
             // 
             // panelCentral
             // 
@@ -192,15 +192,15 @@
             // 
             // dgvUsuarios
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -224,6 +224,94 @@
             this.dgvUsuarios.RowTemplate.Height = 28;
             this.dgvUsuarios.Size = new System.Drawing.Size(946, 573);
             this.dgvUsuarios.TabIndex = 0;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 30;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.HeaderText = "idUsuario";
+            this.idUsuario.MinimumWidth = 6;
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Visible = false;
+            this.idUsuario.Width = 120;
+            // 
+            // documento
+            // 
+            this.documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.documento.HeaderText = "N° Documento";
+            this.documento.MinimumWidth = 150;
+            this.documento.Name = "documento";
+            // 
+            // nombreCompleto
+            // 
+            this.nombreCompleto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreCompleto.HeaderText = "Nombre Completo";
+            this.nombreCompleto.MinimumWidth = 200;
+            this.nombreCompleto.Name = "nombreCompleto";
+            // 
+            // nombreUsuario
+            // 
+            this.nombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreUsuario.HeaderText = "Usuario";
+            this.nombreUsuario.MinimumWidth = 80;
+            this.nombreUsuario.Name = "nombreUsuario";
+            // 
+            // clave
+            // 
+            this.clave.HeaderText = "Contraseña";
+            this.clave.MinimumWidth = 6;
+            this.clave.Name = "clave";
+            this.clave.Visible = false;
+            this.clave.Width = 120;
+            // 
+            // correo
+            // 
+            this.correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.correo.HeaderText = "Correo";
+            this.correo.MinimumWidth = 200;
+            this.correo.Name = "correo";
+            // 
+            // telefono
+            // 
+            this.telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.telefono.HeaderText = "Teléfono";
+            this.telefono.MinimumWidth = 100;
+            this.telefono.Name = "telefono";
+            // 
+            // idRol
+            // 
+            this.idRol.HeaderText = "idRol";
+            this.idRol.MinimumWidth = 6;
+            this.idRol.Name = "idRol";
+            this.idRol.Visible = false;
+            this.idRol.Width = 120;
+            // 
+            // rol
+            // 
+            this.rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rol.HeaderText = "Rol";
+            this.rol.MinimumWidth = 100;
+            this.rol.Name = "rol";
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 80;
+            this.estado.Name = "estado";
+            // 
+            // valorEstado
+            // 
+            this.valorEstado.HeaderText = "valorEstado";
+            this.valorEstado.MinimumWidth = 6;
+            this.valorEstado.Name = "valorEstado";
+            this.valorEstado.Visible = false;
+            this.valorEstado.Width = 120;
             // 
             // panel14
             // 
@@ -930,94 +1018,6 @@
             this.lblTituloRegistro.Text = "Información de Usuario";
             this.lblTituloRegistro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 30;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.HeaderText = "idUsuario";
-            this.idUsuario.MinimumWidth = 6;
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Visible = false;
-            this.idUsuario.Width = 120;
-            // 
-            // documento
-            // 
-            this.documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.documento.HeaderText = "N° Documento";
-            this.documento.MinimumWidth = 150;
-            this.documento.Name = "documento";
-            // 
-            // nombreCompleto
-            // 
-            this.nombreCompleto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreCompleto.HeaderText = "Nombre Completo";
-            this.nombreCompleto.MinimumWidth = 200;
-            this.nombreCompleto.Name = "nombreCompleto";
-            // 
-            // nombreUsuario
-            // 
-            this.nombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreUsuario.HeaderText = "Usuario";
-            this.nombreUsuario.MinimumWidth = 80;
-            this.nombreUsuario.Name = "nombreUsuario";
-            // 
-            // clave
-            // 
-            this.clave.HeaderText = "Contraseña";
-            this.clave.MinimumWidth = 6;
-            this.clave.Name = "clave";
-            this.clave.Visible = false;
-            this.clave.Width = 120;
-            // 
-            // correo
-            // 
-            this.correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.correo.HeaderText = "Correo";
-            this.correo.MinimumWidth = 200;
-            this.correo.Name = "correo";
-            // 
-            // telefono
-            // 
-            this.telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.telefono.HeaderText = "Teléfono";
-            this.telefono.MinimumWidth = 100;
-            this.telefono.Name = "telefono";
-            // 
-            // idRol
-            // 
-            this.idRol.HeaderText = "idRol";
-            this.idRol.MinimumWidth = 6;
-            this.idRol.Name = "idRol";
-            this.idRol.Visible = false;
-            this.idRol.Width = 120;
-            // 
-            // rol
-            // 
-            this.rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rol.HeaderText = "Rol";
-            this.rol.MinimumWidth = 100;
-            this.rol.Name = "rol";
-            // 
-            // estado
-            // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 80;
-            this.estado.Name = "estado";
-            // 
-            // valorEstado
-            // 
-            this.valorEstado.HeaderText = "valorEstado";
-            this.valorEstado.MinimumWidth = 6;
-            this.valorEstado.Name = "valorEstado";
-            this.valorEstado.Visible = false;
-            this.valorEstado.Width = 120;
-            // 
             // formUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1059,7 +1059,6 @@
         private System.Windows.Forms.TableLayoutPanel TLPForm;
         private Componentes_Personalizad.PanelOFSolution panelRegistro;
         private System.Windows.Forms.Panel panelConsulta;
-        private Componentes_Personalizad.PanelOFSolution panelConteinerTable;
         private System.Windows.Forms.Label lblTituloRegistro;
         private System.Windows.Forms.Panel panel11;
         private Componentes_Personalizad.IconButtonOFSolution btnGuardar;
@@ -1096,19 +1095,12 @@
         private System.Windows.Forms.Panel panel8;
         private Componentes_Personalizad.ComboBoxOFSolution cmbRol;
         private System.Windows.Forms.Label label9;
+        private Componentes_Personalizad.PanelOFSolution panelConteinerTable;
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Panel panelSuperior;
         private System.Windows.Forms.Panel panelCentral;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
-        private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
-        private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
-        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn documento;
@@ -1121,5 +1113,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorEstado;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
+        private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
+        private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
+        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
     }
 }

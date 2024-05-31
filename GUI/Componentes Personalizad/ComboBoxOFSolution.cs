@@ -1,23 +1,24 @@
 ﻿#region Importaciones necesarias
 using System;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Drawing.Drawing2D;
-using System.Drawing;
-using System.Windows.Forms;
 #endregion
 
 namespace GUI.Componentes_Personalizad
 {
+
     [DefaultEvent("OnSelectedIndexChanged")]
     public partial class ComboBoxOFSolution : UserControl
     {
         #region Campos de Componente
-        private Color backColor = Color.FromArgb(255, 255, 255); 
-        private Color iconColor = Color.MediumSlateBlue; 
-        private Color listBackColor = Color.FromArgb(230, 228, 245); 
-        private Color listTextColor = Color.DimGray; 
-        private Color borderColor = Color.FromArgb(23, 145, 200); 
+        private Color backColor = Color.FromArgb(255, 255, 255);
+        private Color iconColor = Color.MediumSlateBlue;
+        private Color listBackColor = Color.FromArgb(230, 228, 245);
+        private Color listTextColor = Color.DimGray;
+        private Color borderColor = Color.FromArgb(23, 145, 200);
         private int borderSize = 1;
         #endregion
 
@@ -108,6 +109,22 @@ namespace GUI.Componentes_Personalizad
         [RefreshProperties(RefreshProperties.Repaint)]
         [AttributeProvider(typeof(IListSource))]
         public object DataSource { get => cmbList.DataSource; set { cmbList.DataSource = value; } }
+
+        [Category("Data Propiedades Personalizadas")]
+        [DefaultValue("")]
+        [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor("System.Windows.Forms.Design.DataMemberListEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        [Browsable(true)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public string DisplayMember { get => cmbList.DisplayMember; set { cmbList.DisplayMember = value; } }
+
+        [Category("Data Propiedades Personalizadas")]
+        [DefaultValue("")]
+        [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor("System.Windows.Forms.Design.DataMemberListEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        [Browsable(true)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public string ValueMember { get => cmbList.ValueMember; set { cmbList.ValueMember = value; } }
 
         [Category("Data Propiedades Personalizadas")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -300,4 +317,5 @@ namespace GUI.Componentes_Personalizad
         #endregion
 
     }
+
 }

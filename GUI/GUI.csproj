@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\OpcionComboBox.cs" />
     <EmbeddedResource Include="Componentes Personalizad\TextBoxOFSolution.resx">
       <DependentUpon>TextBoxOFSolution.cs</DependentUpon>
     </EmbeddedResource>
