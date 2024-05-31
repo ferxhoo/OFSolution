@@ -145,4 +145,13 @@
   <data name="OFSolution - Oscuro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\RecursoVisual\SIN FONDO\OFSolution - Oscuro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Check_Blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RecursoVisual\Icono Controles\Check_Blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Check_Negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RecursoVisual\Icono Controles\Check_Negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Check_OF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RecursoVisual\Icono Controles\Check_OF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

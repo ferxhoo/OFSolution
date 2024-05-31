@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace DAL
 {
@@ -23,8 +24,10 @@ namespace DAL
                 try
                 {
 
-                    
-                    string query = "SELECT idUsuario, documento, nombreCompleto, nombreUsuario, clave, idRol, correo, telefono, estado FROM USUARIOS";
+
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT u.idUsuario, u.documento, u.nombreCompleto, u.nombreUsuario, u.clave, r.idRol, r.descripcion, u.correo, u.telefono, u.estado FROM USUARIOS u");
+                    query.AppendLine("INNER JOIN ROLES r ON r.idRol = u.idRol");
 
                     SqlCommand comando = new SqlCommand(query.ToString(), conexion);
                     comando.CommandType = CommandType.Text;
@@ -47,7 +50,7 @@ namespace DAL
                                 correo = reader["correo"].ToString(),
                                 telefono = reader["telefono"].ToString(),
                                 estado = Convert.ToBoolean(reader["estado"]),
-                                //rol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() }
+                                rol = new Rol() { idRol = Convert.ToInt32(reader["idRol"]), descripcion = reader["descripcion"].ToString() }
                             });
 
                         }

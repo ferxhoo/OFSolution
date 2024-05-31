@@ -236,6 +236,9 @@
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Con Fondo - OFSolution.jpg" />
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Sin Fondo -OFSolution.png" />
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo-OFSolution.ico" />
+    <Content Include="RecursoVisual\Icono Controles\Check_Blanco.png" />
+    <Content Include="RecursoVisual\Icono Controles\Check_Negro.png" />
+    <Content Include="RecursoVisual\Icono Controles\Check_OF.png" />
     <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoClaro.ico" />
     <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoOscuro.ico" />
     <Content Include="RecursoVisual\SIN FONDO\OFSolution - Claro.png" />

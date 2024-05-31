@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace GUI.Componentes_Personalizad
 {
+
     [DefaultEvent("PersonalizeTextChanged")]
     public partial class TextBoxOFSolution : UserControl
     {
@@ -33,6 +34,11 @@ namespace GUI.Componentes_Personalizad
             InitializeComponent();
             textBox.Enter += textBox_Enter;
             textBox.Leave += textBox_Leave;
+            textBox.TextChanged += textBox_TextChanged;
+            textBox.Click += textBox_Click;
+            textBox.MouseEnter += textBox_MouseEnter;
+            textBox.MouseLeave += textBox_MouseLeave;
+            textBox.KeyPress += textBox_KeyPress;
         }
         #endregion
 
@@ -81,8 +87,16 @@ namespace GUI.Componentes_Personalizad
             }
             set
             {
-                textBox.Text = value;
-                SetPlaceholder();
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    textBox.Text = "";
+                    SetPlaceholder();
+                }
+                else
+                {
+                    RemovePlaceholder();
+                    textBox.Text = value;
+                }
             }
         }
 
@@ -110,7 +124,7 @@ namespace GUI.Componentes_Personalizad
             set
             {
                 placeholderColor = value;
-                if (isPasswordChar)
+                if (isPasswordChar && isPlaceholder)
                     textBox.ForeColor = value;
             }
         }
@@ -122,7 +136,6 @@ namespace GUI.Componentes_Personalizad
             set
             {
                 placeholderText = value;
-                textBox.Text = "";
                 SetPlaceholder();
             }
         }
@@ -131,7 +144,7 @@ namespace GUI.Componentes_Personalizad
         #region Métodos privados
         private void SetPlaceholder()
         {
-            if (string.IsNullOrWhiteSpace(textBox.Text) && placeholderText != "")
+            if (string.IsNullOrWhiteSpace(textBox.Text) && !string.IsNullOrEmpty(placeholderText))
             {
                 isPlaceholder = true;
                 textBox.Text = placeholderText;
@@ -143,7 +156,7 @@ namespace GUI.Componentes_Personalizad
 
         private void RemovePlaceholder()
         {
-            if (isPlaceholder && placeholderText != "")
+            if (isPlaceholder && !string.IsNullOrEmpty(placeholderText))
             {
                 isPlaceholder = false;
                 textBox.Text = "";
@@ -153,7 +166,6 @@ namespace GUI.Componentes_Personalizad
             }
         }
         #endregion
-
 
         #region Métodos sobrescritos
         protected override void OnPaint(PaintEventArgs e)
@@ -227,7 +239,7 @@ namespace GUI.Componentes_Personalizad
                 textBox.Region = new Region(pathTxt);
             }
         }
-        
+
         // Método para redondear
         private GraphicsPath GetFigurePath(Rectangle rect, int radius)
         {
@@ -241,7 +253,6 @@ namespace GUI.Componentes_Personalizad
             path.CloseFigure();
             return path;
         }
-
         #endregion
 
         #region Eventos del Control de Usuario
@@ -283,7 +294,6 @@ namespace GUI.Componentes_Personalizad
         #endregion
 
         #region Eventos del TextBox
-
         // Evento
         public event EventHandler PersonalizeTextChanged;
 
@@ -334,4 +344,6 @@ namespace GUI.Componentes_Personalizad
         }
         #endregion
     }
+
+
 }
