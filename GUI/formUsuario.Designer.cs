@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelConsulta = new System.Windows.Forms.Panel();
             this.panelConteinerTable = new GUI.Componentes_Personalizad.PanelOFSolution();
@@ -183,7 +184,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -192,9 +193,10 @@
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
@@ -216,13 +218,22 @@
             this.estado,
             this.valorEstado});
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsuarios.Location = new System.Drawing.Point(23, 113);
+            this.dgvUsuarios.Location = new System.Drawing.Point(13, 113);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidth = 49;
             this.dgvUsuarios.RowTemplate.Height = 28;
-            this.dgvUsuarios.Size = new System.Drawing.Size(946, 573);
+            this.dgvUsuarios.Size = new System.Drawing.Size(966, 573);
             this.dgvUsuarios.TabIndex = 0;
             // 
             // btnSeleccionar
@@ -230,6 +241,7 @@
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.MinimumWidth = 30;
             this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Width = 30;
             // 
             // idUsuario
@@ -237,6 +249,7 @@
             this.idUsuario.HeaderText = "idUsuario";
             this.idUsuario.MinimumWidth = 6;
             this.idUsuario.Name = "idUsuario";
+            this.idUsuario.ReadOnly = true;
             this.idUsuario.Visible = false;
             this.idUsuario.Width = 120;
             // 
@@ -246,6 +259,7 @@
             this.documento.HeaderText = "N° Documento";
             this.documento.MinimumWidth = 150;
             this.documento.Name = "documento";
+            this.documento.ReadOnly = true;
             // 
             // nombreCompleto
             // 
@@ -253,6 +267,7 @@
             this.nombreCompleto.HeaderText = "Nombre Completo";
             this.nombreCompleto.MinimumWidth = 200;
             this.nombreCompleto.Name = "nombreCompleto";
+            this.nombreCompleto.ReadOnly = true;
             // 
             // nombreUsuario
             // 
@@ -260,12 +275,14 @@
             this.nombreUsuario.HeaderText = "Usuario";
             this.nombreUsuario.MinimumWidth = 80;
             this.nombreUsuario.Name = "nombreUsuario";
+            this.nombreUsuario.ReadOnly = true;
             // 
             // clave
             // 
             this.clave.HeaderText = "Contraseña";
             this.clave.MinimumWidth = 6;
             this.clave.Name = "clave";
+            this.clave.ReadOnly = true;
             this.clave.Visible = false;
             this.clave.Width = 120;
             // 
@@ -275,6 +292,7 @@
             this.correo.HeaderText = "Correo";
             this.correo.MinimumWidth = 200;
             this.correo.Name = "correo";
+            this.correo.ReadOnly = true;
             // 
             // telefono
             // 
@@ -282,12 +300,14 @@
             this.telefono.HeaderText = "Teléfono";
             this.telefono.MinimumWidth = 100;
             this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // idRol
             // 
             this.idRol.HeaderText = "idRol";
             this.idRol.MinimumWidth = 6;
             this.idRol.Name = "idRol";
+            this.idRol.ReadOnly = true;
             this.idRol.Visible = false;
             this.idRol.Width = 120;
             // 
@@ -297,6 +317,7 @@
             this.rol.HeaderText = "Rol";
             this.rol.MinimumWidth = 100;
             this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
             // 
             // estado
             // 
@@ -304,12 +325,14 @@
             this.estado.HeaderText = "Estado";
             this.estado.MinimumWidth = 80;
             this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // valorEstado
             // 
             this.valorEstado.HeaderText = "valorEstado";
             this.valorEstado.MinimumWidth = 6;
             this.valorEstado.Name = "valorEstado";
+            this.valorEstado.ReadOnly = true;
             this.valorEstado.Visible = false;
             this.valorEstado.Width = 120;
             // 
@@ -319,9 +342,9 @@
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.tableLayoutPanel2);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(23, 3);
+            this.panel14.Location = new System.Drawing.Point(13, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(946, 80);
+            this.panel14.Size = new System.Drawing.Size(966, 80);
             this.panel14.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -347,7 +370,7 @@
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(944, 78);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(964, 78);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label10
@@ -357,7 +380,7 @@
             this.label10.Location = new System.Drawing.Point(23, 20);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(5);
-            this.label10.Size = new System.Drawing.Size(182, 38);
+            this.label10.Size = new System.Drawing.Size(198, 38);
             this.label10.TabIndex = 1;
             this.label10.Text = "Lista de Usuarios";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -366,7 +389,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(258, 20);
+            this.label11.Location = new System.Drawing.Point(278, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 38);
             this.label11.TabIndex = 2;
@@ -383,7 +406,7 @@
             this.cmbBusqueda.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbBusqueda.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbBusqueda.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbBusqueda.Location = new System.Drawing.Point(376, 23);
+            this.cmbBusqueda.Location = new System.Drawing.Point(396, 23);
             this.cmbBusqueda.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbBusqueda.Name = "cmbBusqueda";
             this.cmbBusqueda.Padding = new System.Windows.Forms.Padding(1);
@@ -400,7 +423,7 @@
             this.txtBuscar.BorderSize = 2;
             this.txtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(583, 23);
+            this.txtBuscar.Location = new System.Drawing.Point(603, 23);
             this.txtBuscar.Multiline = false;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -426,7 +449,7 @@
             this.btnBuscar.IconColor = System.Drawing.Color.White;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 25;
-            this.btnBuscar.Location = new System.Drawing.Point(815, 23);
+            this.btnBuscar.Location = new System.Drawing.Point(835, 23);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(45, 32);
             this.btnBuscar.TabIndex = 32;
@@ -447,7 +470,7 @@
             this.btnLimpiar.IconColor = System.Drawing.Color.White;
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 25;
-            this.btnLimpiar.Location = new System.Drawing.Point(866, 23);
+            this.btnLimpiar.Location = new System.Drawing.Point(886, 23);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(47, 32);
             this.btnLimpiar.TabIndex = 33;
@@ -1101,6 +1124,14 @@
         private System.Windows.Forms.Panel panelCentral;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
+        private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
+        private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
+        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn documento;
@@ -1113,13 +1144,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorEstado;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
-        private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
-        private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
-        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
     }
 }
