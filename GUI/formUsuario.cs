@@ -16,5 +16,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void formUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
