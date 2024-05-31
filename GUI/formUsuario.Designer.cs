@@ -31,6 +31,7 @@
             this.TLPForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelConsulta = new System.Windows.Forms.Panel();
             this.panelConteinerTable = new GUI.Componentes_Personalizad.PanelOFSolution();
+            this.panelCentral = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -41,6 +42,8 @@
             this.txtBuscar = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.btnLimpiar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.panelInferior = new System.Windows.Forms.Panel();
+            this.panelSuperior = new System.Windows.Forms.Panel();
             this.panelRegistro = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel13 = new System.Windows.Forms.Panel();
             this.lblCheck = new System.Windows.Forms.Label();
@@ -81,6 +84,7 @@
             this.TLPForm.SuspendLayout();
             this.panelConsulta.SuspendLayout();
             this.panelConteinerTable.SuspendLayout();
+            this.panelCentral.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel14.SuspendLayout();
@@ -139,12 +143,23 @@
             this.panelConteinerTable.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.panelConteinerTable.BorderRadius = 20;
             this.panelConteinerTable.BorderSize = 0;
-            this.panelConteinerTable.Controls.Add(this.tableLayoutPanel1);
+            this.panelConteinerTable.Controls.Add(this.panelCentral);
+            this.panelConteinerTable.Controls.Add(this.panelInferior);
+            this.panelConteinerTable.Controls.Add(this.panelSuperior);
             this.panelConteinerTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelConteinerTable.Location = new System.Drawing.Point(1, 0);
             this.panelConteinerTable.Name = "panelConteinerTable";
             this.panelConteinerTable.Size = new System.Drawing.Size(992, 729);
             this.panelConteinerTable.TabIndex = 3;
+            // 
+            // panelCentral
+            // 
+            this.panelCentral.Controls.Add(this.tableLayoutPanel1);
+            this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCentral.Location = new System.Drawing.Point(0, 20);
+            this.panelCentral.Name = "panelCentral";
+            this.panelCentral.Size = new System.Drawing.Size(992, 689);
+            this.panelCentral.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -155,18 +170,18 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 729);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 689);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsuarios.Location = new System.Drawing.Point(23, 133);
+            this.dgvUsuarios.Location = new System.Drawing.Point(23, 113);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 49;
             this.dgvUsuarios.RowTemplate.Height = 24;
@@ -179,7 +194,7 @@
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.tableLayoutPanel2);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(23, 23);
+            this.panel14.Location = new System.Drawing.Point(23, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(946, 80);
             this.panel14.TabIndex = 1;
@@ -189,7 +204,7 @@
             this.tableLayoutPanel2.ColumnCount = 8;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
@@ -217,7 +232,7 @@
             this.label10.Location = new System.Drawing.Point(23, 20);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(5);
-            this.label10.Size = new System.Drawing.Size(210, 38);
+            this.label10.Size = new System.Drawing.Size(182, 38);
             this.label10.TabIndex = 1;
             this.label10.Text = "Lista de Usuarios";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -226,9 +241,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(293, 20);
+            this.label11.Location = new System.Drawing.Point(258, 20);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 38);
+            this.label11.Size = new System.Drawing.Size(112, 38);
             this.label11.TabIndex = 2;
             this.label11.Text = "Buscar Por:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -313,6 +328,22 @@
             this.btnLimpiar.TabIndex = 33;
             this.btnLimpiar.TextColor = System.Drawing.Color.White;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // panelInferior
+            // 
+            this.panelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInferior.Location = new System.Drawing.Point(0, 709);
+            this.panelInferior.Name = "panelInferior";
+            this.panelInferior.Size = new System.Drawing.Size(992, 20);
+            this.panelInferior.TabIndex = 1;
+            // 
+            // panelSuperior
+            // 
+            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
+            this.panelSuperior.Name = "panelSuperior";
+            this.panelSuperior.Size = new System.Drawing.Size(992, 20);
+            this.panelSuperior.TabIndex = 0;
             // 
             // panelRegistro
             // 
@@ -873,6 +904,7 @@
             this.TLPForm.ResumeLayout(false);
             this.panelConsulta.ResumeLayout(false);
             this.panelConteinerTable.ResumeLayout(false);
+            this.panelCentral.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panel14.ResumeLayout(false);
@@ -938,6 +970,9 @@
         private System.Windows.Forms.Panel panel8;
         private Componentes_Personalizad.ComboBoxOFSolution cmbRol;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panelInferior;
+        private System.Windows.Forms.Panel panelSuperior;
+        private System.Windows.Forms.Panel panelCentral;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Panel panel14;

@@ -53,7 +53,7 @@ namespace DAL
                         }
 
                     }
-                    return lista;
+                  
 
                 }
                 catch (Exception ex)
