@@ -1,5 +1,6 @@
 ﻿using BLL;
 using ENTITY;
+using GUI.Componentes_Personalizad;
 using GUI.Utility;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace GUI
@@ -19,6 +20,7 @@ namespace GUI
         public formUsuario()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void formUsuario_Load(object sender, EventArgs e)
@@ -27,6 +29,8 @@ namespace GUI
             CargarCmbRol(); 
             CargarCmbBuscar();
             CargarDataTable();
+            Limpiar();
+            LimpiarMensajes();
         }
 
         private void CargarCmbEstado()
@@ -71,12 +75,14 @@ namespace GUI
 
         private void CargarDataTable()
         {
-            //MOSTRAR TODOS LOS USUARIOS
+            // Limpiar las filas existentes en el DataGridView
+            dgvUsuarios.Rows.Clear();
+
+            // Mostrar todos los usuarios
             List<Usuario> listaUsuario = new ServicioUsuario().Listar();
 
             foreach (Usuario item in listaUsuario)
             {
-
                 dgvUsuarios.Rows.Add(new object[] {
                     "",
                     item.idUsuario,
@@ -84,7 +90,7 @@ namespace GUI
                     item.nombreCompleto,
                     item.nombreUsuario,
                     item.clave,
-                    item.correo ,
+                    item.correo,
                     item.telefono,
                     item.rol.idRol,
                     item.rol.descripcion,
@@ -93,6 +99,7 @@ namespace GUI
                 });
             }
         }
+
 
         private void dgvUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -118,67 +125,216 @@ namespace GUI
         {
             if (dgvUsuarios.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
-
                 int indice = e.RowIndex;
 
                 if (indice >= 0)
                 {
-                    txtIndice.Text = indice.ToString();
-                    txtId.Text = dgvUsuarios.Rows[indice].Cells["idUsuario"].Value.ToString();
-                    txtDocumento.Texts = dgvUsuarios.Rows[indice].Cells["documento"].Value.ToString();
-                    txtNombre.Texts = dgvUsuarios.Rows[indice].Cells["nombreCompleto"].Value.ToString();
-                    txtUsuario.Texts = dgvUsuarios.Rows[indice].Cells["nombreUsuario"].Value.ToString();
-                    txtClave.Texts = dgvUsuarios.Rows[indice].Cells["clave"].Value.ToString();
-                    txtConfirmarClave.Texts = dgvUsuarios.Rows[indice].Cells["clave"].Value.ToString();
-                    txtCorreo.Texts = dgvUsuarios.Rows[indice].Cells["correo"].Value.ToString();
-                    txtTelefono.Texts = dgvUsuarios.Rows[indice].Cells["telefono"].Value.ToString();
-
-                    foreach (OpcionComboBox opcionComboBox in cmbRol.Items)
-                    {
-
-                        if (Convert.ToInt32(opcionComboBox.Valor) == Convert.ToInt32(dgvUsuarios.Rows[indice].Cells["idRol"].Value))
-                        {
-                            int indice_combo = cmbRol.Items.IndexOf(opcionComboBox);
-                            cmbRol.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
-
-                    foreach (OpcionComboBox opcionComboBox in cmbEstado.Items)
-                    {
-                        if (Convert.ToInt32(opcionComboBox.Valor) == Convert.ToInt32(dgvUsuarios.Rows[indice].Cells["valorEstado"].Value))
-                        {
-                            int indice_combo = cmbEstado.Items.IndexOf(opcionComboBox);
-                            cmbEstado.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
+                    Usuario usuario = ObtenerUsuarioDeFila(dgvUsuarios.Rows[indice]);
+                    ActualizarControlesUsuario(usuario, indice);
                 }
             }
         }
 
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private Usuario ObtenerUsuarioDeFila(DataGridViewRow fila)
         {
-            
+            Usuario usuario = new Usuario
+            {
+                idUsuario = Convert.ToInt32(fila.Cells["idUsuario"].Value),
+                documento = fila.Cells["documento"].Value.ToString(),
+                nombreCompleto = fila.Cells["nombreCompleto"].Value.ToString(),
+                nombreUsuario = fila.Cells["nombreUsuario"].Value.ToString(),
+                clave = fila.Cells["clave"].Value.ToString(),
+                correo = fila.Cells["correo"].Value.ToString(),
+                telefono = fila.Cells["telefono"].Value.ToString(),
+                rol = new Rol() { idRol = Convert.ToInt32(fila.Cells["idRol"].Value) },
+                estado = Convert.ToInt32(fila.Cells["valorEstado"].Value) == 1
+            };
+
+            return usuario;
+        }
+
+        private void ActualizarControlesUsuario(Usuario usuario, int indice)
+        {
+            txtIndice.Text = indice.ToString();
+            txtId.Text = usuario.idUsuario.ToString();
+            txtDocumento.Texts = usuario.documento;
+            txtNombre.Texts = usuario.nombreCompleto;
+            txtUsuario.Texts = usuario.nombreUsuario;
+            txtClave.Texts = usuario.clave;
+            txtConfirmarClave.Texts = usuario.clave;
+            txtCorreo.Texts = usuario.correo;
+            txtTelefono.Texts = usuario.telefono;
+
+            cmbRol.SelectedIndex = ObtenerIndiceComboBox(cmbRol, usuario.rol.idRol);
+            cmbEstado.SelectedIndex = ObtenerIndiceComboBox(cmbEstado, usuario.estado ? 1 : 0);
+
+
+            btnGuardar.Text = "Editar";
+            btnGuardar.BackColor = Color.FromArgb(108, 196, 228);
 
         }
 
-        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        private int ObtenerIndiceComboBox(ComboBoxOFSolution comboBox, int valor)
         {
-            txtBuscar.Texts = string.Empty;
-            cmbBusqueda.SelectedIndex = 0;
+            foreach (OpcionComboBox opcionComboBox in comboBox.Items)
+            {
+                if (Convert.ToInt32(opcionComboBox.Valor) == valor)
+                {
+                    return comboBox.Items.IndexOf(opcionComboBox);
+                }
+            }
+            return -1; // Retornar -1 si no se encuentra el valor
+        }
+
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (VerificarCampos())
+            {
+                return;
+            }
+
+            if (VerificarClave())
+            {
+                return;
+            }
+
+            Usuario nuevoUsuario = CrearNuevoUsuario();
+
+            if (nuevoUsuario.idUsuario == 0)
+            {
+                RegistrarUsuario(nuevoUsuario);
+            }
+            else
+            {
+                EditarUsuario(nuevoUsuario);
+            }
+        }
+
+        private bool VerificarCampos()
+        {
+            bool hayCampoVacio = false;
+
+            hayCampoVacio |= VerificarCampoVacio(txtDocumento, lblDocumento, "documento");
+            hayCampoVacio |= VerificarCampoVacio(txtNombre, lblNombre, "nombre");
+            hayCampoVacio |= VerificarCampoVacio(txtUsuario, lblUsuario, "usuario");
+            hayCampoVacio |= VerificarCampoVacio(txtClave, lblClave, "campo contraseña");
+            hayCampoVacio |= VerificarCampoVacio(txtConfirmarClave, lblConfirmar, "campo de validación");
+            hayCampoVacio |= VerificarCampoVacio(txtCorreo, lblCorreo, "correo");
+            hayCampoVacio |= VerificarCampoVacio(txtTelefono, lblTelefono, "teléfono");
+
+            return hayCampoVacio;
+        }
+
+        private bool VerificarCampoVacio(TextBoxOFSolution textBox, Label label, string campo)
+        {
+            bool control = false;
+            if (string.IsNullOrEmpty(textBox.Texts))
+            {
+                control = true;
+                label.ForeColor = Color.Red;
+                label.Text = $"El {campo} no puede ser vacío";
+            }
+            else
+            {
+                label.Text = "";
+            }
+            return control;
+        }
+
+        private bool VerificarClave()
+        {
+            bool coincide = false;
+            if (txtClave.Texts != txtConfirmarClave.Texts)
+            {
+                lblConfirmar.ForeColor = Color.Red;
+                lblConfirmar.Text = "La contraseña no coincide";
+                coincide = true;
+            }
+            return coincide;
+        }
+
+        private Usuario CrearNuevoUsuario()
+        {
+            return new Usuario()
+            {
+                idUsuario = string.IsNullOrEmpty(txtId.Text) ? 0 : Convert.ToInt32(txtId.Text),
+                documento = txtDocumento.Texts,
+                nombreCompleto = txtNombre.Texts,
+                nombreUsuario = txtUsuario.Texts,
+                clave = txtClave.Texts,
+                correo = txtCorreo.Texts,
+                telefono = txtTelefono.Texts,
+                rol = new Rol() { idRol = Convert.ToInt32(((OpcionComboBox)cmbRol.SelectedItem).Valor) },
+                estado = Convert.ToInt32(((OpcionComboBox)cmbEstado.SelectedItem).Valor) == 1
+            };
+        }
+
+        private void RegistrarUsuario(Usuario usuario)
+        {
+            string mensaje = string.Empty;
+            int idUsuarioGenerado = new ServicioUsuario().Registrar(usuario, out mensaje);
+
+            if (idUsuarioGenerado != 0)
+            {
+                lblCheck.ForeColor = Color.Green;
+                lblCheck.Text = "Usuario registrado con éxito.";
+                ActualizarUI();
+            }
+            else
+            {
+                lblCheck.ForeColor = Color.Red;
+                lblCheck.Text = mensaje;
+            }
+        }
+
+        private void EditarUsuario(Usuario usuario)
+        {
+            string mensaje = string.Empty;
+            bool resultado = new ServicioUsuario().Editar(usuario, out mensaje);
+
+            if (resultado)
+            {
+                lblCheck.ForeColor = Color.Green;
+                lblCheck.Text = "Usuario editado con éxito.";
+                ActualizarUI();
+            }
+            else
+            {
+                lblCheck.ForeColor = Color.Red;
+                lblCheck.Text = mensaje;
+            }
+        }
+
+        private void ActualizarUI()
+        {
+            CargarDataTable();
+            Limpiar();
+        }
+
+        private void LimpiarMensajes()
+        {
+            lblDocumento.Text = string.Empty;
+            lblNombre.Text = string.Empty;
+            lblUsuario.Text = string.Empty;
+            lblClave.Text = string.Empty;
+            lblConfirmar.Text = string.Empty;
+            lblCorreo.Text = string.Empty;
+            lblTelefono.Text = string.Empty;
+            lblCheck.Text = string.Empty;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+            LimpiarMensajes();
         }
 
         private void Limpiar()
         {
             txtIndice.Text = "-1";
-            txtId.Text = string.Empty;
+            txtId.Text = "0";
             txtDocumento.Texts = string.Empty;
             txtNombre.Texts = string.Empty;
             txtUsuario.Texts = string.Empty;
@@ -188,8 +344,68 @@ namespace GUI
             txtTelefono.Texts = string.Empty;
             cmbEstado.SelectedIndex = 0;
             cmbRol.SelectedIndex = 0;
+
+            txtDocumento.Select();
+            btnGuardar.Text = "Guardar";
+            btnGuardar.BackColor = Color.FromArgb(23, 145, 200);
+
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtId.Text) != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el usuario", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    string mensaje = string.Empty;
+                    Usuario eliminarUsuario = new Usuario()
+                    {
+                        idUsuario = Convert.ToInt32(txtId.Text)
+                    };
+
+                    bool respuesta = new ServicioUsuario().Eliminar(eliminarUsuario, out mensaje);
+
+                    if (respuesta)
+                    {
+                        dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionComboBox)cmbBusqueda.SelectedItem).Valor.ToString();
+
+            if (dgvUsuarios.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvUsuarios.Rows)
+                {
+
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Texts.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
+        }
+
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Texts = string.Empty;
+            cmbBusqueda.SelectedIndex = 0;
+            foreach (DataGridViewRow row in dgvUsuarios.Rows)
+            {
+                row.Visible = true;
+            }
+        }
 
 
     }

@@ -10,15 +10,12 @@ namespace BLL
 {
     public class ServicioUsuario
     {
-        #region cdc
         private DataUsuario dataUsuario = new DataUsuario();
 
         public List<Usuario> Listar()
         {
             return dataUsuario.Listar();
         }
-
-        #endregion
 
         public int Registrar(Usuario nuevoUsuario, out string Mensaje)
         {

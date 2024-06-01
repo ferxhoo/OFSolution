@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelConsulta = new System.Windows.Forms.Panel();
             this.panelConteinerTable = new GUI.Componentes_Personalizad.PanelOFSolution();
@@ -58,11 +58,11 @@
             this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.btnLimpiarBusqueda = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panelInferior = new System.Windows.Forms.Panel();
+            this.txtIndice = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.panelRegistro = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.txtIndice = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.lblCheck = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cmbEstado = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
@@ -72,25 +72,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtTelefono = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtCorreo = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCorreo = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtConfirmarClave = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblConfirmar = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtClave = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblClave = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtUsuario = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNombre = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDocumento = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDocumento = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnGuardar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -106,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel14.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panelInferior.SuspendLayout();
             this.panelRegistro.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -198,15 +199,15 @@
             // 
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -221,27 +222,27 @@
             this.rol,
             this.estado,
             this.valorEstado});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsuarios.Location = new System.Drawing.Point(13, 113);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidth = 49;
             this.dgvUsuarios.RowTemplate.Height = 30;
@@ -470,6 +471,7 @@
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.TextColor = System.Drawing.Color.White;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBusqueda
             // 
@@ -495,11 +497,31 @@
             // 
             // panelInferior
             // 
+            this.panelInferior.Controls.Add(this.txtIndice);
+            this.panelInferior.Controls.Add(this.txtId);
             this.panelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelInferior.Location = new System.Drawing.Point(0, 709);
             this.panelInferior.Name = "panelInferior";
             this.panelInferior.Size = new System.Drawing.Size(992, 20);
             this.panelInferior.TabIndex = 1;
+            // 
+            // txtIndice
+            // 
+            this.txtIndice.Location = new System.Drawing.Point(13, 0);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(35, 22);
+            this.txtIndice.TabIndex = 14;
+            this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(54, 0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(35, 22);
+            this.txtId.TabIndex = 13;
+            this.txtId.Text = "0";
+            this.txtId.Visible = false;
             // 
             // panelSuperior
             // 
@@ -539,8 +561,6 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.txtIndice);
-            this.panel13.Controls.Add(this.txtId);
             this.panel13.Controls.Add(this.lblCheck);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(0, 565);
@@ -549,25 +569,10 @@
             this.panel13.Size = new System.Drawing.Size(250, 30);
             this.panel13.TabIndex = 41;
             // 
-            // txtIndice
-            // 
-            this.txtIndice.Location = new System.Drawing.Point(98, 4);
-            this.txtIndice.Name = "txtIndice";
-            this.txtIndice.Size = new System.Drawing.Size(35, 22);
-            this.txtIndice.TabIndex = 14;
-            this.txtIndice.Text = "-1";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(139, 4);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(35, 22);
-            this.txtId.TabIndex = 13;
-            this.txtId.Text = "0";
-            // 
             // lblCheck
             // 
             this.lblCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheck.Location = new System.Drawing.Point(4, 4);
             this.lblCheck.Name = "lblCheck";
             this.lblCheck.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -656,7 +661,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.txtTelefono);
-            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.lblTelefono);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 394);
             this.panel7.Name = "panel7";
@@ -685,21 +690,21 @@
             this.txtTelefono.Texts = "";
             this.txtTelefono.UnderlinedStyle = true;
             // 
-            // label7
+            // lblTelefono
             // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 38);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label7.Size = new System.Drawing.Size(238, 15);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "label7";
+            this.lblTelefono.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(6, 38);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblTelefono.Size = new System.Drawing.Size(238, 15);
+            this.lblTelefono.TabIndex = 31;
+            this.lblTelefono.Text = "label7";
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.txtCorreo);
-            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.lblCorreo);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 335);
             this.panel6.Name = "panel6";
@@ -728,21 +733,21 @@
             this.txtCorreo.Texts = "";
             this.txtCorreo.UnderlinedStyle = true;
             // 
-            // label6
+            // lblCorreo
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 38);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(238, 15);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "label6";
+            this.lblCorreo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(6, 38);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblCorreo.Size = new System.Drawing.Size(238, 15);
+            this.lblCorreo.TabIndex = 31;
+            this.lblCorreo.Text = "label6";
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.txtConfirmarClave);
-            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.lblConfirmar);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 276);
             this.panel5.Name = "panel5";
@@ -771,21 +776,21 @@
             this.txtConfirmarClave.Texts = "";
             this.txtConfirmarClave.UnderlinedStyle = true;
             // 
-            // label5
+            // lblConfirmar
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 38);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(238, 15);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "label5";
+            this.lblConfirmar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmar.Location = new System.Drawing.Point(6, 38);
+            this.lblConfirmar.Name = "lblConfirmar";
+            this.lblConfirmar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblConfirmar.Size = new System.Drawing.Size(238, 15);
+            this.lblConfirmar.TabIndex = 31;
+            this.lblConfirmar.Text = "label5";
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtClave);
-            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.lblClave);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 217);
             this.panel4.Name = "panel4";
@@ -814,21 +819,21 @@
             this.txtClave.Texts = "";
             this.txtClave.UnderlinedStyle = true;
             // 
-            // label4
+            // lblClave
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 38);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(238, 15);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "label4";
+            this.lblClave.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClave.Location = new System.Drawing.Point(6, 38);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblClave.Size = new System.Drawing.Size(238, 15);
+            this.lblClave.TabIndex = 31;
+            this.lblClave.Text = "label4";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txtUsuario);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lblUsuario);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 158);
             this.panel3.Name = "panel3";
@@ -857,21 +862,21 @@
             this.txtUsuario.Texts = "";
             this.txtUsuario.UnderlinedStyle = true;
             // 
-            // label3
+            // lblUsuario
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 38);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label3.Size = new System.Drawing.Size(238, 15);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "label3";
+            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(6, 38);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblUsuario.Size = new System.Drawing.Size(238, 15);
+            this.lblUsuario.TabIndex = 31;
+            this.lblUsuario.Text = "label3";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtNombre);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblNombre);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 99);
             this.panel2.Name = "panel2";
@@ -900,21 +905,21 @@
             this.txtNombre.Texts = "";
             this.txtNombre.UnderlinedStyle = true;
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 38);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(238, 15);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "label1";
+            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(6, 38);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblNombre.Size = new System.Drawing.Size(238, 15);
+            this.lblNombre.TabIndex = 31;
+            this.lblNombre.Text = "label1";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.txtDocumento);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblDocumento);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
@@ -943,16 +948,16 @@
             this.txtDocumento.Texts = "";
             this.txtDocumento.UnderlinedStyle = true;
             // 
-            // label2
+            // lblDocumento
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 38);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(238, 15);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "label2";
+            this.lblDocumento.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.26087F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocumento.Location = new System.Drawing.Point(6, 38);
+            this.lblDocumento.Name = "lblDocumento";
+            this.lblDocumento.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblDocumento.Size = new System.Drawing.Size(238, 15);
+            this.lblDocumento.TabIndex = 31;
+            this.lblDocumento.Text = "label2";
             // 
             // panel11
             // 
@@ -1064,6 +1069,7 @@
             this.btnEliminar.TextColor = System.Drawing.Color.White;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblTituloRegistro
             // 
@@ -1095,9 +1101,10 @@
             this.panel14.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panelInferior.ResumeLayout(false);
+            this.panelInferior.PerformLayout();
             this.panelRegistro.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -1128,25 +1135,25 @@
         private Componentes_Personalizad.IconButtonOFSolution btnEliminar;
         private Componentes_Personalizad.TextBoxOFSolution txtDocumento;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.Panel panel5;
         private Componentes_Personalizad.TextBoxOFSolution txtConfirmarClave;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblConfirmar;
         private System.Windows.Forms.Panel panel4;
         private Componentes_Personalizad.TextBoxOFSolution txtClave;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Panel panel3;
         private Componentes_Personalizad.TextBoxOFSolution txtUsuario;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel panel2;
         private Componentes_Personalizad.TextBoxOFSolution txtNombre;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Panel panel7;
         private Componentes_Personalizad.TextBoxOFSolution txtTelefono;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Panel panel6;
         private Componentes_Personalizad.TextBoxOFSolution txtCorreo;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label lblCheck;
         private System.Windows.Forms.Panel panel12;
@@ -1181,7 +1188,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorEstado;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtIndice;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
