@@ -13,13 +13,27 @@ namespace BLL
         #region cdc
         private DataUsuario dataUsuario = new DataUsuario();
 
-
         public List<Usuario> Listar()
         {
             return dataUsuario.Listar();
         }
 
-        
         #endregion
+
+        public int Registrar(Usuario nuevoUsuario, out string Mensaje)
+        {
+            return dataUsuario.Registrar(nuevoUsuario, out Mensaje);
+        }
+
+        public bool Editar(Usuario usuarioEditado, out string Mensaje)
+        {
+            return dataUsuario.Editar(usuarioEditado, out Mensaje);
+        }
+
+        public bool Eliminar(Usuario eliminarUsuario, out string Mensaje)
+        {
+            return dataUsuario.Eliminar(eliminarUsuario, out Mensaje);
+        }
+
     }
 }

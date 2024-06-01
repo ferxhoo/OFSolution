@@ -23,13 +23,24 @@ namespace GUI
 
         private void formUsuario_Load(object sender, EventArgs e)
         {
+            CargarCmbEstado();
+            CargarCmbRol(); 
+            CargarCmbBuscar();
+            CargarDataTable();
+        }
+
+        private void CargarCmbEstado()
+        {
             //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "No Activo" });
             cmbEstado.DisplayMember = "Texto";
             cmbEstado.ValueMember = "Valor";
             cmbEstado.SelectedIndex = 0;
+        }
 
+        private void CargarCmbRol()
+        {
             //cargar combobox rol
             List<Rol> listaRol = new ServicioRol().Listar();
 
@@ -40,8 +51,10 @@ namespace GUI
             cmbRol.DisplayMember = "Texto";
             cmbRol.ValueMember = "Valor";
             cmbRol.SelectedIndex = 0;
+        }
 
-
+        private void CargarCmbBuscar()
+        {
             //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvUsuarios.Columns)
             {
@@ -54,8 +67,10 @@ namespace GUI
             cmbBusqueda.DisplayMember = "Texto";
             cmbBusqueda.ValueMember = "Valor";
             cmbBusqueda.SelectedIndex = 0;
+        }
 
-
+        private void CargarDataTable()
+        {
             //MOSTRAR TODOS LOS USUARIOS
             List<Usuario> listaUsuario = new ServicioUsuario().Listar();
 
@@ -77,30 +92,6 @@ namespace GUI
                     item.estado == true ? 1 : 0
                 });
             }
-
-
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-
-        }
-
-        private void Limpiar()
-        {
-            txtId.Text = string.Empty;
-            txtDocumento.Texts = string.Empty;
-            txtNombre.Texts = string.Empty; 
-            txtUsuario.Texts = string.Empty;    
-            txtClave.Texts = string.Empty;
-            txtConfirmarClave.Texts = string.Empty;
-            txtCorreo.Texts = string.Empty;
-            txtTelefono.Texts = string.Empty;   
-            txtBuscar.Texts = string.Empty; 
-            cmbBusqueda.SelectedIndex = 0;
-            cmbEstado.SelectedIndex = 0;
-            cmbRol.SelectedIndex = 0;
         }
 
         private void dgvUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -132,6 +123,7 @@ namespace GUI
 
                 if (indice >= 0)
                 {
+                    txtIndice.Text = indice.ToString();
                     txtId.Text = dgvUsuarios.Rows[indice].Cells["idUsuario"].Value.ToString();
                     txtDocumento.Texts = dgvUsuarios.Rows[indice].Cells["documento"].Value.ToString();
                     txtNombre.Texts = dgvUsuarios.Rows[indice].Cells["nombreCompleto"].Value.ToString();
@@ -152,7 +144,6 @@ namespace GUI
                         }
                     }
 
-
                     foreach (OpcionComboBox opcionComboBox in cmbEstado.Items)
                     {
                         if (Convert.ToInt32(opcionComboBox.Valor) == Convert.ToInt32(dgvUsuarios.Rows[indice].Cells["valorEstado"].Value))
@@ -162,14 +153,44 @@ namespace GUI
                             break;
                         }
                     }
-
-
                 }
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
+
         }
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Texts = string.Empty;
+            cmbBusqueda.SelectedIndex = 0;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtIndice.Text = "-1";
+            txtId.Text = string.Empty;
+            txtDocumento.Texts = string.Empty;
+            txtNombre.Texts = string.Empty;
+            txtUsuario.Texts = string.Empty;
+            txtClave.Texts = string.Empty;
+            txtConfirmarClave.Texts = string.Empty;
+            txtCorreo.Texts = string.Empty;
+            txtTelefono.Texts = string.Empty;
+            cmbEstado.SelectedIndex = 0;
+            cmbRol.SelectedIndex = 0;
+        }
+
+
+
     }
 }

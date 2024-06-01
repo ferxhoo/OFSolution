@@ -56,11 +56,12 @@
             this.cmbBusqueda = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
             this.txtBuscar = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.btnLimpiar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.btnLimpiarBusqueda = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panelInferior = new System.Windows.Forms.Panel();
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.panelRegistro = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.txtIndice = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblCheck = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -93,7 +94,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnGuardar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btnEditar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.btnLimpiar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnEliminar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.lblTituloRegistro = new System.Windows.Forms.Label();
@@ -377,7 +378,7 @@
             this.tableLayoutPanel2.Controls.Add(this.cmbBusqueda, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtBuscar, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnBuscar, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnLimpiar, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnLimpiarBusqueda, 6, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -470,26 +471,27 @@
             this.btnBuscar.TextColor = System.Drawing.Color.White;
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // btnLimpiar
+            // btnLimpiarBusqueda
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnLimpiar.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.btnLimpiar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnLimpiar.BorderRadius = 32;
-            this.btnLimpiar.BorderSize = 0;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnLimpiar.IconColor = System.Drawing.Color.White;
-            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiar.IconSize = 25;
-            this.btnLimpiar.Location = new System.Drawing.Point(886, 23);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(47, 32);
-            this.btnLimpiar.TabIndex = 33;
-            this.btnLimpiar.TextColor = System.Drawing.Color.White;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnLimpiarBusqueda.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.btnLimpiarBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnLimpiarBusqueda.BorderRadius = 32;
+            this.btnLimpiarBusqueda.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarBusqueda.IconColor = System.Drawing.Color.White;
+            this.btnLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBusqueda.IconSize = 25;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(886, 23);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(47, 32);
+            this.btnLimpiarBusqueda.TabIndex = 33;
+            this.btnLimpiarBusqueda.TextColor = System.Drawing.Color.White;
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // panelInferior
             // 
@@ -537,6 +539,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.txtIndice);
             this.panel13.Controls.Add(this.txtId);
             this.panel13.Controls.Add(this.lblCheck);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -546,9 +549,17 @@
             this.panel13.Size = new System.Drawing.Size(250, 30);
             this.panel13.TabIndex = 41;
             // 
+            // txtIndice
+            // 
+            this.txtIndice.Location = new System.Drawing.Point(98, 4);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(35, 22);
+            this.txtIndice.TabIndex = 14;
+            this.txtIndice.Text = "-1";
+            // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(80, 6);
+            this.txtId.Location = new System.Drawing.Point(139, 4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 22);
             this.txtId.TabIndex = 13;
@@ -983,7 +994,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.btnEditar);
+            this.panel10.Controls.Add(this.btnLimpiar);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 638);
             this.panel10.Name = "panel10";
@@ -991,32 +1002,32 @@
             this.panel10.Size = new System.Drawing.Size(250, 43);
             this.panel10.TabIndex = 28;
             // 
-            // btnEditar
+            // btnLimpiar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnEditar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnEditar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnEditar.BorderRadius = 29;
-            this.btnEditar.BorderSize = 0;
-            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.btnEditar.IconColor = System.Drawing.Color.White;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 30;
-            this.btnEditar.Location = new System.Drawing.Point(10, 5);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnEditar.Size = new System.Drawing.Size(230, 35);
-            this.btnEditar.TabIndex = 14;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextColor = System.Drawing.Color.White;
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.btnLimpiar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.btnLimpiar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.BorderRadius = 29;
+            this.btnLimpiar.BorderSize = 0;
+            this.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiar.IconColor = System.Drawing.Color.White;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiar.IconSize = 30;
+            this.btnLimpiar.Location = new System.Drawing.Point(10, 5);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnLimpiar.Size = new System.Drawing.Size(230, 35);
+            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextColor = System.Drawing.Color.White;
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // panel9
             // 
@@ -1040,7 +1051,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
             this.btnEliminar.IconColor = System.Drawing.Color.White;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 30;
@@ -1112,7 +1123,7 @@
         private System.Windows.Forms.Panel panel11;
         private Componentes_Personalizad.IconButtonOFSolution btnGuardar;
         private System.Windows.Forms.Panel panel10;
-        private Componentes_Personalizad.IconButtonOFSolution btnEditar;
+        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
         private System.Windows.Forms.Panel panel9;
         private Componentes_Personalizad.IconButtonOFSolution btnEliminar;
         private Componentes_Personalizad.TextBoxOFSolution txtDocumento;
@@ -1157,7 +1168,7 @@
         private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
         private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
         private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
-        private Componentes_Personalizad.IconButtonOFSolution btnLimpiar;
+        private Componentes_Personalizad.IconButtonOFSolution btnLimpiarBusqueda;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn documento;
@@ -1171,5 +1182,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorEstado;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIndice;
     }
 }
