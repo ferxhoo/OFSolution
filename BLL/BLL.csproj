@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioCategoria.cs" />
     <Compile Include="ServicioPermiso.cs" />
     <Compile Include="ServicioRol.cs" />
     <Compile Include="ServicioUsuario.cs" />
