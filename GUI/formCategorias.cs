@@ -12,9 +12,14 @@ namespace GUI
 {
     public partial class formCategorias : Form
     {
+
         public formCategorias()
         {
             InitializeComponent();
         }
+
+
     }
+
+
 }

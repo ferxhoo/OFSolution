@@ -179,6 +179,9 @@
     <EmbeddedResource Include="Componentes Personalizad\TextBoxOFSolution.resx">
       <DependentUpon>TextBoxOFSolution.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formCategorias.resx">
+      <DependentUpon>formCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formClientes.resx">
       <DependentUpon>formClientes.cs</DependentUpon>
     </EmbeddedResource>

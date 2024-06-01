@@ -254,7 +254,7 @@ namespace GUI
             }
             else if (keyData == (Keys.Control | Keys.R))
             {
-                this.Size = new Size(1100, 650);
+                this.Size = new Size(1500, 820);
                 this.CenterToScreen();
                 return true;
             }

@@ -368,7 +368,8 @@ namespace GUI
 
                     if (respuesta)
                     {
-                        dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        //dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        ActualizarUI();
                     }
                     else
                     {
