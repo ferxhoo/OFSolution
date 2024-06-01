@@ -48,7 +48,7 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbFiltro = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
+            this.cmbBusqueda = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
             this.txtBuscar = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.btnLimpiarBusqueda = new GUI.Componentes_Personalizad.IconButtonOFSolution();
@@ -218,6 +218,8 @@
             this.dgvCategorias.RowTemplate.Height = 30;
             this.dgvCategorias.Size = new System.Drawing.Size(971, 618);
             this.dgvCategorias.TabIndex = 1;
+            this.dgvCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellContentClick);
+            this.dgvCategorias.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCategorias_CellPainting);
             // 
             // btnSeleccionar
             // 
@@ -284,6 +286,7 @@
             this.txtIndice.Size = new System.Drawing.Size(35, 22);
             this.txtIndice.TabIndex = 16;
             this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
             // 
             // panel17
             // 
@@ -300,7 +303,7 @@
             // panel18
             // 
             this.panel18.Controls.Add(this.label1);
-            this.panel18.Controls.Add(this.cmbFiltro);
+            this.panel18.Controls.Add(this.cmbBusqueda);
             this.panel18.Controls.Add(this.txtBuscar);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel18.Location = new System.Drawing.Point(448, 3);
@@ -319,23 +322,23 @@
             this.label1.Text = "Buscar Por:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cmbFiltro
+            // cmbBusqueda
             // 
-            this.cmbFiltro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.cmbFiltro.BorderSize = 1;
-            this.cmbFiltro.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cmbFiltro.ForeColor = System.Drawing.Color.DimGray;
-            this.cmbFiltro.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cmbFiltro.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cmbFiltro.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbFiltro.Location = new System.Drawing.Point(76, 0);
-            this.cmbFiltro.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Padding = new System.Windows.Forms.Padding(1);
-            this.cmbFiltro.Size = new System.Drawing.Size(200, 36);
-            this.cmbFiltro.TabIndex = 39;
-            this.cmbFiltro.Texts = "";
+            this.cmbBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.cmbBusqueda.BorderSize = 1;
+            this.cmbBusqueda.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBusqueda.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbBusqueda.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbBusqueda.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbBusqueda.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbBusqueda.Location = new System.Drawing.Point(76, 0);
+            this.cmbBusqueda.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.Padding = new System.Windows.Forms.Padding(1);
+            this.cmbBusqueda.Size = new System.Drawing.Size(200, 36);
+            this.cmbBusqueda.TabIndex = 39;
+            this.cmbBusqueda.Texts = "";
             // 
             // txtBuscar
             // 
@@ -379,6 +382,7 @@
             this.btnBuscar.TabIndex = 41;
             this.btnBuscar.TextColor = System.Drawing.Color.White;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBusqueda
             // 
@@ -401,6 +405,7 @@
             this.btnLimpiarBusqueda.TabIndex = 40;
             this.btnLimpiarBusqueda.TextColor = System.Drawing.Color.White;
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // txtId
             // 
@@ -409,6 +414,7 @@
             this.txtId.Size = new System.Drawing.Size(35, 22);
             this.txtId.TabIndex = 15;
             this.txtId.Text = "0";
+            this.txtId.Visible = false;
             // 
             // label10
             // 
@@ -517,7 +523,7 @@
             this.cmbEstado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
             this.cmbEstado.BorderSize = 1;
             this.cmbEstado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.ForeColor = System.Drawing.Color.DimGray;
             this.cmbEstado.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbEstado.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
@@ -619,6 +625,7 @@
             this.btnGuardar.TextColor = System.Drawing.Color.White;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel14
             // 
@@ -655,6 +662,7 @@
             this.btnLimpiar.TextColor = System.Drawing.Color.White;
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // panel15
             // 
@@ -691,6 +699,7 @@
             this.btnEliminar.TextColor = System.Drawing.Color.White;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblTituloRegistro
             // 
@@ -731,6 +740,7 @@
             this.MinimumSize = new System.Drawing.Size(779, 516);
             this.Name = "formCategorias";
             this.Text = "formCategorias";
+            this.Load += new System.EventHandler(this.formCategorias_Load);
             this.panelPrincipal.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -798,7 +808,7 @@
         private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label1;
-        private Componentes_Personalizad.ComboBoxOFSolution cmbFiltro;
+        private Componentes_Personalizad.ComboBoxOFSolution cmbBusqueda;
         private Componentes_Personalizad.TextBoxOFSolution txtBuscar;
         private System.Windows.Forms.TextBox txtIndice;
         private System.Windows.Forms.TextBox txtId;

@@ -61,26 +61,22 @@ namespace DAL
 
             try
             {
-
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-
                     SqlCommand comando = new SqlCommand("PROC_REGISTRARCATEGORIA", conexion);
-                    comando.Parameters.AddWithValue("descripcion", nuevaCategoria.descripcion);
-                    comando.Parameters.AddWithValue("estado", nuevaCategoria.estado);
-                    comando.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    comando.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    conexion.Open();
+                    comando.Parameters.AddWithValue("@descripcion", nuevaCategoria.descripcion);
+                    comando.Parameters.AddWithValue("@estado", nuevaCategoria.estado);
+                    comando.Parameters.Add("@resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    comando.Parameters.Add("@mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
+                    conexion.Open();
                     comando.ExecuteNonQuery();
 
-                    idCategoriaGenerado = Convert.ToInt32(comando.Parameters["resultado"].Value);
-                    mensaje = comando.Parameters["mensaje"].Value.ToString();
-
+                    idCategoriaGenerado = Convert.ToInt32(comando.Parameters["@resultado"].Value);
+                    mensaje = comando.Parameters["@mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
@@ -91,35 +87,31 @@ namespace DAL
             return idCategoriaGenerado;
         }
 
+
         public bool Editar(Categoria CategoriaEditada, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
 
-
             try
             {
-
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-
                     SqlCommand comando = new SqlCommand("PROC_EDITARCATEGORIA", conexion);
-                    comando.Parameters.AddWithValue("idCategoria", CategoriaEditada.idCategoria);
-                    comando.Parameters.AddWithValue("descripcion", CategoriaEditada.descripcion);
-                    comando.Parameters.AddWithValue("estado", CategoriaEditada.estado);
-                    comando.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    comando.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    conexion.Open();
+                    comando.Parameters.AddWithValue("@idCategoria", CategoriaEditada.idCategoria);
+                    comando.Parameters.AddWithValue("@descripcion", CategoriaEditada.descripcion);
+                    comando.Parameters.AddWithValue("@estado", CategoriaEditada.estado);
+                    comando.Parameters.Add("@resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    comando.Parameters.Add("@mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
+                    conexion.Open();
                     comando.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(comando.Parameters["resultado"].Value);
-                    mensaje = comando.Parameters["mensaje"].Value.ToString();
-
+                    respuesta = Convert.ToBoolean(comando.Parameters["@resultado"].Value);
+                    mensaje = comando.Parameters["@mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
@@ -129,32 +121,29 @@ namespace DAL
 
             return respuesta;
         }
-
 
         public bool Eliminar(Categoria categoria, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
+
             try
             {
-
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand comando = new SqlCommand("PROC_ELIMINARCATEGORIA", conexion);
-                    comando.Parameters.AddWithValue("idCategoria", categoria.idCategoria);
-                    comando.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    comando.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    conexion.Open();
+                    comando.Parameters.AddWithValue("@idCategoria", categoria.idCategoria);
+                    comando.Parameters.Add("@resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    comando.Parameters.Add("@mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
+                    conexion.Open();
                     comando.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(comando.Parameters["resultado"].Value);
-                    mensaje = comando.Parameters["mensaje"].Value.ToString();
-
+                    respuesta = Convert.ToBoolean(comando.Parameters["@resultado"].Value);
+                    mensaje = comando.Parameters["@mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
@@ -164,6 +153,7 @@ namespace DAL
 
             return respuesta;
         }
+
 
 
     }
