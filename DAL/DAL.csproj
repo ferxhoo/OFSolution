@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="DataCategoria.cs" />
+    <Compile Include="DataCliente.cs" />
     <Compile Include="DataPermiso.cs" />
     <Compile Include="DataProducto.cs" />
     <Compile Include="DataRol.cs" />
