@@ -17,19 +17,19 @@ namespace BLL
             return dataCategoria.Listar();
         }
 
-        public int Registrar(Categoria obj, out string Mensaje)
+        public int Registrar(Categoria categoria, out string Mensaje)
         {    
-            return dataCategoria.Registrar(obj, out Mensaje);
+            return dataCategoria.Registrar(categoria, out Mensaje);
         }
 
-        public bool Editar(Categoria obj, out string Mensaje)
+        public bool Editar(Categoria categoria, out string Mensaje)
         {
-            return dataCategoria.Editar(obj, out Mensaje);
+            return dataCategoria.Editar(categoria, out Mensaje);
         }
 
-        public bool Eliminar(Categoria obj, out string Mensaje)
+        public bool Eliminar(Categoria categoria, out string Mensaje)
         {
-            return dataCategoria.Eliminar(obj, out Mensaje);
+            return dataCategoria.Eliminar(categoria, out Mensaje);
         }
     }
 }
