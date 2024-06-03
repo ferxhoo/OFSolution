@@ -47,6 +47,7 @@
     <Compile Include="DataCliente.cs" />
     <Compile Include="DataPermiso.cs" />
     <Compile Include="DataProducto.cs" />
+    <Compile Include="DataProveedor.cs" />
     <Compile Include="DataRol.cs" />
     <Compile Include="DataUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,6 +11,10 @@ namespace ENTITY
         public int idProveedor { get; set; }
         public string razonSocial { get; set; }
 
+        public Proveedor()
+        {
+        }
+
         public Proveedor(int idProveedor, string documento, string nombreCompleto, string correo, string telefono, bool estado, string razonSocial, string fechaRegistro)
         : base(documento, nombreCompleto, correo, telefono, estado, fechaRegistro)
         {

@@ -46,6 +46,7 @@
     <Compile Include="ServicioCliente.cs" />
     <Compile Include="ServicioPermiso.cs" />
     <Compile Include="ServicioProducto.cs" />
+    <Compile Include="ServicioProveedor.cs" />
     <Compile Include="ServicioRol.cs" />
     <Compile Include="ServicioUsuario.cs" />
   </ItemGroup>

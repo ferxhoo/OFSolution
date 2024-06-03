@@ -35,7 +35,7 @@ namespace GUI
         {
             //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
-            cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "No Activo" });
+            cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "Inactivo" });
             cmbEstado.DisplayMember = "Texto";
             cmbEstado.ValueMember = "Valor";
             cmbEstado.SelectedIndex = 0;
@@ -295,7 +295,7 @@ namespace GUI
         {
             if (Convert.ToInt32(txtId.Text) != 0)
             {
-                if (MessageBox.Show("¿Desea eliminar el usuario", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea eliminar el cliente", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     string mensaje = string.Empty;
