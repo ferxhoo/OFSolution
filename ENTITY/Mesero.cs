@@ -10,6 +10,10 @@ namespace ENTITY
     {
         public int idMesero { get; set; }
 
+        public Mesero()
+        {
+        }
+
         public Mesero(int idMesero, string documento, string nombreCompleto, string correo, string telefono, bool estado, string fechaRegistro)
             : base(documento, nombreCompleto, correo, telefono, estado, fechaRegistro)
         {
