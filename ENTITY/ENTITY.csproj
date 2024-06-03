@@ -49,6 +49,7 @@
     <Compile Include="DetalleVenta.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Mesero.cs" />
+    <Compile Include="Negocio.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />

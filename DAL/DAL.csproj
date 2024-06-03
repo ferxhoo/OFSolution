@@ -46,6 +46,7 @@
     <Compile Include="DataCategoria.cs" />
     <Compile Include="DataCliente.cs" />
     <Compile Include="DataMesero.cs" />
+    <Compile Include="DataNegocio.cs" />
     <Compile Include="DataPermiso.cs" />
     <Compile Include="DataProducto.cs" />
     <Compile Include="DataProveedor.cs" />
