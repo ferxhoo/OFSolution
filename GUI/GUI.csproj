@@ -226,6 +226,12 @@
     <Compile Include="formReporteVentas.Designer.cs">
       <DependentUpon>formReporteVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="formulariosModales\ModalformProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformProveedor.Designer.cs">
+      <DependentUpon>ModalformProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="formUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formReporteVentas.resx">
       <DependentUpon>formReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formulariosModales\ModalformProveedor.resx">
+      <DependentUpon>ModalformProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUsuario.resx">
       <DependentUpon>formUsuario.cs</DependentUpon>

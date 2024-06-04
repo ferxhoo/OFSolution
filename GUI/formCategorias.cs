@@ -87,6 +87,9 @@ namespace GUI
                 e.Graphics.DrawImage(Properties.Resources.Check_OF, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+
+            dgvCategorias.ClearSelection();
+
         }
 
         private void dgvCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,6 +104,7 @@ namespace GUI
                     ActualizarControlesCategoria(categoria, indice);
                 }
             }
+
         }
 
         private Categoria ObtenerCategoriaDeFila(DataGridViewRow fila)

@@ -119,6 +119,9 @@ namespace GUI
                 e.Graphics.DrawImage(Properties.Resources.Check_OF, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+
+            dgvUsuarios.ClearSelection();
+
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -94,6 +94,9 @@ namespace GUI
                 e.Graphics.DrawImage(Properties.Resources.Check_OF, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+
+            dgvMeseros.ClearSelection();
+
         }
 
         private void dgvMeseros_CellContentClick(object sender, DataGridViewCellEventArgs e)

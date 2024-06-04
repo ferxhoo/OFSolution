@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ENTITY;
+using GUI.formulariosModales;
+using GUI.Utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +15,12 @@ namespace GUI
 {
     public partial class formCompras : Form
     {
-        public formCompras()
+
+        private Usuario responsableCompra = null;
+
+        public formCompras(Usuario usuario = null)
         {
+            responsableCompra = usuario;
             InitializeComponent();
             this.Resize += new EventHandler(formCompras_Resize);
         }
@@ -40,6 +47,31 @@ namespace GUI
             }
         }
         #endregion
+
+        private void formCompras_Load(object sender, EventArgs e)
+        {
+            CargarCmbTipoDoc();
+            string fecha = dtpFecha.Text;
+            txtIdProducto.Text = "0";
+            txtIdProveedor.Text = "0";
+        }
+
+        private void CargarCmbTipoDoc()
+        {
+            cmbDocFactura.Items.Add(new OpcionComboBox() { Valor = "Factura", Texto = "Factura" });
+            cmbDocFactura.Items.Add(new OpcionComboBox() { Valor = "Boleta", Texto = "Boleta" });
+            cmbDocFactura.DisplayMember = "Texto";
+            cmbDocFactura.ValueMember = "Valor";
+            cmbDocFactura.SelectedIndex = 0;
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            using (var modal = new ModalformProveedor())
+            {
+                var resultado = modal.ShowDialog();
+            }
+        }
     }
 
 }

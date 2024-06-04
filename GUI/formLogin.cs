@@ -172,8 +172,6 @@ namespace GUI
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
-            List<Usuario> listaUsuario = new ServicioUsuario().Listar();
-
             Usuario usuario = new ServicioUsuario().Listar().Where(u => u.nombreUsuario == txtUsuario.Texts && u.clave == txtPassword.Texts).FirstOrDefault();
 
             if (usuario != null)

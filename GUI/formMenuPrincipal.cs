@@ -472,7 +472,7 @@ namespace GUI
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
             ActivateButton(btnRegistrarCompra, RGBColors.ColorSeleccion);
-            OpenFormSecundario(new formCompras());
+            OpenFormSecundario(new formCompras(usuarioActual));
         }
 
         private void btnVerDetalleCompra_Click(object sender, EventArgs e)

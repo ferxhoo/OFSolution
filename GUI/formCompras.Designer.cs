@@ -30,9 +30,9 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelCentrado = new System.Windows.Forms.Panel();
             this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
@@ -40,10 +40,10 @@ namespace GUI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBoxOFSolution7 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtTotal = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButtonOFSolution3 = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnRegistrarCompra = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.dgvDetallesCompra = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,29 +54,29 @@ namespace GUI
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBoxOFSolution6 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.textBoxOFSolution5 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.iconButtonOFSolution1 = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.textBoxOFSolution4 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.textBoxOFSolution3 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.nupCantidad = new System.Windows.Forms.NumericUpDown();
+            this.txtPrecioVenta = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtPrecioCompra = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.btnBuscarProducto = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.txtNombreProducto = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtCodigoProducto = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButtonOFSolution2 = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.btnAgregarDetalle = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerOFSolution1 = new GUI.Componentes_Personalizad.DateTimePickerOFSolution();
-            this.comboBoxOFSolution1 = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
+            this.dtpFecha = new GUI.Componentes_Personalizad.DateTimePickerOFSolution();
+            this.cmbDocFactura = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBoxOFSolution2 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.textBoxOFSolution1 = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.btnBuscarProveedor = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.txtIdProveedor = new System.Windows.Forms.TextBox();
+            this.txtProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtDocumentoProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelPrincipal.SuspendLayout();
@@ -87,10 +87,10 @@ namespace GUI
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCantidad)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -170,7 +170,7 @@ namespace GUI
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel5);
-            this.panel6.Controls.Add(this.dgvProductos);
+            this.panel6.Controls.Add(this.dgvDetallesCompra);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(8, 273);
             this.panel6.Name = "panel6";
@@ -180,7 +180,7 @@ namespace GUI
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBoxOFSolution7);
+            this.panel8.Controls.Add(this.txtTotal);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(1063, 4);
             this.panel8.Name = "panel8";
@@ -188,29 +188,29 @@ namespace GUI
             this.panel8.Size = new System.Drawing.Size(170, 362);
             this.panel8.TabIndex = 5;
             // 
-            // textBoxOFSolution7
+            // txtTotal
             // 
-            this.textBoxOFSolution7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution7.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution7.BorderRadius = 15;
-            this.textBoxOFSolution7.BorderSize = 2;
-            this.textBoxOFSolution7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution7.Location = new System.Drawing.Point(8, 321);
-            this.textBoxOFSolution7.Multiline = false;
-            this.textBoxOFSolution7.Name = "textBoxOFSolution7";
-            this.textBoxOFSolution7.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution7.PasswordChar = false;
-            this.textBoxOFSolution7.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution7.PlaceholderText = "Total a Pagar";
-            this.textBoxOFSolution7.Size = new System.Drawing.Size(149, 35);
-            this.textBoxOFSolution7.TabIndex = 2;
-            this.textBoxOFSolution7.Texts = "";
-            this.textBoxOFSolution7.UnderlinedStyle = true;
+            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtTotal.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtTotal.BorderRadius = 15;
+            this.txtTotal.BorderSize = 2;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(8, 321);
+            this.txtTotal.Multiline = false;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTotal.PasswordChar = false;
+            this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTotal.PlaceholderText = "Total a Pagar";
+            this.txtTotal.Size = new System.Drawing.Size(149, 35);
+            this.txtTotal.TabIndex = 2;
+            this.txtTotal.Texts = "";
+            this.txtTotal.UnderlinedStyle = true;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.iconButtonOFSolution3);
+            this.panel5.Controls.Add(this.btnRegistrarCompra);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(1063, 366);
             this.panel5.Name = "panel5";
@@ -218,47 +218,47 @@ namespace GUI
             this.panel5.Size = new System.Drawing.Size(170, 74);
             this.panel5.TabIndex = 4;
             // 
-            // iconButtonOFSolution3
+            // btnRegistrarCompra
             // 
-            this.iconButtonOFSolution3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.iconButtonOFSolution3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.iconButtonOFSolution3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.iconButtonOFSolution3.BorderRadius = 32;
-            this.iconButtonOFSolution3.BorderSize = 0;
-            this.iconButtonOFSolution3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButtonOFSolution3.FlatAppearance.BorderSize = 0;
-            this.iconButtonOFSolution3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonOFSolution3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonOFSolution3.ForeColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution3.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            this.iconButtonOFSolution3.IconColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonOFSolution3.IconSize = 40;
-            this.iconButtonOFSolution3.Location = new System.Drawing.Point(8, 8);
-            this.iconButtonOFSolution3.Name = "iconButtonOFSolution3";
-            this.iconButtonOFSolution3.Size = new System.Drawing.Size(154, 58);
-            this.iconButtonOFSolution3.TabIndex = 37;
-            this.iconButtonOFSolution3.Text = "Registrar";
-            this.iconButtonOFSolution3.TextColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonOFSolution3.UseVisualStyleBackColor = false;
+            this.btnRegistrarCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnRegistrarCompra.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnRegistrarCompra.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnRegistrarCompra.BorderRadius = 32;
+            this.btnRegistrarCompra.BorderSize = 0;
+            this.btnRegistrarCompra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRegistrarCompra.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarCompra.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarCompra.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
+            this.btnRegistrarCompra.IconColor = System.Drawing.Color.White;
+            this.btnRegistrarCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRegistrarCompra.IconSize = 40;
+            this.btnRegistrarCompra.Location = new System.Drawing.Point(8, 8);
+            this.btnRegistrarCompra.Name = "btnRegistrarCompra";
+            this.btnRegistrarCompra.Size = new System.Drawing.Size(154, 58);
+            this.btnRegistrarCompra.TabIndex = 37;
+            this.btnRegistrarCompra.Text = "Registrar";
+            this.btnRegistrarCompra.TextColor = System.Drawing.Color.White;
+            this.btnRegistrarCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrarCompra.UseVisualStyleBackColor = false;
             // 
-            // dgvProductos
+            // dgvDetallesCompra
             // 
-            this.dgvProductos.AllowUserToAddRows = false;
-            this.dgvProductos.AllowUserToResizeRows = false;
-            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetallesCompra.AllowUserToAddRows = false;
+            this.dgvDetallesCompra.AllowUserToResizeRows = false;
+            this.dgvDetallesCompra.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallesCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDetallesCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallesCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
             this.idProducto,
             this.producto,
@@ -267,32 +267,32 @@ namespace GUI
             this.precioVenta,
             this.subtotal,
             this.btnEliminar});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvProductos.Location = new System.Drawing.Point(4, 4);
-            this.dgvProductos.MultiSelect = false;
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvProductos.RowHeadersVisible = false;
-            this.dgvProductos.RowHeadersWidth = 49;
-            this.dgvProductos.RowTemplate.Height = 30;
-            this.dgvProductos.Size = new System.Drawing.Size(1059, 436);
-            this.dgvProductos.TabIndex = 3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetallesCompra.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetallesCompra.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvDetallesCompra.Location = new System.Drawing.Point(4, 4);
+            this.dgvDetallesCompra.MultiSelect = false;
+            this.dgvDetallesCompra.Name = "dgvDetallesCompra";
+            this.dgvDetallesCompra.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallesCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetallesCompra.RowHeadersVisible = false;
+            this.dgvDetallesCompra.RowHeadersWidth = 49;
+            this.dgvDetallesCompra.RowTemplate.Height = 30;
+            this.dgvDetallesCompra.Size = new System.Drawing.Size(1059, 436);
+            this.dgvDetallesCompra.TabIndex = 3;
             // 
             // btnSeleccionar
             // 
@@ -381,14 +381,14 @@ namespace GUI
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtIdProducto);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.textBoxOFSolution6);
-            this.groupBox3.Controls.Add(this.textBoxOFSolution5);
-            this.groupBox3.Controls.Add(this.iconButtonOFSolution1);
-            this.groupBox3.Controls.Add(this.textBoxOFSolution4);
-            this.groupBox3.Controls.Add(this.textBoxOFSolution3);
+            this.groupBox3.Controls.Add(this.nupCantidad);
+            this.groupBox3.Controls.Add(this.txtPrecioVenta);
+            this.groupBox3.Controls.Add(this.txtPrecioCompra);
+            this.groupBox3.Controls.Add(this.btnBuscarProducto);
+            this.groupBox3.Controls.Add(this.txtNombreProducto);
+            this.groupBox3.Controls.Add(this.txtCodigoProducto);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox3.Location = new System.Drawing.Point(5, 3);
             this.groupBox3.Name = "groupBox3";
@@ -397,12 +397,12 @@ namespace GUI
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información de Producto";
             // 
-            // textBox2
+            // txtIdProducto
             // 
-            this.textBox2.Location = new System.Drawing.Point(181, 14);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(45, 22);
-            this.textBox2.TabIndex = 40;
+            this.txtIdProducto.Location = new System.Drawing.Point(181, 14);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(45, 22);
+            this.txtIdProducto.TabIndex = 40;
             // 
             // label4
             // 
@@ -413,118 +413,118 @@ namespace GUI
             this.label4.TabIndex = 39;
             this.label4.Text = "Cantidad";
             // 
-            // numericUpDown1
+            // nupCantidad
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.02609F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(913, 42);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(115, 35);
-            this.numericUpDown1.TabIndex = 38;
+            this.nupCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.02609F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nupCantidad.Location = new System.Drawing.Point(913, 42);
+            this.nupCantidad.Name = "nupCantidad";
+            this.nupCantidad.Size = new System.Drawing.Size(115, 35);
+            this.nupCantidad.TabIndex = 38;
             // 
-            // textBoxOFSolution6
+            // txtPrecioVenta
             // 
-            this.textBoxOFSolution6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution6.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution6.BorderRadius = 15;
-            this.textBoxOFSolution6.BorderSize = 2;
-            this.textBoxOFSolution6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution6.Location = new System.Drawing.Point(736, 42);
-            this.textBoxOFSolution6.Multiline = false;
-            this.textBoxOFSolution6.Name = "textBoxOFSolution6";
-            this.textBoxOFSolution6.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution6.PasswordChar = false;
-            this.textBoxOFSolution6.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution6.PlaceholderText = "Precio Venta";
-            this.textBoxOFSolution6.Size = new System.Drawing.Size(153, 35);
-            this.textBoxOFSolution6.TabIndex = 37;
-            this.textBoxOFSolution6.Texts = "";
-            this.textBoxOFSolution6.UnderlinedStyle = true;
+            this.txtPrecioVenta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecioVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtPrecioVenta.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtPrecioVenta.BorderRadius = 15;
+            this.txtPrecioVenta.BorderSize = 2;
+            this.txtPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioVenta.Location = new System.Drawing.Point(736, 42);
+            this.txtPrecioVenta.Multiline = false;
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPrecioVenta.PasswordChar = false;
+            this.txtPrecioVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPrecioVenta.PlaceholderText = "Precio Venta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(153, 35);
+            this.txtPrecioVenta.TabIndex = 37;
+            this.txtPrecioVenta.Texts = "";
+            this.txtPrecioVenta.UnderlinedStyle = true;
             // 
-            // textBoxOFSolution5
+            // txtPrecioCompra
             // 
-            this.textBoxOFSolution5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution5.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution5.BorderRadius = 15;
-            this.textBoxOFSolution5.BorderSize = 2;
-            this.textBoxOFSolution5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution5.Location = new System.Drawing.Point(562, 42);
-            this.textBoxOFSolution5.Multiline = false;
-            this.textBoxOFSolution5.Name = "textBoxOFSolution5";
-            this.textBoxOFSolution5.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution5.PasswordChar = false;
-            this.textBoxOFSolution5.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution5.PlaceholderText = "Precio Compra";
-            this.textBoxOFSolution5.Size = new System.Drawing.Size(154, 35);
-            this.textBoxOFSolution5.TabIndex = 36;
-            this.textBoxOFSolution5.Texts = "";
-            this.textBoxOFSolution5.UnderlinedStyle = true;
+            this.txtPrecioCompra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecioCompra.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtPrecioCompra.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtPrecioCompra.BorderRadius = 15;
+            this.txtPrecioCompra.BorderSize = 2;
+            this.txtPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioCompra.Location = new System.Drawing.Point(562, 42);
+            this.txtPrecioCompra.Multiline = false;
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPrecioCompra.PasswordChar = false;
+            this.txtPrecioCompra.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPrecioCompra.PlaceholderText = "Precio Compra";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(154, 35);
+            this.txtPrecioCompra.TabIndex = 36;
+            this.txtPrecioCompra.Texts = "";
+            this.txtPrecioCompra.UnderlinedStyle = true;
             // 
-            // iconButtonOFSolution1
+            // btnBuscarProducto
             // 
-            this.iconButtonOFSolution1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.iconButtonOFSolution1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.iconButtonOFSolution1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.iconButtonOFSolution1.BorderRadius = 32;
-            this.iconButtonOFSolution1.BorderSize = 0;
-            this.iconButtonOFSolution1.FlatAppearance.BorderSize = 0;
-            this.iconButtonOFSolution1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonOFSolution1.ForeColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution1.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.iconButtonOFSolution1.IconColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonOFSolution1.IconSize = 25;
-            this.iconButtonOFSolution1.Location = new System.Drawing.Point(496, 42);
-            this.iconButtonOFSolution1.Name = "iconButtonOFSolution1";
-            this.iconButtonOFSolution1.Size = new System.Drawing.Size(46, 35);
-            this.iconButtonOFSolution1.TabIndex = 35;
-            this.iconButtonOFSolution1.TextColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution1.UseVisualStyleBackColor = false;
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnBuscarProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnBuscarProducto.BorderRadius = 32;
+            this.btnBuscarProducto.BorderSize = 0;
+            this.btnBuscarProducto.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.btnBuscarProducto.IconColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarProducto.IconSize = 25;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(496, 42);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(46, 35);
+            this.btnBuscarProducto.TabIndex = 35;
+            this.btnBuscarProducto.TextColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
             // 
-            // textBoxOFSolution4
+            // txtNombreProducto
             // 
-            this.textBoxOFSolution4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution4.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution4.BorderRadius = 15;
-            this.textBoxOFSolution4.BorderSize = 2;
-            this.textBoxOFSolution4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution4.Location = new System.Drawing.Point(212, 42);
-            this.textBoxOFSolution4.Multiline = false;
-            this.textBoxOFSolution4.Name = "textBoxOFSolution4";
-            this.textBoxOFSolution4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution4.PasswordChar = false;
-            this.textBoxOFSolution4.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution4.PlaceholderText = "Producto";
-            this.textBoxOFSolution4.Size = new System.Drawing.Size(262, 35);
-            this.textBoxOFSolution4.TabIndex = 2;
-            this.textBoxOFSolution4.Texts = "";
-            this.textBoxOFSolution4.UnderlinedStyle = true;
+            this.txtNombreProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombreProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtNombreProducto.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtNombreProducto.BorderRadius = 15;
+            this.txtNombreProducto.BorderSize = 2;
+            this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreProducto.Location = new System.Drawing.Point(212, 42);
+            this.txtNombreProducto.Multiline = false;
+            this.txtNombreProducto.Name = "txtNombreProducto";
+            this.txtNombreProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNombreProducto.PasswordChar = false;
+            this.txtNombreProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNombreProducto.PlaceholderText = "Producto";
+            this.txtNombreProducto.Size = new System.Drawing.Size(262, 35);
+            this.txtNombreProducto.TabIndex = 2;
+            this.txtNombreProducto.Texts = "";
+            this.txtNombreProducto.UnderlinedStyle = true;
             // 
-            // textBoxOFSolution3
+            // txtCodigoProducto
             // 
-            this.textBoxOFSolution3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution3.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution3.BorderRadius = 15;
-            this.textBoxOFSolution3.BorderSize = 2;
-            this.textBoxOFSolution3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution3.Location = new System.Drawing.Point(14, 42);
-            this.textBoxOFSolution3.Multiline = false;
-            this.textBoxOFSolution3.Name = "textBoxOFSolution3";
-            this.textBoxOFSolution3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution3.PasswordChar = false;
-            this.textBoxOFSolution3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution3.PlaceholderText = "Codigo de Producto";
-            this.textBoxOFSolution3.Size = new System.Drawing.Size(174, 35);
-            this.textBoxOFSolution3.TabIndex = 1;
-            this.textBoxOFSolution3.Texts = "";
-            this.textBoxOFSolution3.UnderlinedStyle = true;
+            this.txtCodigoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtCodigoProducto.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtCodigoProducto.BorderRadius = 15;
+            this.txtCodigoProducto.BorderSize = 2;
+            this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoProducto.Location = new System.Drawing.Point(14, 42);
+            this.txtCodigoProducto.Multiline = false;
+            this.txtCodigoProducto.Name = "txtCodigoProducto";
+            this.txtCodigoProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCodigoProducto.PasswordChar = false;
+            this.txtCodigoProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtCodigoProducto.PlaceholderText = "Codigo de Producto";
+            this.txtCodigoProducto.Size = new System.Drawing.Size(174, 35);
+            this.txtCodigoProducto.TabIndex = 1;
+            this.txtCodigoProducto.Texts = "";
+            this.txtCodigoProducto.UnderlinedStyle = true;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.iconButtonOFSolution2);
+            this.panel4.Controls.Add(this.btnAgregarDetalle);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(1069, 3);
             this.panel4.Name = "panel4";
@@ -532,30 +532,30 @@ namespace GUI
             this.panel4.Size = new System.Drawing.Size(162, 95);
             this.panel4.TabIndex = 1;
             // 
-            // iconButtonOFSolution2
+            // btnAgregarDetalle
             // 
-            this.iconButtonOFSolution2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(181)))), ((int)(((byte)(246)))));
-            this.iconButtonOFSolution2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(181)))), ((int)(((byte)(246)))));
-            this.iconButtonOFSolution2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.iconButtonOFSolution2.BorderRadius = 32;
-            this.iconButtonOFSolution2.BorderSize = 0;
-            this.iconButtonOFSolution2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButtonOFSolution2.FlatAppearance.BorderSize = 0;
-            this.iconButtonOFSolution2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonOFSolution2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonOFSolution2.ForeColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution2.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButtonOFSolution2.IconColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonOFSolution2.IconSize = 40;
-            this.iconButtonOFSolution2.Location = new System.Drawing.Point(2, 2);
-            this.iconButtonOFSolution2.Name = "iconButtonOFSolution2";
-            this.iconButtonOFSolution2.Size = new System.Drawing.Size(158, 91);
-            this.iconButtonOFSolution2.TabIndex = 37;
-            this.iconButtonOFSolution2.Text = "Agregar Producto";
-            this.iconButtonOFSolution2.TextColor = System.Drawing.Color.White;
-            this.iconButtonOFSolution2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonOFSolution2.UseVisualStyleBackColor = false;
+            this.btnAgregarDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(181)))), ((int)(((byte)(246)))));
+            this.btnAgregarDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(181)))), ((int)(((byte)(246)))));
+            this.btnAgregarDetalle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnAgregarDetalle.BorderRadius = 32;
+            this.btnAgregarDetalle.BorderSize = 0;
+            this.btnAgregarDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarDetalle.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarDetalle.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarDetalle.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAgregarDetalle.IconColor = System.Drawing.Color.White;
+            this.btnAgregarDetalle.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarDetalle.IconSize = 40;
+            this.btnAgregarDetalle.Location = new System.Drawing.Point(2, 2);
+            this.btnAgregarDetalle.Name = "btnAgregarDetalle";
+            this.btnAgregarDetalle.Size = new System.Drawing.Size(158, 91);
+            this.btnAgregarDetalle.TabIndex = 37;
+            this.btnAgregarDetalle.Text = "Agregar Producto";
+            this.btnAgregarDetalle.TextColor = System.Drawing.Color.White;
+            this.btnAgregarDetalle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarDetalle.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -601,8 +601,8 @@ namespace GUI
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePickerOFSolution1);
-            this.groupBox1.Controls.Add(this.comboBoxOFSolution1);
+            this.groupBox1.Controls.Add(this.dtpFecha);
+            this.groupBox1.Controls.Add(this.cmbDocFactura);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
@@ -630,44 +630,44 @@ namespace GUI
             this.label2.TabIndex = 3;
             this.label2.Text = "Fecha:";
             // 
-            // dateTimePickerOFSolution1
+            // dtpFecha
             // 
-            this.dateTimePickerOFSolution1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dateTimePickerOFSolution1.BorderSize = 0;
-            this.dateTimePickerOFSolution1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dateTimePickerOFSolution1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerOFSolution1.Location = new System.Drawing.Point(14, 42);
-            this.dateTimePickerOFSolution1.MinimumSize = new System.Drawing.Size(4, 35);
-            this.dateTimePickerOFSolution1.Name = "dateTimePickerOFSolution1";
-            this.dateTimePickerOFSolution1.Size = new System.Drawing.Size(183, 35);
-            this.dateTimePickerOFSolution1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
-            this.dateTimePickerOFSolution1.TabIndex = 2;
-            this.dateTimePickerOFSolution1.TextColor = System.Drawing.Color.White;
+            this.dtpFecha.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dtpFecha.BorderSize = 0;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(14, 42);
+            this.dtpFecha.MinimumSize = new System.Drawing.Size(4, 35);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(183, 35);
+            this.dtpFecha.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
+            this.dtpFecha.TabIndex = 2;
+            this.dtpFecha.TextColor = System.Drawing.Color.White;
             // 
-            // comboBoxOFSolution1
+            // cmbDocFactura
             // 
-            this.comboBoxOFSolution1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.comboBoxOFSolution1.BorderSize = 1;
-            this.comboBoxOFSolution1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.comboBoxOFSolution1.ForeColor = System.Drawing.Color.DimGray;
-            this.comboBoxOFSolution1.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxOFSolution1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.comboBoxOFSolution1.ListTextColor = System.Drawing.Color.DimGray;
-            this.comboBoxOFSolution1.Location = new System.Drawing.Point(216, 42);
-            this.comboBoxOFSolution1.MinimumSize = new System.Drawing.Size(200, 30);
-            this.comboBoxOFSolution1.Name = "comboBoxOFSolution1";
-            this.comboBoxOFSolution1.Padding = new System.Windows.Forms.Padding(1);
-            this.comboBoxOFSolution1.Size = new System.Drawing.Size(258, 35);
-            this.comboBoxOFSolution1.TabIndex = 1;
-            this.comboBoxOFSolution1.Texts = "";
+            this.cmbDocFactura.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.cmbDocFactura.BorderSize = 1;
+            this.cmbDocFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDocFactura.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbDocFactura.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbDocFactura.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbDocFactura.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbDocFactura.Location = new System.Drawing.Point(216, 42);
+            this.cmbDocFactura.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbDocFactura.Name = "cmbDocFactura";
+            this.cmbDocFactura.Padding = new System.Windows.Forms.Padding(1);
+            this.cmbDocFactura.Size = new System.Drawing.Size(258, 35);
+            this.cmbDocFactura.TabIndex = 1;
+            this.cmbDocFactura.Texts = "";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBoxOFSolution2);
-            this.groupBox2.Controls.Add(this.textBoxOFSolution1);
+            this.groupBox2.Controls.Add(this.btnBuscarProveedor);
+            this.groupBox2.Controls.Add(this.txtIdProveedor);
+            this.groupBox2.Controls.Add(this.txtProveedor);
+            this.groupBox2.Controls.Add(this.txtDocumentoProveedor);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(505, 3);
@@ -677,73 +677,74 @@ namespace GUI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información del Proveedor";
             // 
-            // btnBuscar
+            // btnBuscarProveedor
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.btnBuscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.btnBuscar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnBuscar.BorderRadius = 32;
-            this.btnBuscar.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.btnBuscar.IconColor = System.Drawing.Color.White;
-            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscar.IconSize = 25;
-            this.btnBuscar.Location = new System.Drawing.Point(496, 42);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(46, 35);
-            this.btnBuscar.TabIndex = 33;
-            this.btnBuscar.TextColor = System.Drawing.Color.White;
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnBuscarProveedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnBuscarProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnBuscarProveedor.BorderRadius = 32;
+            this.btnBuscarProveedor.BorderSize = 0;
+            this.btnBuscarProveedor.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProveedor.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.btnBuscarProveedor.IconColor = System.Drawing.Color.White;
+            this.btnBuscarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarProveedor.IconSize = 25;
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(496, 42);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(46, 35);
+            this.btnBuscarProveedor.TabIndex = 33;
+            this.btnBuscarProveedor.TextColor = System.Drawing.Color.White;
+            this.btnBuscarProveedor.UseVisualStyleBackColor = false;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
             // 
-            // textBox1
+            // txtIdProveedor
             // 
-            this.textBox1.Location = new System.Drawing.Point(360, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(45, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtIdProveedor.Location = new System.Drawing.Point(360, 14);
+            this.txtIdProveedor.Name = "txtIdProveedor";
+            this.txtIdProveedor.Size = new System.Drawing.Size(45, 22);
+            this.txtIdProveedor.TabIndex = 3;
             // 
-            // textBoxOFSolution2
+            // txtProveedor
             // 
-            this.textBoxOFSolution2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution2.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution2.BorderRadius = 15;
-            this.textBoxOFSolution2.BorderSize = 2;
-            this.textBoxOFSolution2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution2.Location = new System.Drawing.Point(212, 42);
-            this.textBoxOFSolution2.Multiline = false;
-            this.textBoxOFSolution2.Name = "textBoxOFSolution2";
-            this.textBoxOFSolution2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution2.PasswordChar = false;
-            this.textBoxOFSolution2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution2.PlaceholderText = "Razón Social";
-            this.textBoxOFSolution2.Size = new System.Drawing.Size(256, 35);
-            this.textBoxOFSolution2.TabIndex = 1;
-            this.textBoxOFSolution2.Texts = "";
-            this.textBoxOFSolution2.UnderlinedStyle = true;
+            this.txtProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtProveedor.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtProveedor.BorderRadius = 15;
+            this.txtProveedor.BorderSize = 2;
+            this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProveedor.Location = new System.Drawing.Point(212, 42);
+            this.txtProveedor.Multiline = false;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtProveedor.PasswordChar = false;
+            this.txtProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtProveedor.PlaceholderText = "Razón Social";
+            this.txtProveedor.Size = new System.Drawing.Size(256, 35);
+            this.txtProveedor.TabIndex = 1;
+            this.txtProveedor.Texts = "";
+            this.txtProveedor.UnderlinedStyle = true;
             // 
-            // textBoxOFSolution1
+            // txtDocumentoProveedor
             // 
-            this.textBoxOFSolution1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxOFSolution1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.textBoxOFSolution1.BorderFocusColor = System.Drawing.Color.Red;
-            this.textBoxOFSolution1.BorderRadius = 15;
-            this.textBoxOFSolution1.BorderSize = 2;
-            this.textBoxOFSolution1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOFSolution1.Location = new System.Drawing.Point(18, 42);
-            this.textBoxOFSolution1.Multiline = false;
-            this.textBoxOFSolution1.Name = "textBoxOFSolution1";
-            this.textBoxOFSolution1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBoxOFSolution1.PasswordChar = false;
-            this.textBoxOFSolution1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBoxOFSolution1.PlaceholderText = "N° de Documento";
-            this.textBoxOFSolution1.Size = new System.Drawing.Size(185, 35);
-            this.textBoxOFSolution1.TabIndex = 0;
-            this.textBoxOFSolution1.Texts = "";
-            this.textBoxOFSolution1.UnderlinedStyle = true;
+            this.txtDocumentoProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDocumentoProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtDocumentoProveedor.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtDocumentoProveedor.BorderRadius = 15;
+            this.txtDocumentoProveedor.BorderSize = 2;
+            this.txtDocumentoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocumentoProveedor.Location = new System.Drawing.Point(18, 42);
+            this.txtDocumentoProveedor.Multiline = false;
+            this.txtDocumentoProveedor.Name = "txtDocumentoProveedor";
+            this.txtDocumentoProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDocumentoProveedor.PasswordChar = false;
+            this.txtDocumentoProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDocumentoProveedor.PlaceholderText = "N° de Documento";
+            this.txtDocumentoProveedor.Size = new System.Drawing.Size(185, 35);
+            this.txtDocumentoProveedor.TabIndex = 0;
+            this.txtDocumentoProveedor.Texts = "";
+            this.txtDocumentoProveedor.UnderlinedStyle = true;
             // 
             // panel2
             // 
@@ -771,6 +772,7 @@ namespace GUI
             this.Controls.Add(this.panelPrincipal);
             this.Name = "formCompras";
             this.Text = "formCompras";
+            this.Load += new System.EventHandler(this.formCompras_Load);
             this.panelPrincipal.ResumeLayout(false);
             this.panelCentrado.ResumeLayout(false);
             this.panelOFSolution1.ResumeLayout(false);
@@ -779,11 +781,11 @@ namespace GUI
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCantidad)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -810,15 +812,15 @@ namespace GUI
         private FlowLayoutPanel flowLayoutPanel1;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Componentes_Personalizad.ComboBoxOFSolution comboBoxOFSolution1;
-        private TextBox textBox1;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution2;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution1;
+        private Componentes_Personalizad.ComboBoxOFSolution cmbDocFactura;
+        private TextBox txtIdProveedor;
+        private Componentes_Personalizad.TextBoxOFSolution txtProveedor;
+        private Componentes_Personalizad.TextBoxOFSolution txtDocumentoProveedor;
         private Label label3;
         private Label label2;
-        private Componentes_Personalizad.DateTimePickerOFSolution dateTimePickerOFSolution1;
+        private Componentes_Personalizad.DateTimePickerOFSolution dtpFecha;
         private Panel panel6;
-        private DataGridView dgvProductos;
+        private DataGridView dgvDetallesCompra;
         private DataGridViewButtonColumn btnSeleccionar;
         private DataGridViewTextBoxColumn idProducto;
         private DataGridViewTextBoxColumn producto;
@@ -829,21 +831,21 @@ namespace GUI
         private DataGridViewButtonColumn btnEliminar;
         private FlowLayoutPanel flowLayoutPanel2;
         private GroupBox groupBox3;
-        private Componentes_Personalizad.IconButtonOFSolution btnBuscar;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution6;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution5;
-        private Componentes_Personalizad.IconButtonOFSolution iconButtonOFSolution1;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution4;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution3;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox2;
+        private Componentes_Personalizad.IconButtonOFSolution btnBuscarProveedor;
+        private Componentes_Personalizad.TextBoxOFSolution txtPrecioVenta;
+        private Componentes_Personalizad.TextBoxOFSolution txtPrecioCompra;
+        private Componentes_Personalizad.IconButtonOFSolution btnBuscarProducto;
+        private Componentes_Personalizad.TextBoxOFSolution txtNombreProducto;
+        private Componentes_Personalizad.TextBoxOFSolution txtCodigoProducto;
+        private NumericUpDown nupCantidad;
+        private TextBox txtIdProducto;
         private Label label4;
         private Panel panel4;
-        private Componentes_Personalizad.IconButtonOFSolution iconButtonOFSolution2;
+        private Componentes_Personalizad.IconButtonOFSolution btnAgregarDetalle;
         private Panel panel5;
-        private Componentes_Personalizad.IconButtonOFSolution iconButtonOFSolution3;
+        private Componentes_Personalizad.IconButtonOFSolution btnRegistrarCompra;
         private Panel panel8;
-        private Componentes_Personalizad.TextBoxOFSolution textBoxOFSolution7;
+        private Componentes_Personalizad.TextBoxOFSolution txtTotal;
     }
 
 }
