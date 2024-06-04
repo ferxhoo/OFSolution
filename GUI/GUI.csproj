@@ -136,6 +136,9 @@
     <Compile Include="Componentes Personalizad\ComboBoxOFSolution.Designer.cs">
       <DependentUpon>ComboBoxOFSolution.cs</DependentUpon>
     </Compile>
+    <Compile Include="Componentes Personalizad\DateTimePickerOFSolution.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Componentes Personalizad\IconButtonOFSolution.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -322,6 +325,8 @@
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Con Fondo - OFSolution.jpg" />
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo Sin Fondo -OFSolution.png" />
     <Content Include="RecursoVisual\ICONO BARRA TITULO\IconoTitulo-OFSolution.ico" />
+    <Content Include="RecursoVisual\Icono Controles\CalendarioDark16px.png" />
+    <Content Include="RecursoVisual\Icono Controles\CalendarioWhite16px.png" />
     <Content Include="RecursoVisual\Icono Controles\Check_Blanco.png" />
     <Content Include="RecursoVisual\Icono Controles\Check_Negro.png" />
     <Content Include="RecursoVisual\Icono Controles\Check_OF.png" />

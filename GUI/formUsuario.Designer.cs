@@ -483,7 +483,7 @@
             this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
             this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Backspace;
             this.btnLimpiarBusqueda.IconColor = System.Drawing.Color.White;
             this.btnLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiarBusqueda.IconSize = 25;

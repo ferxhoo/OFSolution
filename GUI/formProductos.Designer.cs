@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbEstado = new GUI.Componentes_Personalizad.ComboBoxOFSolution();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -68,16 +68,8 @@
             this.txtBuscar = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnBuscar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.btnLimpiarBusqueda = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.panelInferior = new System.Windows.Forms.Panel();
-            this.txtIndice = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.panelRegistro = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnDescargar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +82,14 @@
             this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnDescargar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.panelInferior = new System.Windows.Forms.Panel();
+            this.txtIndice = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.panelSuperior = new System.Windows.Forms.Panel();
+            this.panelRegistro = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel8.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -106,12 +106,12 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel14.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panelInferior.SuspendLayout();
             this.panelRegistro.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbEstado
@@ -669,7 +669,7 @@
             this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
             this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Backspace;
             this.btnLimpiarBusqueda.IconColor = System.Drawing.Color.White;
             this.btnLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiarBusqueda.IconSize = 25;
@@ -681,66 +681,6 @@
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
             this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
-            // panelInferior
-            // 
-            this.panelInferior.Controls.Add(this.txtIndice);
-            this.panelInferior.Controls.Add(this.txtId);
-            this.panelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInferior.Location = new System.Drawing.Point(0, 709);
-            this.panelInferior.Name = "panelInferior";
-            this.panelInferior.Size = new System.Drawing.Size(992, 20);
-            this.panelInferior.TabIndex = 1;
-            // 
-            // txtIndice
-            // 
-            this.txtIndice.Location = new System.Drawing.Point(13, 0);
-            this.txtIndice.Name = "txtIndice";
-            this.txtIndice.Size = new System.Drawing.Size(35, 22);
-            this.txtIndice.TabIndex = 14;
-            this.txtIndice.Text = "-1";
-            this.txtIndice.Visible = false;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(54, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(35, 22);
-            this.txtId.TabIndex = 13;
-            this.txtId.Text = "0";
-            this.txtId.Visible = false;
-            // 
-            // panelSuperior
-            // 
-            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(992, 20);
-            this.panelSuperior.TabIndex = 0;
-            // 
-            // panelRegistro
-            // 
-            this.panelRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelRegistro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelRegistro.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.panelRegistro.BorderRadius = 20;
-            this.panelRegistro.BorderSize = 0;
-            this.panelRegistro.Controls.Add(this.panel13);
-            this.panelRegistro.Controls.Add(this.panel12);
-            this.panelRegistro.Controls.Add(this.panel8);
-            this.panelRegistro.Controls.Add(this.panel3);
-            this.panelRegistro.Controls.Add(this.panel2);
-            this.panelRegistro.Controls.Add(this.panel1);
-            this.panelRegistro.Controls.Add(this.panel11);
-            this.panelRegistro.Controls.Add(this.panel10);
-            this.panelRegistro.Controls.Add(this.panel9);
-            this.panelRegistro.Controls.Add(this.lblTituloRegistro);
-            this.panelRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistro.Location = new System.Drawing.Point(8, 8);
-            this.panelRegistro.Name = "panelRegistro";
-            this.panelRegistro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panelRegistro.Size = new System.Drawing.Size(250, 729);
-            this.panelRegistro.TabIndex = 2;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dgvProductos);
@@ -751,29 +691,19 @@
             this.panel4.Size = new System.Drawing.Size(966, 573);
             this.panel4.TabIndex = 2;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 498);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(0, 17, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(966, 75);
-            this.panel5.TabIndex = 0;
-            // 
             // dgvProductos
             // 
             this.dgvProductos.AllowUserToAddRows = false;
             this.dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -788,27 +718,27 @@
             this.precioVenta,
             this.estado,
             this.valorEstado});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductos.Location = new System.Drawing.Point(0, 0);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 49;
             this.dgvProductos.RowTemplate.Height = 30;
@@ -816,47 +746,6 @@
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvProductos_CellPainting);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btnDescargar);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 17);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10);
-            this.panel6.Size = new System.Drawing.Size(966, 58);
-            this.panel6.TabIndex = 0;
-            // 
-            // btnDescargar
-            // 
-            this.btnDescargar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnDescargar.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnDescargar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnDescargar.BorderRadius = 35;
-            this.btnDescargar.BorderSize = 0;
-            this.btnDescargar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDescargar.FlatAppearance.BorderSize = 0;
-            this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescargar.ForeColor = System.Drawing.Color.White;
-            this.btnDescargar.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnDescargar.IconColor = System.Drawing.Color.White;
-            this.btnDescargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDescargar.IconSize = 25;
-            this.btnDescargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescargar.Location = new System.Drawing.Point(10, 10);
-            this.btnDescargar.Name = "btnDescargar";
-            this.btnDescargar.Padding = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.btnDescargar.Size = new System.Drawing.Size(161, 36);
-            this.btnDescargar.TabIndex = 1;
-            this.btnDescargar.Text = "Descargar Excel";
-            this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescargar.TextColor = System.Drawing.Color.White;
-            this.btnDescargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDescargar.UseVisualStyleBackColor = false;
-            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
             // btnSeleccionar
             // 
@@ -964,6 +853,117 @@
             this.valorEstado.Visible = false;
             this.valorEstado.Width = 120;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 498);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(0, 17, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(966, 75);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btnDescargar);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 17);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10);
+            this.panel6.Size = new System.Drawing.Size(966, 58);
+            this.panel6.TabIndex = 0;
+            // 
+            // btnDescargar
+            // 
+            this.btnDescargar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnDescargar.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnDescargar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnDescargar.BorderRadius = 35;
+            this.btnDescargar.BorderSize = 0;
+            this.btnDescargar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDescargar.FlatAppearance.BorderSize = 0;
+            this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescargar.ForeColor = System.Drawing.Color.White;
+            this.btnDescargar.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            this.btnDescargar.IconColor = System.Drawing.Color.White;
+            this.btnDescargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDescargar.IconSize = 25;
+            this.btnDescargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescargar.Location = new System.Drawing.Point(10, 10);
+            this.btnDescargar.Name = "btnDescargar";
+            this.btnDescargar.Padding = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.btnDescargar.Size = new System.Drawing.Size(161, 36);
+            this.btnDescargar.TabIndex = 1;
+            this.btnDescargar.Text = "Descargar Excel";
+            this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescargar.TextColor = System.Drawing.Color.White;
+            this.btnDescargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescargar.UseVisualStyleBackColor = false;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
+            // 
+            // panelInferior
+            // 
+            this.panelInferior.Controls.Add(this.txtIndice);
+            this.panelInferior.Controls.Add(this.txtId);
+            this.panelInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInferior.Location = new System.Drawing.Point(0, 709);
+            this.panelInferior.Name = "panelInferior";
+            this.panelInferior.Size = new System.Drawing.Size(992, 20);
+            this.panelInferior.TabIndex = 1;
+            // 
+            // txtIndice
+            // 
+            this.txtIndice.Location = new System.Drawing.Point(13, 0);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(35, 22);
+            this.txtIndice.TabIndex = 14;
+            this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(54, 0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(35, 22);
+            this.txtId.TabIndex = 13;
+            this.txtId.Text = "0";
+            this.txtId.Visible = false;
+            // 
+            // panelSuperior
+            // 
+            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
+            this.panelSuperior.Name = "panelSuperior";
+            this.panelSuperior.Size = new System.Drawing.Size(992, 20);
+            this.panelSuperior.TabIndex = 0;
+            // 
+            // panelRegistro
+            // 
+            this.panelRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelRegistro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelRegistro.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.panelRegistro.BorderRadius = 20;
+            this.panelRegistro.BorderSize = 0;
+            this.panelRegistro.Controls.Add(this.panel13);
+            this.panelRegistro.Controls.Add(this.panel12);
+            this.panelRegistro.Controls.Add(this.panel8);
+            this.panelRegistro.Controls.Add(this.panel3);
+            this.panelRegistro.Controls.Add(this.panel2);
+            this.panelRegistro.Controls.Add(this.panel1);
+            this.panelRegistro.Controls.Add(this.panel11);
+            this.panelRegistro.Controls.Add(this.panel10);
+            this.panelRegistro.Controls.Add(this.panel9);
+            this.panelRegistro.Controls.Add(this.lblTituloRegistro);
+            this.panelRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRegistro.Location = new System.Drawing.Point(8, 8);
+            this.panelRegistro.Name = "panelRegistro";
+            this.panelRegistro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.panelRegistro.Size = new System.Drawing.Size(250, 729);
+            this.panelRegistro.TabIndex = 2;
+            // 
             // formProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -990,13 +990,13 @@
             this.panel14.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panelInferior.ResumeLayout(false);
             this.panelInferior.PerformLayout();
             this.panelRegistro.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
