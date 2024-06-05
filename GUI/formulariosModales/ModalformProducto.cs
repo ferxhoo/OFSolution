@@ -13,27 +13,26 @@ using System.Windows.Forms;
 
 namespace GUI.formulariosModales
 {
-    public partial class ModalformProveedor : Form
+    public partial class ModalformProducto : Form
     {
+        public Producto productoSeleccionado { get; set; }
 
-        public Proveedor proveedorSeleccionado { get; set; }
-
-        public ModalformProveedor()
+        public ModalformProducto()
         {
             InitializeComponent();
         }
 
-        private void ModalformProveedor_Load(object sender, EventArgs e)
+        private void ModalformProducto_Load(object sender, EventArgs e)
         {
             CargarCmbBuscar();
             CargarDataTable();
-            dgvProveedores.ClearSelection();
+            dgvProductos.ClearSelection();
         }
 
         private void CargarCmbBuscar()
         {
             //cargar combobox busqueda
-            foreach (DataGridViewColumn columna in dgvProveedores.Columns)
+            foreach (DataGridViewColumn columna in dgvProductos.Columns)
             {
 
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
@@ -49,31 +48,33 @@ namespace GUI.formulariosModales
         private void CargarDataTable()
         {
             // Limpiar las filas existentes en el DataGridView
-            dgvProveedores.Rows.Clear();
+            dgvProductos.Rows.Clear();
 
-            // Mostrar todos los usuarios
-            List<Proveedor> lista = new ServicioProveedor().Listar();
+            List<Producto> lista = new ServicioProducto().Listar();
 
-            foreach (Proveedor item in lista)
+            foreach (Producto item in lista)
             {
-                dgvProveedores.Rows.Add(new object[] {
+                dgvProductos.Rows.Add(new object[] {
                     "",
-                    item.idProveedor,
-                    item.documento,
-                    item.nombreCompleto,
-                    item.razonSocial,
+                    item.idProducto,
+                    item.codigo,
+                    item.nombre,
+                    item.categoria.idCategoria,
+                    item.categoria.descripcion,
+                    item.stock,
+                    item.precioCompra,
+                    item.precioVenta,
                 });
             }
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string columnaFiltro = ((OpcionComboBox)cmbBusqueda.SelectedItem).Valor.ToString();
 
-            if (dgvProveedores.Rows.Count > 0)
+            if (dgvProductos.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgvProveedores.Rows)
+                foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
 
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Texts.Trim().ToUpper()))
@@ -88,13 +89,13 @@ namespace GUI.formulariosModales
         {
             txtBuscar.Texts = string.Empty;
             cmbBusqueda.SelectedIndex = 0;
-            foreach (DataGridViewRow row in dgvProveedores.Rows)
+            foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 row.Visible = true;
             }
         }
 
-        private void dgvProveedores_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dgvProductos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -121,11 +122,14 @@ namespace GUI.formulariosModales
 
             if (iRow >= 0 && iColum >= 0)
             {
-                proveedorSeleccionado = new Proveedor()
+                productoSeleccionado = new Producto()
                 {
-                    idProveedor = Convert.ToInt32(dgvProveedores.Rows[iRow].Cells["idProveedor"].Value.ToString()),
-                    documento = dgvProveedores.Rows[iRow].Cells["documento"].Value.ToString(),
-                    razonSocial = dgvProveedores.Rows[iRow].Cells["razonSocial"].Value.ToString()
+                    idProducto = Convert.ToInt32(dgvProductos.Rows[iRow].Cells["idProducto"].Value.ToString()),
+                    codigo = dgvProductos.Rows[iRow].Cells["codigo"].Value.ToString(),
+                    nombre = dgvProductos.Rows[iRow].Cells["nombre"].Value.ToString(),
+                    precioCompra = Convert.ToDecimal(dgvProductos.Rows[iRow].Cells["precioCompra"].Value),
+                    precioVenta = Convert.ToDecimal(dgvProductos.Rows[iRow].Cells["precioVenta"].Value),
+                    stock = Convert.ToInt32(dgvProductos.Rows[iRow].Cells["stock"].Value)
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -133,17 +137,18 @@ namespace GUI.formulariosModales
             }
         }
 
-
-        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
         }
 
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
         }
 
+
+        #region barra de titulo
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -169,5 +174,9 @@ namespace GUI.formulariosModales
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
+
+        #endregion
+
+        
     }
 }

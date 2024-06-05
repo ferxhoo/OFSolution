@@ -69,7 +69,43 @@ namespace GUI
         {
             using (var modal = new ModalformProveedor())
             {
-                var resultado = modal.ShowDialog();
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtIdProveedor.Text = modal.proveedorSeleccionado.idProveedor.ToString();
+                    txtDocumentoProveedor.Texts = modal.proveedorSeleccionado.documento;
+                    txtProveedor.Texts = modal.proveedorSeleccionado.razonSocial;
+                }
+                else
+                {
+                    txtDocumentoProveedor.Select();
+                }
+
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            using (var modal = new ModalformProducto())
+            {
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtIdProducto.Text = modal.productoSeleccionado.idProducto.ToString();
+                    txtCodigoProducto.Texts = modal.productoSeleccionado.codigo;
+                    txtNombreProducto.Texts = modal.productoSeleccionado.nombre;
+                    txtPrecioCompra.Select();
+                    if(nupCantidad.Value > 0)
+                        nupCantidad.Value = 0;
+                    nupCantidad.UpButton();
+                }
+                else
+                {
+                    txtCodigoProducto.Select();
+                }
+
             }
         }
     }

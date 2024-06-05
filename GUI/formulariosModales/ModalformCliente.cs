@@ -13,27 +13,27 @@ using System.Windows.Forms;
 
 namespace GUI.formulariosModales
 {
-    public partial class ModalformProveedor : Form
+    public partial class ModalformCliente : Form
     {
 
-        public Proveedor proveedorSeleccionado { get; set; }
+        public Cliente clienteSeleccionado  { get; set; }
 
-        public ModalformProveedor()
+        public ModalformCliente()
         {
             InitializeComponent();
         }
 
-        private void ModalformProveedor_Load(object sender, EventArgs e)
+        private void ModalformCliente_Load(object sender, EventArgs e)
         {
             CargarCmbBuscar();
             CargarDataTable();
-            dgvProveedores.ClearSelection();
+            dgvClientes.ClearSelection();
         }
 
         private void CargarCmbBuscar()
         {
             //cargar combobox busqueda
-            foreach (DataGridViewColumn columna in dgvProveedores.Columns)
+            foreach (DataGridViewColumn columna in dgvClientes.Columns)
             {
 
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
@@ -49,31 +49,31 @@ namespace GUI.formulariosModales
         private void CargarDataTable()
         {
             // Limpiar las filas existentes en el DataGridView
-            dgvProveedores.Rows.Clear();
+            dgvClientes.Rows.Clear();
 
             // Mostrar todos los usuarios
-            List<Proveedor> lista = new ServicioProveedor().Listar();
+            List<Cliente> lista = new ServicioCliente().Listar();
 
-            foreach (Proveedor item in lista)
+            foreach (Cliente item in lista)
             {
-                dgvProveedores.Rows.Add(new object[] {
+                dgvClientes.Rows.Add(new object[] {
                     "",
-                    item.idProveedor,
+                    item.idCliente,
                     item.documento,
                     item.nombreCompleto,
-                    item.razonSocial,
+                    item.correo,
+                    item.telefono,
                 });
             }
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string columnaFiltro = ((OpcionComboBox)cmbBusqueda.SelectedItem).Valor.ToString();
 
-            if (dgvProveedores.Rows.Count > 0)
+            if (dgvClientes.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgvProveedores.Rows)
+                foreach (DataGridViewRow row in dgvClientes.Rows)
                 {
 
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Texts.Trim().ToUpper()))
@@ -88,13 +88,13 @@ namespace GUI.formulariosModales
         {
             txtBuscar.Texts = string.Empty;
             cmbBusqueda.SelectedIndex = 0;
-            foreach (DataGridViewRow row in dgvProveedores.Rows)
+            foreach (DataGridViewRow row in dgvClientes.Rows)
             {
                 row.Visible = true;
             }
         }
 
-        private void dgvProveedores_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dgvClientes_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -121,11 +121,13 @@ namespace GUI.formulariosModales
 
             if (iRow >= 0 && iColum >= 0)
             {
-                proveedorSeleccionado = new Proveedor()
+                clienteSeleccionado = new Cliente()
                 {
-                    idProveedor = Convert.ToInt32(dgvProveedores.Rows[iRow].Cells["idProveedor"].Value.ToString()),
-                    documento = dgvProveedores.Rows[iRow].Cells["documento"].Value.ToString(),
-                    razonSocial = dgvProveedores.Rows[iRow].Cells["razonSocial"].Value.ToString()
+                    idCliente = Convert.ToInt32(dgvClientes.Rows[iRow].Cells["idCliente"].Value.ToString()),
+                    documento = dgvClientes.Rows[iRow].Cells["documento"].Value.ToString(),
+                    nombreCompleto = dgvClientes.Rows[iRow].Cells["nombreCompleto"].Value.ToString(),
+                    correo = dgvClientes.Rows[iRow].Cells["correo"].Value.ToString(),
+                    telefono = dgvClientes.Rows[iRow].Cells["telefono"].Value.ToString()
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -133,17 +135,17 @@ namespace GUI.formulariosModales
             }
         }
 
-
-        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
         }
 
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
         }
 
+        #region barra de titulo
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -169,5 +171,6 @@ namespace GUI.formulariosModales
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
+        #endregion
     }
 }

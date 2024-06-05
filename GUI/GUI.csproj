@@ -226,6 +226,24 @@
     <Compile Include="formReporteVentas.Designer.cs">
       <DependentUpon>formReporteVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="formulariosModales\ModalformCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformCliente.Designer.cs">
+      <DependentUpon>ModalformCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformMesero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformMesero.Designer.cs">
+      <DependentUpon>ModalformMesero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formulariosModales\ModalformProducto.Designer.cs">
+      <DependentUpon>ModalformProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="formulariosModales\ModalformProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formReporteVentas.resx">
       <DependentUpon>formReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formulariosModales\ModalformCliente.resx">
+      <DependentUpon>ModalformCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formulariosModales\ModalformMesero.resx">
+      <DependentUpon>ModalformMesero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formulariosModales\ModalformProducto.resx">
+      <DependentUpon>ModalformProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formulariosModales\ModalformProveedor.resx">
       <DependentUpon>ModalformProveedor.cs</DependentUpon>

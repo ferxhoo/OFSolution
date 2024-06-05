@@ -13,27 +13,27 @@ using System.Windows.Forms;
 
 namespace GUI.formulariosModales
 {
-    public partial class ModalformProveedor : Form
+    public partial class ModalformMesero : Form
     {
 
-        public Proveedor proveedorSeleccionado { get; set; }
+        public Mesero meseroSeleccionado { get; set; }
 
-        public ModalformProveedor()
+        public ModalformMesero()
         {
             InitializeComponent();
         }
 
-        private void ModalformProveedor_Load(object sender, EventArgs e)
+        private void ModalformMesero_Load(object sender, EventArgs e)
         {
             CargarCmbBuscar();
             CargarDataTable();
-            dgvProveedores.ClearSelection();
+            dgvMeseros.ClearSelection();
         }
 
         private void CargarCmbBuscar()
         {
             //cargar combobox busqueda
-            foreach (DataGridViewColumn columna in dgvProveedores.Columns)
+            foreach (DataGridViewColumn columna in dgvMeseros.Columns)
             {
 
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
@@ -49,33 +49,32 @@ namespace GUI.formulariosModales
         private void CargarDataTable()
         {
             // Limpiar las filas existentes en el DataGridView
-            dgvProveedores.Rows.Clear();
+            dgvMeseros.Rows.Clear();
 
-            // Mostrar todos los usuarios
-            List<Proveedor> lista = new ServicioProveedor().Listar();
+            // Mostrar todos los meseros
+            List<Mesero> lista = new ServicioMesero().Listar();
 
-            foreach (Proveedor item in lista)
+            foreach (Mesero item in lista)
             {
-                dgvProveedores.Rows.Add(new object[] {
-                    "",
-                    item.idProveedor,
-                    item.documento,
-                    item.nombreCompleto,
-                    item.razonSocial,
-                });
+                dgvMeseros.Rows.Add(new object[] {
+                "",
+                item.idMesero,
+                item.documento,
+                item.nombreCompleto,
+                item.estado == true ? "Activo" : "Inactivo",
+                item.estado == true ? 1 : 0
+            });
             }
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string columnaFiltro = ((OpcionComboBox)cmbBusqueda.SelectedItem).Valor.ToString();
 
-            if (dgvProveedores.Rows.Count > 0)
+            if (dgvMeseros.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgvProveedores.Rows)
+                foreach (DataGridViewRow row in dgvMeseros.Rows)
                 {
-
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Texts.Trim().ToUpper()))
                         row.Visible = true;
                     else
@@ -88,13 +87,14 @@ namespace GUI.formulariosModales
         {
             txtBuscar.Texts = string.Empty;
             cmbBusqueda.SelectedIndex = 0;
-            foreach (DataGridViewRow row in dgvProveedores.Rows)
+
+            foreach (DataGridViewRow row in dgvMeseros.Rows)
             {
                 row.Visible = true;
             }
         }
 
-        private void dgvProveedores_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dgvMeseros_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -121,11 +121,12 @@ namespace GUI.formulariosModales
 
             if (iRow >= 0 && iColum >= 0)
             {
-                proveedorSeleccionado = new Proveedor()
+                meseroSeleccionado = new Mesero()
                 {
-                    idProveedor = Convert.ToInt32(dgvProveedores.Rows[iRow].Cells["idProveedor"].Value.ToString()),
-                    documento = dgvProveedores.Rows[iRow].Cells["documento"].Value.ToString(),
-                    razonSocial = dgvProveedores.Rows[iRow].Cells["razonSocial"].Value.ToString()
+                    idMesero = Convert.ToInt32(dgvMeseros.Rows[iRow].Cells["idMesero"].Value.ToString()),
+                    documento = dgvMeseros.Rows[iRow].Cells["documento"].Value.ToString(),
+                    nombreCompleto = dgvMeseros.Rows[iRow].Cells["nombreCompleto"].Value.ToString(),
+                    estado = Convert.ToInt32(dgvMeseros.Rows[iRow].Cells["valorEstado"].Value) == 1
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -133,25 +134,14 @@ namespace GUI.formulariosModales
             }
         }
 
-
-        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMeseros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
         }
 
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMeseros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             HandleCellClick(e);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void BarraTitulos_MouseDown(object sender, MouseEventArgs e)
@@ -169,5 +159,14 @@ namespace GUI.formulariosModales
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

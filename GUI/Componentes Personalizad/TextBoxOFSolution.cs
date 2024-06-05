@@ -342,6 +342,18 @@ namespace GUI.Componentes_Personalizad
         {
             this.Invalidate();
         }
+
+        #region Sobrescribir Select
+        public new void Select()
+        {
+            // Llamar al método base
+            base.Select();
+
+            // Lógica adicional que quieres ejecutar cuando se llama a Select
+            textBox.Focus();
+        }
+        #endregion
+
         #endregion
     }
 
