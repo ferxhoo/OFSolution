@@ -196,6 +196,7 @@ namespace GUI
             this.txtTotal.BorderFocusColor = System.Drawing.Color.Red;
             this.txtTotal.BorderRadius = 15;
             this.txtTotal.BorderSize = 2;
+            this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(8, 321);
             this.txtTotal.Multiline = false;
@@ -243,6 +244,7 @@ namespace GUI
             this.btnRegistrarCompra.TextColor = System.Drawing.Color.White;
             this.btnRegistrarCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegistrarCompra.UseVisualStyleBackColor = false;
+            this.btnRegistrarCompra.Click += new System.EventHandler(this.btnRegistrarCompra_Click);
             // 
             // dgvDetallesCompra
             // 
@@ -418,6 +420,7 @@ namespace GUI
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(45, 22);
             this.txtIdProducto.TabIndex = 40;
+            this.txtIdProducto.Visible = false;
             // 
             // label4
             // 
@@ -725,6 +728,7 @@ namespace GUI
             this.txtIdProveedor.Name = "txtIdProveedor";
             this.txtIdProveedor.Size = new System.Drawing.Size(45, 22);
             this.txtIdProveedor.TabIndex = 3;
+            this.txtIdProveedor.Visible = false;
             // 
             // txtProveedor
             // 
