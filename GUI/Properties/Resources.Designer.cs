@@ -113,6 +113,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconoBorrar {
+            get {
+                object obj = ResourceManager.GetObject("IconoBorrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconoTitulo_Sin_Fondo__OFSolution {
             get {
                 object obj = ResourceManager.GetObject("IconoTitulo Sin Fondo -OFSolution", resourceCulture);

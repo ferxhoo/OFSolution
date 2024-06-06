@@ -1,4 +1,5 @@
-﻿using ENTITY;
+﻿using BLL;
+using ENTITY;
 using GUI.formulariosModales;
 using GUI.Utility;
 using System;
@@ -15,8 +16,8 @@ namespace GUI
 {
     public partial class formCompras : Form
     {
-
         private Usuario responsableCompra = null;
+        private bool editando = false;
 
         public formCompras(Usuario usuario = null)
         {
@@ -24,36 +25,16 @@ namespace GUI
             InitializeComponent();
             this.Resize += new EventHandler(formCompras_Resize);
         }
-        #region code para centrar un div xd
-        private void formCompras_Resize(object sender, EventArgs e)
-        {
-            CenterPanel();
-        }
-
-        private void CenterPanel()
-        {
-            if (panelPrincipal != null && panelCentrado != null)
-            {
-                // Ajustar el tamaño del panel centrado solo en altura
-                panelCentrado.Width = 1261; // Mantener el ancho fijo
-                panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
-
-                // Calcular la nueva posición para centrar el panel si el panelPrincipal es más grande
-                int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
-                int y = (panelPrincipal.Height > 741) ? (panelPrincipal.Height - panelCentrado.Height) / 2 : 0;
-
-                // Establecer la nueva posición del panel centrado
-                panelCentrado.Location = new Point(x, y);
-            }
-        }
-        #endregion
 
         private void formCompras_Load(object sender, EventArgs e)
         {
+            InicializarFormulario();
+        }
+
+        private void InicializarFormulario()
+        {
             CargarCmbTipoDoc();
-            string fecha = dtpFecha.Text;
-            txtIdProducto.Text = "0";
-            txtIdProveedor.Text = "0";
+            LimpiarCamposCompra();
         }
 
         private void CargarCmbTipoDoc()
@@ -65,7 +46,19 @@ namespace GUI
             cmbDocFactura.SelectedIndex = 0;
         }
 
+        private void LimpiarCamposCompra()
+        {
+            dtpFecha.Text = DateTime.Now.ToString();
+            txtIdProducto.Text = "0";
+            txtIdProveedor.Text = "0";
+        }
+
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            BuscarProveedor();
+        }
+
+        private void BuscarProveedor()
         {
             using (var modal = new ModalformProveedor())
             {
@@ -73,19 +66,28 @@ namespace GUI
 
                 if (result == DialogResult.OK)
                 {
-                    txtIdProveedor.Text = modal.proveedorSeleccionado.idProveedor.ToString();
-                    txtDocumentoProveedor.Texts = modal.proveedorSeleccionado.documento;
-                    txtProveedor.Texts = modal.proveedorSeleccionado.razonSocial;
+                    AsignarProveedor(modal.proveedorSeleccionado);
                 }
                 else
                 {
                     txtDocumentoProveedor.Select();
                 }
-
             }
         }
 
+        private void AsignarProveedor(Proveedor proveedor)
+        {
+            txtIdProveedor.Text = proveedor.idProveedor.ToString();
+            txtDocumentoProveedor.Texts = proveedor.documento;
+            txtProveedor.Texts = proveedor.razonSocial;
+        }
+
         private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            BuscarProducto();
+        }
+
+        private void BuscarProducto()
         {
             using (var modal = new ModalformProducto())
             {
@@ -93,21 +95,343 @@ namespace GUI
 
                 if (result == DialogResult.OK)
                 {
-                    txtIdProducto.Text = modal.productoSeleccionado.idProducto.ToString();
-                    txtCodigoProducto.Texts = modal.productoSeleccionado.codigo;
-                    txtNombreProducto.Texts = modal.productoSeleccionado.nombre;
-                    txtPrecioCompra.Select();
-                    if(nupCantidad.Value > 0)
-                        nupCantidad.Value = 0;
+                    AsignarProducto(modal.productoSeleccionado);
+                    nupCantidad.Value = 0;
                     nupCantidad.UpButton();
                 }
                 else
                 {
                     txtCodigoProducto.Select();
                 }
+            }
+        }
 
+        private void AsignarProducto(Producto producto)
+        {
+            txtIdProducto.Text = producto.idProducto.ToString();
+            txtCodigoProducto.Texts = producto.codigo;
+            txtNombreProducto.Texts = producto.nombre;
+            txtPrecioCompra.Select();
+        }
+
+        private void txtCodigoProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                BuscarProductoPorCodigo();
+            }
+        }
+
+        private void BuscarProductoPorCodigo()
+        {
+            Producto producto = new ServicioProducto().Listar().FirstOrDefault(p => p.codigo == txtCodigoProducto.Texts && p.estado == true);
+
+            if (producto != null)
+            {
+                AsignarProducto(producto);
+                txtCodigoProducto.BackColor = Color.Honeydew;
+                nupCantidad.Value = 0;
+                nupCantidad.UpButton();
+            }
+            else
+            {
+                LimpiarProductoNoEncontrado();
+            }
+        }
+
+        private void LimpiarProductoNoEncontrado()
+        {
+            txtCodigoProducto.BackColor = Color.MistyRose;
+            txtIdProducto.Text = "0";
+            txtNombreProducto.Texts = "";
+            nupCantidad.Value = 0;
+        }
+
+        private void btnAgregarDetalle_Click(object sender, EventArgs e)
+        {
+            AgregarDetalle();
+        }
+
+        private void AgregarDetalle()
+        {
+            if (!ValidarDatosProducto(out decimal preciocompra, out decimal precioventa)) return;
+
+            if (ProductoExisteEnDetalle() && !editando)
+            {
+                MessageBox.Show("El producto ya existe en el detalle", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (editando)
+            {
+                EditarProductoDetalle(preciocompra);
+            }
+            else
+            {
+                AgregarProductoDetalle(preciocompra, precioventa);
+            }
+
+            calcularTotal();
+            limpiarProducto();
+            txtCodigoProducto.Select();
+        }
+
+        private bool ValidarDatosProducto(out decimal preciocompra, out decimal precioventa)
+        {
+            preciocompra = 0;
+            precioventa = 0;
+
+            if (int.Parse(txtIdProducto.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if (!decimal.TryParse(txtPrecioCompra.Texts, out preciocompra))
+            {
+                MessageBox.Show("Precio Compra - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPrecioCompra.Select();
+                return false;
+            }
+
+            if (!decimal.TryParse(txtPrecioVenta.Texts, out precioventa))
+            {
+                MessageBox.Show("Precio Venta - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPrecioVenta.Select();
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ProductoExisteEnDetalle()
+        {
+            foreach (DataGridViewRow fila in dgvDetallesCompra.Rows)
+            {
+                if (fila.Cells["idProducto"].Value != null && fila.Cells["idProducto"].Value.ToString() == txtIdProducto.Text)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void EditarProductoDetalle(decimal preciocompra)
+        {
+            if (dgvDetallesCompra.CurrentCell != null)
+            {
+                int indice = dgvDetallesCompra.CurrentCell.RowIndex;
+                if (indice >= 0)
+                {
+                    DataGridViewRow filaSeleccionada = dgvDetallesCompra.Rows[indice];
+                    ActualizarFilaProducto(filaSeleccionada, preciocompra);
+                    btnAgregarDetalle.Text = "Agregar Producto";
+                    editando = false;
+                    habilitarCamposProducto(true);
+                }
+            }
+        }
+
+        private void ActualizarFilaProducto(DataGridViewRow fila, decimal preciocompra)
+        {
+            fila.Cells["codigo"].Value = txtCodigoProducto.Texts;
+            fila.Cells["producto"].Value = txtNombreProducto.Texts;
+            fila.Cells["precioCompra"].Value = txtPrecioCompra.Texts;
+            fila.Cells["precioVenta"].Value = txtPrecioVenta.Texts;
+            fila.Cells["cantidad"].Value = nupCantidad.Value.ToString();
+            fila.Cells["subtotal"].Value = (nupCantidad.Value * preciocompra).ToString("0.00");
+        }
+
+        private void AgregarProductoDetalle(decimal preciocompra, decimal precioventa)
+        {
+            dgvDetallesCompra.Rows.Add(new object[] {
+            null,
+            txtIdProducto.Text,
+            txtCodigoProducto.Texts,
+            txtNombreProducto.Texts,
+            nupCantidad.Value.ToString(),
+            preciocompra.ToString("0.00"),
+            precioventa.ToString("0.00"),
+            (nupCantidad.Value * preciocompra).ToString("0.00")
+        });
+        }
+
+        private void limpiarProducto()
+        {
+            txtIdProducto.Text = "0";
+            txtCodigoProducto.Texts = "";
+            txtCodigoProducto.BackColor = Color.WhiteSmoke;
+            txtNombreProducto.Texts = "";
+            txtPrecioCompra.Texts = "";
+            txtPrecioVenta.Texts = "";
+            nupCantidad.Value = 0;
+        }
+
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow row in dgvDetallesCompra.Rows)
+            {
+                if (row.Cells["subtotal"].Value != null)
+                {
+                    total += Convert.ToDecimal(row.Cells["subtotal"].Value.ToString());
+                }
+            }
+            txtTotal.Texts = total.ToString("0.00");
+        }
+
+        private void dgvDetallesCompra_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (e.ColumnIndex == 0)
+            {
+                DrawImageInCell(e, Properties.Resources.Check_OF);
+            }
+            else if (e.ColumnIndex == 8)
+            {
+                DrawImageInCell(e, Properties.Resources.IconoBorrar);
+            }
+
+            dgvDetallesCompra.ClearSelection();
+        }
+
+        private void DrawImageInCell(DataGridViewCellPaintingEventArgs e, Image image)
+        {
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+            var w = image.Width;
+            var h = image.Height;
+            var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+            var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+            e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+            e.Handled = true;
+        }
+
+        private void dgvDetallesCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                SeleccionarProducto(e.RowIndex);
+            }
+            else if (dgvDetallesCompra.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                EliminarProducto(e.RowIndex);
+                txtCodigoProducto.Texts = string.Empty;
+                txtCodigoProducto.Select();
+            }
+        }
+
+        private void SeleccionarProducto(int indice)
+        {
+            if (indice >= 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvDetallesCompra.Rows[indice];
+                AsignarProductoSeleccionado(filaSeleccionada);
+                habilitarCamposProducto(false);
+                btnAgregarDetalle.Text = "Editar Detalle";
+                editando = true;
+            }
+        }
+
+        private void AsignarProductoSeleccionado(DataGridViewRow fila)
+        {
+            txtIdProducto.Text = fila.Cells["idProducto"].Value.ToString();
+            txtCodigoProducto.Texts = fila.Cells["codigo"].Value.ToString();
+            txtNombreProducto.Texts = fila.Cells["producto"].Value.ToString();
+            txtPrecioCompra.Texts = fila.Cells["precioCompra"].Value.ToString();
+            txtPrecioVenta.Texts = fila.Cells["precioVenta"].Value.ToString();
+            nupCantidad.Value = Convert.ToInt32(fila.Cells["cantidad"].Value);
+        }
+
+        private void EliminarProducto(int indice)
+        {
+            if (indice >= 0)
+            {
+                dgvDetallesCompra.Rows.RemoveAt(indice);
+                calcularTotal();
+
+                if (editando)
+                {
+                    limpiarProducto();
+                    btnAgregarDetalle.Text = "Agregar Producto";
+                    editando = false;
+                    habilitarCamposProducto(true);
+                }
+            }
+        }
+
+        private void dgvDetallesCompra_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDetallesCompra.SelectedCells.Count > 0)
+            {
+                int indice = dgvDetallesCompra.SelectedCells[0].RowIndex;
+                if (indice >= 0)
+                {
+                    DataGridViewRow filaSeleccionada = dgvDetallesCompra.Rows[indice];
+                    if (filaSeleccionada.Cells["codigo"].Value != null)
+                    {
+                        txtCodigoProducto.Texts = filaSeleccionada.Cells["codigo"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void habilitarCamposProducto(bool habilitar)
+        {
+            txtIdProducto.Enabled = habilitar;
+            txtCodigoProducto.Enabled = habilitar;
+            txtNombreProducto.Enabled = habilitar;
+            txtPrecioCompra.Select();
+        }
+
+        private void formCompras_Resize(object sender, EventArgs e)
+        {
+            CenterPanel();
+        }
+
+        private void CenterPanel()
+        {
+            if (panelPrincipal != null && panelCentrado != null)
+            {
+                panelCentrado.Width = 1261; // Mantener el ancho fijo
+                panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
+
+                int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
+                int y = (panelPrincipal.Height > 741) ? (panelPrincipal.Height - panelCentrado.Height) / 2 : 0;
+
+                panelCentrado.Location = new Point(x, y);
+            }
+        }
+
+        private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarEntradaDecimal(e, txtPrecioCompra.Texts);
+        }
+
+        private void txtprecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarEntradaDecimal(e, txtPrecioVenta.Texts);
+        }
+
+        private void ValidarEntradaDecimal(KeyPressEventArgs e, string texto)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (e.KeyChar == ',' && !texto.Contains(','))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
         }
     }
+
 
 }

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.Componentes_Personalizad
@@ -39,6 +34,7 @@ namespace GUI.Componentes_Personalizad
             textBox.MouseEnter += textBox_MouseEnter;
             textBox.MouseLeave += textBox_MouseLeave;
             textBox.KeyPress += textBox_KeyPress;
+            textBox.KeyDown += textBox_KeyDown;
         }
         #endregion
 
@@ -324,6 +320,11 @@ namespace GUI.Componentes_Personalizad
             this.OnKeyPress(e);
         }
 
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.OnKeyDown(e);
+        }
+
         private void textBox_Enter(object sender, EventArgs e)
         {
             isFocused = true;
@@ -342,6 +343,7 @@ namespace GUI.Componentes_Personalizad
         {
             this.Invalidate();
         }
+        #endregion
 
         #region Sobrescribir Select
         public new void Select()
@@ -353,9 +355,6 @@ namespace GUI.Componentes_Personalizad
             textBox.Focus();
         }
         #endregion
-
-        #endregion
     }
-
 
 }
