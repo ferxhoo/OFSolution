@@ -15,6 +15,29 @@ namespace GUI
         public formVerDetallesCompra()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(formVerDetallesCompra_Resize);
         }
+
+        private void formVerDetallesCompra_Resize(object sender, EventArgs e)
+        {
+            CenterPanel();
+        }
+
+        private void CenterPanel()
+        {
+            if (panelPrincipal != null && panelCentrado != null)
+            {
+                panelCentrado.Width = 1261; // Mantener el ancho fijo
+                panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
+
+                int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
+                int y = (panelPrincipal.Height > 741) ? (panelPrincipal.Height - panelCentrado.Height) / 2 : 0;
+
+                panelCentrado.Location = new Point(x, y);
+            }
+        }
+
+
+
     }
 }
