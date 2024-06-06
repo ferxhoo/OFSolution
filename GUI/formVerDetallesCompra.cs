@@ -37,7 +37,9 @@ namespace GUI
             }
         }
 
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

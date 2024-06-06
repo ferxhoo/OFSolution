@@ -46,17 +46,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.txtDocumentoProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelCentrado = new System.Windows.Forms.Panel();
-            this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnDescargar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
-            this.txtTotal = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvDetallesCompra = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -68,20 +57,31 @@
             this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDescargar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
+            this.txtTotal = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtDocumentoProveedor = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelCentrado = new System.Windows.Forms.Panel();
+            this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel7.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).BeginInit();
+            this.panel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             this.panelCentrado.SuspendLayout();
             this.panelOFSolution1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -314,177 +314,6 @@
             this.panel6.Size = new System.Drawing.Size(1239, 451);
             this.panel6.TabIndex = 7;
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 168);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(20, 0, 20, 2);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1239, 94);
-            this.flowLayoutPanel2.TabIndex = 6;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.txtProveedor);
-            this.groupBox2.Controls.Add(this.txtDocumentoProveedor);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(23, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1196, 85);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Información del Proveedor";
-            // 
-            // txtProveedor
-            // 
-            this.txtProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtProveedor.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtProveedor.BorderRadius = 15;
-            this.txtProveedor.BorderSize = 2;
-            this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(341, 30);
-            this.txtProveedor.Multiline = false;
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtProveedor.PasswordChar = false;
-            this.txtProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtProveedor.PlaceholderText = "Razón Social";
-            this.txtProveedor.Size = new System.Drawing.Size(260, 35);
-            this.txtProveedor.TabIndex = 3;
-            this.txtProveedor.Texts = "";
-            this.txtProveedor.UnderlinedStyle = true;
-            // 
-            // txtDocumentoProveedor
-            // 
-            this.txtDocumentoProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDocumentoProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtDocumentoProveedor.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtDocumentoProveedor.BorderRadius = 15;
-            this.txtDocumentoProveedor.BorderSize = 2;
-            this.txtDocumentoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocumentoProveedor.Location = new System.Drawing.Point(61, 30);
-            this.txtDocumentoProveedor.Multiline = false;
-            this.txtDocumentoProveedor.Name = "txtDocumentoProveedor";
-            this.txtDocumentoProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDocumentoProveedor.PasswordChar = false;
-            this.txtDocumentoProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDocumentoProveedor.PlaceholderText = "N° de Documento";
-            this.txtDocumentoProveedor.Size = new System.Drawing.Size(203, 35);
-            this.txtDocumentoProveedor.TabIndex = 2;
-            this.txtDocumentoProveedor.Texts = "";
-            this.txtDocumentoProveedor.UnderlinedStyle = true;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.AutoScroll = true;
-            this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelPrincipal.Controls.Add(this.panelCentrado);
-            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1261, 741);
-            this.panelPrincipal.TabIndex = 1;
-            // 
-            // panelCentrado
-            // 
-            this.panelCentrado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelCentrado.Controls.Add(this.panelOFSolution1);
-            this.panelCentrado.Location = new System.Drawing.Point(0, 0);
-            this.panelCentrado.Name = "panelCentrado";
-            this.panelCentrado.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.panelCentrado.Size = new System.Drawing.Size(1261, 741);
-            this.panelCentrado.TabIndex = 0;
-            // 
-            // panelOFSolution1
-            // 
-            this.panelOFSolution1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
-            this.panelOFSolution1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
-            this.panelOFSolution1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.panelOFSolution1.BorderRadius = 20;
-            this.panelOFSolution1.BorderSize = 0;
-            this.panelOFSolution1.Controls.Add(this.panel3);
-            this.panelOFSolution1.Controls.Add(this.panel2);
-            this.panelOFSolution1.Controls.Add(this.panel1);
-            this.panelOFSolution1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelOFSolution1.Location = new System.Drawing.Point(3, 5);
-            this.panelOFSolution1.Name = "panelOFSolution1";
-            this.panelOFSolution1.Size = new System.Drawing.Size(1255, 731);
-            this.panelOFSolution1.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1255, 727);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnDescargar);
-            this.panel5.Controls.Add(this.txtTotal);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(20, 363);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1197, 67);
-            this.panel5.TabIndex = 2;
-            // 
-            // btnDescargar
-            // 
-            this.btnDescargar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnDescargar.BackgroundColor = System.Drawing.Color.Firebrick;
-            this.btnDescargar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnDescargar.BorderRadius = 35;
-            this.btnDescargar.BorderSize = 0;
-            this.btnDescargar.FlatAppearance.BorderSize = 0;
-            this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescargar.ForeColor = System.Drawing.Color.White;
-            this.btnDescargar.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnDescargar.IconColor = System.Drawing.Color.White;
-            this.btnDescargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDescargar.IconSize = 25;
-            this.btnDescargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescargar.Location = new System.Drawing.Point(1026, 17);
-            this.btnDescargar.Name = "btnDescargar";
-            this.btnDescargar.Padding = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.btnDescargar.Size = new System.Drawing.Size(161, 36);
-            this.btnDescargar.TabIndex = 4;
-            this.btnDescargar.Text = "Descargar PDF";
-            this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescargar.TextColor = System.Drawing.Color.White;
-            this.btnDescargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDescargar.UseVisualStyleBackColor = false;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTotal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtTotal.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtTotal.BorderRadius = 15;
-            this.txtTotal.BorderSize = 2;
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(19, 17);
-            this.txtTotal.Multiline = false;
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtTotal.PasswordChar = false;
-            this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtTotal.PlaceholderText = "Total a Pagar";
-            this.txtTotal.Size = new System.Drawing.Size(149, 35);
-            this.txtTotal.TabIndex = 3;
-            this.txtTotal.Texts = "";
-            this.txtTotal.UnderlinedStyle = true;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dgvDetallesCompra);
@@ -627,6 +456,178 @@
             this.btnEliminar.ReadOnly = true;
             this.btnEliminar.Width = 40;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnDescargar);
+            this.panel5.Controls.Add(this.txtTotal);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(20, 363);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1197, 67);
+            this.panel5.TabIndex = 2;
+            // 
+            // btnDescargar
+            // 
+            this.btnDescargar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDescargar.BackgroundColor = System.Drawing.Color.Firebrick;
+            this.btnDescargar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnDescargar.BorderRadius = 35;
+            this.btnDescargar.BorderSize = 0;
+            this.btnDescargar.FlatAppearance.BorderSize = 0;
+            this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescargar.ForeColor = System.Drawing.Color.White;
+            this.btnDescargar.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.btnDescargar.IconColor = System.Drawing.Color.White;
+            this.btnDescargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDescargar.IconSize = 25;
+            this.btnDescargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescargar.Location = new System.Drawing.Point(1026, 17);
+            this.btnDescargar.Name = "btnDescargar";
+            this.btnDescargar.Padding = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.btnDescargar.Size = new System.Drawing.Size(161, 36);
+            this.btnDescargar.TabIndex = 4;
+            this.btnDescargar.Text = "Descargar PDF";
+            this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescargar.TextColor = System.Drawing.Color.White;
+            this.btnDescargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescargar.UseVisualStyleBackColor = false;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtTotal.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtTotal.BorderRadius = 15;
+            this.txtTotal.BorderSize = 2;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(19, 17);
+            this.txtTotal.Multiline = false;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTotal.PasswordChar = false;
+            this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTotal.PlaceholderText = "Total a Pagar";
+            this.txtTotal.Size = new System.Drawing.Size(149, 35);
+            this.txtTotal.TabIndex = 3;
+            this.txtTotal.Texts = "";
+            this.txtTotal.UnderlinedStyle = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 168);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(20, 0, 20, 2);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1239, 94);
+            this.flowLayoutPanel2.TabIndex = 6;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.txtProveedor);
+            this.groupBox2.Controls.Add(this.txtDocumentoProveedor);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(23, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1196, 85);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Información del Proveedor";
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtProveedor.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtProveedor.BorderRadius = 15;
+            this.txtProveedor.BorderSize = 2;
+            this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProveedor.Location = new System.Drawing.Point(341, 30);
+            this.txtProveedor.Multiline = false;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtProveedor.PasswordChar = false;
+            this.txtProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtProveedor.PlaceholderText = "Razón Social";
+            this.txtProveedor.Size = new System.Drawing.Size(260, 35);
+            this.txtProveedor.TabIndex = 3;
+            this.txtProveedor.Texts = "";
+            this.txtProveedor.UnderlinedStyle = true;
+            // 
+            // txtDocumentoProveedor
+            // 
+            this.txtDocumentoProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDocumentoProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtDocumentoProveedor.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtDocumentoProveedor.BorderRadius = 15;
+            this.txtDocumentoProveedor.BorderSize = 2;
+            this.txtDocumentoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocumentoProveedor.Location = new System.Drawing.Point(61, 30);
+            this.txtDocumentoProveedor.Multiline = false;
+            this.txtDocumentoProveedor.Name = "txtDocumentoProveedor";
+            this.txtDocumentoProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDocumentoProveedor.PasswordChar = false;
+            this.txtDocumentoProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDocumentoProveedor.PlaceholderText = "N° de Documento";
+            this.txtDocumentoProveedor.Size = new System.Drawing.Size(203, 35);
+            this.txtDocumentoProveedor.TabIndex = 2;
+            this.txtDocumentoProveedor.Texts = "";
+            this.txtDocumentoProveedor.UnderlinedStyle = true;
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.AutoScroll = true;
+            this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelPrincipal.Controls.Add(this.panelCentrado);
+            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1261, 741);
+            this.panelPrincipal.TabIndex = 1;
+            // 
+            // panelCentrado
+            // 
+            this.panelCentrado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelCentrado.Controls.Add(this.panelOFSolution1);
+            this.panelCentrado.Location = new System.Drawing.Point(0, 0);
+            this.panelCentrado.Name = "panelCentrado";
+            this.panelCentrado.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panelCentrado.Size = new System.Drawing.Size(1261, 741);
+            this.panelCentrado.TabIndex = 0;
+            // 
+            // panelOFSolution1
+            // 
+            this.panelOFSolution1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
+            this.panelOFSolution1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
+            this.panelOFSolution1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.panelOFSolution1.BorderRadius = 20;
+            this.panelOFSolution1.BorderSize = 0;
+            this.panelOFSolution1.Controls.Add(this.panel3);
+            this.panelOFSolution1.Controls.Add(this.panel2);
+            this.panelOFSolution1.Controls.Add(this.panel1);
+            this.panelOFSolution1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelOFSolution1.Location = new System.Drawing.Point(3, 5);
+            this.panelOFSolution1.Name = "panelOFSolution1";
+            this.panelOFSolution1.Size = new System.Drawing.Size(1255, 731);
+            this.panelOFSolution1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1255, 727);
+            this.panel3.TabIndex = 2;
+            // 
             // formVerDetallesCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -641,15 +642,15 @@
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panelPrincipal.ResumeLayout(false);
             this.panelCentrado.ResumeLayout(false);
             this.panelOFSolution1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).EndInit();
             this.ResumeLayout(false);
 
         }

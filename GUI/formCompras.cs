@@ -434,6 +434,7 @@ namespace GUI
 
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
+
             if (Convert.ToInt32(txtIdProveedor.Text) == 0)
             {
                 MessageBox.Show("Debe seleccionar un proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -446,23 +447,25 @@ namespace GUI
                 return;
             }
 
-            DataTable detalleCompra = new DataTable();
+            DataTable detalle_compra = new DataTable();
 
-            detalleCompra.Columns.Add("idProducto", typeof(int));
-            detalleCompra.Columns.Add("precioCompra", typeof(decimal));
-            detalleCompra.Columns.Add("precioVenta", typeof(decimal));
-            detalleCompra.Columns.Add("cantidad", typeof(int));
-            detalleCompra.Columns.Add("montoTotal", typeof(decimal));
+            detalle_compra.Columns.Add("idProducto", typeof(int));
+            detalle_compra.Columns.Add("precioCompra", typeof(decimal));
+            detalle_compra.Columns.Add("precioVenta", typeof(decimal));
+            detalle_compra.Columns.Add("cantidad", typeof(int));
+            detalle_compra.Columns.Add("montoTotal", typeof(decimal));
 
             foreach (DataGridViewRow row in dgvDetallesCompra.Rows)
             {
-                detalleCompra.Rows.Add(
-                    Convert.ToInt32(row.Cells["idProducto"].Value),
-                    Convert.ToDecimal(row.Cells["precioCompra"].Value),
-                    Convert.ToDecimal(row.Cells["precioVenta"].Value),
-                    Convert.ToInt32(row.Cells["cantidad"].Value),
-                    Convert.ToDecimal(row.Cells["subtotal"].Value)
-                );
+                detalle_compra.Rows.Add(
+                    new object[] {
+               Convert.ToInt32(row.Cells["idProducto"].Value.ToString()),
+               row.Cells["precioCompra"].Value.ToString(),
+               row.Cells["precioVenta"].Value.ToString(),
+               row.Cells["cantidad"].Value.ToString(),
+               row.Cells["subtotal"].Value.ToString()
+                    });
+
             }
 
             int idCorrelativo = new ServicioCompra().ObtenerCorrelativo();
@@ -474,28 +477,31 @@ namespace GUI
                 proveedor = new Proveedor() { idProveedor = Convert.ToInt32(txtIdProveedor.Text) },
                 tipoDocumento = ((OpcionComboBox)cmbDocFactura.SelectedItem).Texto,
                 numeroDocumento = numeroDocumento,
-                montoTotal = Convert.ToDecimal(txtTotal.Text)
+                montoTotal = Convert.ToDecimal(txtTotal.Texts)
             };
 
-            string mensaje;
-            bool respuesta = new ServicioCompra().Registrar(compra, detalleCompra, out mensaje);
+            string mensaje = string.Empty;
+            bool respuesta = new ServicioCompra().Registrar(compra, detalle_compra, out mensaje);
 
             if (respuesta)
             {
-                DialogResult result = MessageBox.Show("Número de compra generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                var result = MessageBox.Show("Numero de compra generada:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(numeroDocumento);
 
                 txtIdProveedor.Text = "0";
                 txtDocumentoProveedor.Text = "";
+                txtDocumentoProveedor.Text = "";
                 dgvDetallesCompra.Rows.Clear();
                 calcularTotal();
+
             }
             else
             {
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
         }
 
 
