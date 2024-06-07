@@ -52,6 +52,7 @@
     <Compile Include="ServicioProveedor.cs" />
     <Compile Include="ServicioRol.cs" />
     <Compile Include="ServicioUsuario.cs" />
+    <Compile Include="ServicioVenta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

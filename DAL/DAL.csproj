@@ -53,6 +53,7 @@
     <Compile Include="DataProveedor.cs" />
     <Compile Include="DataRol.cs" />
     <Compile Include="DataUsuario.cs" />
+    <Compile Include="DataVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

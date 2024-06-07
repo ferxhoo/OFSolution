@@ -439,6 +439,7 @@
             this.Controls.Add(this.BarraTitulos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModalformCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModalformCliente";
             this.Load += new System.EventHandler(this.ModalformCliente_Load);
             this.panel14.ResumeLayout(false);

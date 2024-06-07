@@ -24,7 +24,34 @@ namespace GUI
             responsableCompra = usuario;
             InitializeComponent();
             this.Resize += new EventHandler(formCompras_Resize);
+            this.FormClosing += formVentas_FormClosing; // Registra el controlador de eventos
         }
+
+        private void formVentas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!CanCloseForm())
+            {
+                e.Cancel = true; // Cancela el cierre del formulario
+            }
+        }
+
+        public bool CanCloseForm()
+        {
+            if (MessageBox.Show("¿Está seguro de que desea cerrar?", "Confirmar Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return false;
+            }
+
+            GuardarCambios();
+            return true;
+        }
+
+        private void GuardarCambios()
+        {
+            // Aquí no guardaremos cambios
+        }
+
+
 
         private void formCompras_Load(object sender, EventArgs e)
         {

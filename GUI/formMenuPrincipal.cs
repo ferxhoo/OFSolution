@@ -355,6 +355,9 @@ namespace GUI
                 }
             }
         }
+         
+        //------------- va aqui
+
 
         private void ActivateButton(IconButton senderBtn, Color color)
         {
@@ -424,6 +427,7 @@ namespace GUI
             formSecundario.BringToFront();
             formSecundario.Show();
         }
+
         #endregion
 
         #region eventos click de botones de menu
