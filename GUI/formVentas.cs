@@ -1,12 +1,11 @@
 ﻿using BLL;
-using DocumentFormat.OpenXml.Drawing.Charts;
 using ENTITY;
 using GUI.formulariosModales;
 using GUI.Utility;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,7 +24,6 @@ namespace GUI
             responsableVenta = usuario;
             InitializeComponent();
             this.Resize += new EventHandler(formVentas_Resize);
-            //this.FormClosing += formVentas_FormClosing;
         }
 
         private void formVentas_FormClosing(object sender, FormClosingEventArgs e)
@@ -63,10 +61,6 @@ namespace GUI
             return dgvDetallesVenta.Rows.Count > 0;
         }
 
-        //public void GuardarCambios()
-        //{
-            
-        //}
 
         private void AgregarDetalle()
         {
@@ -139,18 +133,6 @@ namespace GUI
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         private void formVentas_Resize(object sender, EventArgs e)
         {
             CenterPanel();
@@ -160,7 +142,7 @@ namespace GUI
         {
             if (panelPrincipal != null && panelCentrado != null)
             {
-                panelCentrado.Width = 1261; // Mantener el ancho fijo
+                panelCentrado.Width = 1261; 
                 panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
 
                 int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
@@ -239,7 +221,7 @@ namespace GUI
                 }
                 else
                 {
-                    txtDocMesero.Select();
+                    txtMesa.Select();
                 }
             }
         }
@@ -247,7 +229,6 @@ namespace GUI
         private void AsignarMesero(Mesero mesero)
         {
             txtIdMesero.Text = mesero.idMesero.ToString();
-            txtDocMesero.Texts = mesero.documento;
             txtMesero.Texts = mesero.nombreCompleto;
         }
 
@@ -618,8 +599,106 @@ namespace GUI
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
+            // Validar los campos necesarios
+            if (string.IsNullOrWhiteSpace(txtDocumentoCliente.Texts))
+            {
+                MessageBox.Show("Debe ingresar documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
+            if (string.IsNullOrWhiteSpace(txtCliente.Texts))
+            {
+                MessageBox.Show("Debe ingresar nombre del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtMesa.Texts))
+            {
+                MessageBox.Show("Debe ingresar la mesa que atendio del mesero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtMesero.Texts))
+            {
+                MessageBox.Show("Debe ingresar nombre del mesero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (dgvDetallesVenta.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Crear la tabla de detalle de venta
+            DataTable detalle_venta = new DataTable();
+            detalle_venta.Columns.Add("idProducto", typeof(int));
+            detalle_venta.Columns.Add("precioVenta", typeof(decimal));
+            detalle_venta.Columns.Add("cantidad", typeof(int));
+            detalle_venta.Columns.Add("subtotal", typeof(decimal));
+
+            foreach (DataGridViewRow row in dgvDetallesVenta.Rows)
+            {
+                detalle_venta.Rows.Add(new object[] {
+            Convert.ToInt32(row.Cells["idProducto"].Value),
+            Convert.ToDecimal(row.Cells["precioVenta"].Value),
+            Convert.ToInt32(row.Cells["cantidad"].Value),
+            Convert.ToDecimal(row.Cells["subtotal"].Value)
+        });
+            }
+
+            // Obtener el correlativo del número de documento
+            int idCorrelativo = new ServicioVenta().ObtenerCorrelativo();
+            string numeroDocumento = string.Format("{0:00000}", idCorrelativo);
+
+            // Calcular el cambio (presumiblemente esta función ya existe)
+            calcularcambio();
+
+            // Crear el objeto venta
+            Venta venta = new Venta()
+            {
+                usuario = new Usuario() { idUsuario = responsableVenta.idUsuario },
+                tipoDocumento = ((OpcionComboBox)cmbDocFactura.SelectedItem).Texto,
+                numeroDocumento = numeroDocumento,
+                numeroMesa = Convert.ToInt32(txtMesa.Texts),
+                mesero = new Mesero() { idMesero = Convert.ToInt32(txtIdMesero.Text) },
+                documentoCliente = txtDocumentoCliente.Texts,
+                nombreCliente = txtCliente.Texts,
+                montoPago = Convert.ToDecimal(txtPagaCon.Texts),
+                montoCambio = Convert.ToDecimal(txtCambio.Texts),
+                montoTotal = Convert.ToDecimal(txtTotal.Texts)
+            };
+
+            // Registrar la venta
+            string mensaje = string.Empty;
+            bool respuesta = new ServicioVenta().Registrar(venta, detalle_venta, out mensaje);
+
+            // Manejar el resultado del registro
+            if (respuesta)
+            {
+                var result = MessageBox.Show("Numero de venta generada:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Yes)
+                    Clipboard.SetText(numeroDocumento);
+
+                // Limpiar el formulario
+                txtMesa.Texts = string.Empty;
+                txtIdMesero.Text = string.Empty;
+                txtMesero.Texts = string.Empty;
+                txtIdCliente.Text = string.Empty;
+                txtDocumentoCliente.Texts = string.Empty;
+                txtCliente.Texts = string.Empty;
+                dgvDetallesVenta.Rows.Clear();
+                calcularTotal();
+                txtPagaCon.Texts = string.Empty;
+                txtCambio.Texts = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
+
 
     }
 }

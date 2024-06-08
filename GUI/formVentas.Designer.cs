@@ -61,7 +61,7 @@
             this.btnBuscarMesero = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.txtIdMesero = new System.Windows.Forms.TextBox();
             this.txtMesero = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.txtDocMesero = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtMesa = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelCentrado = new System.Windows.Forms.Panel();
@@ -393,7 +393,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(7, 42);
             this.dtpFecha.MinimumSize = new System.Drawing.Size(4, 35);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(136, 35);
+            this.dtpFecha.Size = new System.Drawing.Size(135, 35);
             this.dtpFecha.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(161)))), ((int)(((byte)(251)))));
             this.dtpFecha.TabIndex = 2;
             this.dtpFecha.TextColor = System.Drawing.Color.White;
@@ -507,7 +507,7 @@
             this.groupBox4.Controls.Add(this.btnBuscarMesero);
             this.groupBox4.Controls.Add(this.txtIdMesero);
             this.groupBox4.Controls.Add(this.txtMesero);
-            this.groupBox4.Controls.Add(this.txtDocMesero);
+            this.groupBox4.Controls.Add(this.txtMesa);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Location = new System.Drawing.Point(803, 3);
@@ -567,25 +567,25 @@
             this.txtMesero.Texts = "";
             this.txtMesero.UnderlinedStyle = true;
             // 
-            // txtDocMesero
+            // txtMesa
             // 
-            this.txtDocMesero.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDocMesero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtDocMesero.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtDocMesero.BorderRadius = 15;
-            this.txtDocMesero.BorderSize = 2;
-            this.txtDocMesero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocMesero.Location = new System.Drawing.Point(8, 42);
-            this.txtDocMesero.Multiline = false;
-            this.txtDocMesero.Name = "txtDocMesero";
-            this.txtDocMesero.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDocMesero.PasswordChar = false;
-            this.txtDocMesero.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDocMesero.PlaceholderText = "N° de Documento";
-            this.txtDocMesero.Size = new System.Drawing.Size(141, 35);
-            this.txtDocMesero.TabIndex = 0;
-            this.txtDocMesero.Texts = "";
-            this.txtDocMesero.UnderlinedStyle = true;
+            this.txtMesa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMesa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtMesa.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtMesa.BorderRadius = 15;
+            this.txtMesa.BorderSize = 2;
+            this.txtMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMesa.Location = new System.Drawing.Point(8, 42);
+            this.txtMesa.Multiline = false;
+            this.txtMesa.Name = "txtMesa";
+            this.txtMesa.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtMesa.PasswordChar = false;
+            this.txtMesa.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMesa.PlaceholderText = "N° de Mesa";
+            this.txtMesa.Size = new System.Drawing.Size(141, 35);
+            this.txtMesa.TabIndex = 0;
+            this.txtMesa.Texts = "";
+            this.txtMesa.UnderlinedStyle = true;
             // 
             // panel1
             // 
@@ -992,7 +992,7 @@
         private Componentes_Personalizad.IconButtonOFSolution btnBuscarMesero;
         private System.Windows.Forms.TextBox txtIdMesero;
         private Componentes_Personalizad.TextBoxOFSolution txtMesero;
-        private Componentes_Personalizad.TextBoxOFSolution txtDocMesero;
+        private Componentes_Personalizad.TextBoxOFSolution txtMesa;
         private Componentes_Personalizad.TextBoxOFSolution txtPagaCon;
         private Componentes_Personalizad.TextBoxOFSolution txtCambio;
         private Componentes_Personalizad.TextBoxOFSolution txtStock;

@@ -31,7 +31,6 @@ namespace DAL
 
                     conexion.Open();
 
-                    // Usar una transacción para asegurar la integridad de los datos
                     using (SqlTransaction transaccion = conexion.BeginTransaction())
                     {
                         comando.Transaction = transaccion;
@@ -50,7 +49,6 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Registrar o manejar el error según sea necesario
                     Console.WriteLine($"Error al restar el stock: {ex.Message}");
                     respuesta = false;
                 }
@@ -77,7 +75,7 @@ namespace DAL
 
                     conexion.Open();
 
-                    // Usar una transacción para asegurar la integridad de los datos
+               
                     using (SqlTransaction transaccion = conexion.BeginTransaction())
                     {
                         comando.Transaction = transaccion;
@@ -96,7 +94,7 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Registrar o manejar el error según sea necesario
+                    
                     Console.WriteLine($"Error al sumar el stock: {ex.Message}");
                     respuesta = false;
                 }
@@ -104,10 +102,6 @@ namespace DAL
 
             return respuesta;
         }
-
-
-
-
 
         public int ObtenerCorrelativo()
         {
@@ -128,18 +122,14 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Registro del error (puede ser en un log, base de datos, etc.)
                     Console.WriteLine($"Error al obtener el correlativo: {ex.Message}");
-                    // O lanzar una excepción específica si es necesario
+               
                     throw new ApplicationException("Error al obtener el correlativo de la venta.", ex);
                 }
             }
 
             return idCorrelativo;
         }
-
-
-
 
         public bool Registrar(Venta venta, DataTable DetalleVenta, out string Mensaje)
         {
@@ -152,9 +142,10 @@ namespace DAL
                     SqlCommand comando = new SqlCommand("usp_RegistrarVenta", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    // Agregar parámetros al comando
+                  
                     comando.Parameters.AddWithValue("idUsuario", venta.usuario.idUsuario);
-                    comando.Parameters.AddWithValue("idMesero", venta.mesero.idMesero); // Nuevo parámetro para idMesero
+                    comando.Parameters.AddWithValue("idMesero", venta.mesero.idMesero);
+                    comando.Parameters.AddWithValue("numeroMesa", venta.numeroMesa); 
                     comando.Parameters.AddWithValue("tipoDocumento", venta.tipoDocumento);
                     comando.Parameters.AddWithValue("numeroDocumento", venta.numeroDocumento);
                     comando.Parameters.AddWithValue("documentoCliente", venta.documentoCliente);
@@ -164,14 +155,14 @@ namespace DAL
                     comando.Parameters.AddWithValue("montoTotal", venta.montoTotal);
                     comando.Parameters.AddWithValue("DetalleVenta", DetalleVenta);
 
-                    // Parámetros de salida
+                    
                     comando.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     comando.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     conexion.Open();
                     comando.ExecuteNonQuery();
 
-                    // Obtener los valores de los parámetros de salida
+                    
                     Respuesta = Convert.ToBoolean(comando.Parameters["Resultado"].Value);
                     Mensaje = comando.Parameters["Mensaje"].Value.ToString();
                 }
@@ -184,8 +175,6 @@ namespace DAL
 
             return Respuesta;
         }
-
-
 
         public Venta ObtenerVenta(string numero)
         {
@@ -203,6 +192,7 @@ namespace DAL
                     query.AppendLine("v.documentoCliente, v.nombreCliente,");
                     query.AppendLine("v.tipoDocumento, v.numeroDocumento,");
                     query.AppendLine("v.montoPago, v.montoCambio, v.montoTotal,");
+                    query.AppendLine("v.NumeroMesa,"); 
                     query.AppendLine("CONVERT(char(10), v.fechaRegistro, 103) AS fechaRegistro");
                     query.AppendLine("FROM VENTAS v");
                     query.AppendLine("INNER JOIN MESEROS m ON m.idMesero = v.idMesero");
@@ -233,14 +223,15 @@ namespace DAL
                                 montoPago = Convert.ToDecimal(reader["montoPago"].ToString()),
                                 montoCambio = Convert.ToDecimal(reader["montoCambio"].ToString()),
                                 montoTotal = Convert.ToDecimal(reader["montoTotal"].ToString()),
-                                fechaRegistro = reader["fechaRegistro"].ToString()
+                                fechaRegistro = reader["fechaRegistro"].ToString(),
+                                numeroMesa = Convert.ToInt32(reader["NumeroMesa"].ToString()) 
                             };
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores
+                   
                     Console.WriteLine($"Error al obtener la venta: {ex.Message}");
                     venta = new Venta();
                 }
@@ -248,6 +239,7 @@ namespace DAL
 
             return venta;
         }
+
 
         public List<DetalleVenta> ObtenerDetalleVenta(int idVenta)
         {
@@ -284,7 +276,7 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores
+                
                     Console.WriteLine($"Error al obtener los detalles de la venta: {ex.Message}");
                     lista = new List<DetalleVenta>();
                 }
