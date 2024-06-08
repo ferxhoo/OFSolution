@@ -71,7 +71,164 @@ namespace GUI
             AssignPaintEventToMenuButtons();
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+
+
+
+            this.FormClosing += new FormClosingEventHandler(formMenuPrincipal_FormClosing);
         }
+
+        //---------------parte implicada-----------------------------
+
+        private void formMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (currentFormSecundario is formVentas ventasForm && ventasForm.HasUnsavedChanges())
+            {
+                var result = MessageBox.Show("Hay cambios no guardados en el formulario de ventas. ¿Desea revertir los cambios antes de salir?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    ventasForm.RevertirCambios();
+                    
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true; // Cancelar el cierre del formulario principal
+                }
+            }
+
+        }
+
+
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void ActivateButton(IconButton senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
+                // Desactivar el botón anterior
+                DisableButton();
+
+                // Activar el nuevo botón
+                currentBtn = senderBtn;
+
+                // Almacenar el color original si no ha sido almacenado antes
+                if (!originalColors.ContainsKey(currentBtn))
+                {
+                    originalColors[currentBtn] = currentBtn.BackColor;
+                }
+
+                // Establecer el color del borde izquierdo
+                borderLeftColor = color;
+
+                // Ajustar el padding para dejar espacio al borde izquierdo
+                currentBtn.Padding = new Padding(10, 0, 0, 0); // 10 píxeles de padding a la izquierda
+                currentBtn.BackColor = Color.FromArgb(37, 36, 81); // Establecer el color de fondo
+                currentBtn.ForeColor = color; // Color del texto
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color; // Color del icono
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+
+                // Redibujar el botón para aplicar el borde izquierdo
+                currentBtn.Invalidate();
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+                // Restaurar el color original del botón
+                currentBtn.BackColor = originalColors[currentBtn];
+                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
+        private struct RGBColors
+        {
+            public static Color ColorSeleccion = Color.FromArgb(24, 161, 251);
+        }
+
+        private void OpenFormSecundario(Form formSecundario)
+        {
+            if (currentFormSecundario is formVentas ventasForm && ventasForm.HasUnsavedChanges())
+            {
+                var result = MessageBox.Show("¿Desea salir sin guardar? Se revertirán los cambios realizados.", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    ventasForm.RevertirCambios();
+                }
+                else
+                {
+                    return; // Cancelar la acción de abrir el nuevo formulario
+                }
+            }
+
+            if (currentFormSecundario != null)
+            {
+                currentFormSecundario.Close();
+            }
+            currentFormSecundario = formSecundario;
+            formSecundario.TopLevel = false;
+            formSecundario.FormBorderStyle = FormBorderStyle.None;
+            formSecundario.Dock = DockStyle.Fill;
+            panelVistaFormularios.Controls.Add(formSecundario);
+            panelVistaFormularios.Tag = formSecundario;
+            formSecundario.BringToFront();
+            formSecundario.Show();
+        }
+
+
+        //private void OpenFormSecundario(Form formSecundario)
+        //{
+        //    if (currentFormSecundario != null)
+        //    {
+        //        // Cierra el formulario secundario actual si está abierto
+        //        currentFormSecundario.Close();
+        //    }
+        //    currentFormSecundario = formSecundario;
+        //    formSecundario.TopLevel = false;
+        //    formSecundario.FormBorderStyle = FormBorderStyle.None;
+        //    formSecundario.Dock = DockStyle.Fill;
+        //    panelVistaFormularios.Controls.Add(formSecundario);
+        //    panelVistaFormularios.Tag = formSecundario;
+        //    formSecundario.BringToFront();
+        //    formSecundario.Show();
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //----------------------------------------------------------
+
 
         private void formMenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -136,10 +293,7 @@ namespace GUI
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        //------------------ close
 
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
@@ -356,77 +510,10 @@ namespace GUI
             }
         }
          
-        //------------- va aqui
+        //------------- va aqui los btones y el form
 
 
-        private void ActivateButton(IconButton senderBtn, Color color)
-        {
-            if (senderBtn != null)
-            {
-                // Desactivar el botón anterior
-                DisableButton();
-
-                // Activar el nuevo botón
-                currentBtn = senderBtn;
-
-                // Almacenar el color original si no ha sido almacenado antes
-                if (!originalColors.ContainsKey(currentBtn))
-                {
-                    originalColors[currentBtn] = currentBtn.BackColor;
-                }
-
-                // Establecer el color del borde izquierdo
-                borderLeftColor = color;
-
-                // Ajustar el padding para dejar espacio al borde izquierdo
-                currentBtn.Padding = new Padding(10, 0, 0, 0); // 10 píxeles de padding a la izquierda
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81); // Establecer el color de fondo
-                currentBtn.ForeColor = color; // Color del texto
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = color; // Color del icono
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-
-                // Redibujar el botón para aplicar el borde izquierdo
-                currentBtn.Invalidate();
-            }
-        }
-
-        private void DisableButton()
-        {
-            if (currentBtn != null)
-            {
-                // Restaurar el color original del botón
-                currentBtn.BackColor = originalColors[currentBtn];
-                currentBtn.ForeColor = Color.Gainsboro;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            }
-        }
-
-        private struct RGBColors
-        {
-            public static Color ColorSeleccion = Color.FromArgb(24, 161, 251);
-        }
-
-        private void OpenFormSecundario(Form formSecundario)
-        {
-            if (currentFormSecundario != null)
-            {
-                // Cierra el formulario secundario actual si está abierto
-                currentFormSecundario.Close();
-            }
-            currentFormSecundario = formSecundario;
-            formSecundario.TopLevel = false;
-            formSecundario.FormBorderStyle = FormBorderStyle.None;
-            formSecundario.Dock = DockStyle.Fill;
-            panelVistaFormularios.Controls.Add(formSecundario);
-            panelVistaFormularios.Tag = formSecundario;
-            formSecundario.BringToFront();
-            formSecundario.Show();
-        }
+        
 
         #endregion
 

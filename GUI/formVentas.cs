@@ -25,7 +25,131 @@ namespace GUI
             responsableVenta = usuario;
             InitializeComponent();
             this.Resize += new EventHandler(formVentas_Resize);
+            //this.FormClosing += formVentas_FormClosing;
         }
+
+        private void formVentas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dgvDetallesVenta.Rows.Count > 0)
+            {
+                var result = MessageBox.Show("¿Desea salir sin guardar? Se revertirán los cambios realizados.", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    RevertirCambios();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        public void RevertirCambios()
+        {
+            foreach (DataGridViewRow row in dgvDetallesVenta.Rows)
+            {
+                if (row.Cells["idProducto"].Value != null && row.Cells["cantidad"].Value != null)
+                {
+                    int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
+                    int cantidad = Convert.ToInt32(row.Cells["cantidad"].Value);
+                    new ServicioVenta().SumarStock(idProducto, cantidad);
+                }
+            }
+            dgvDetallesVenta.Rows.Clear();
+        }
+
+        public bool HasUnsavedChanges()
+        {
+            return dgvDetallesVenta.Rows.Count > 0;
+        }
+
+        //public void GuardarCambios()
+        //{
+            
+        //}
+
+        private void AgregarDetalle()
+        {
+            if (!ValidarDatosProducto(out decimal precioventa)) return;
+
+            if (ProductoExisteEnDetalle() && !editando)
+            {
+                MessageBox.Show("El producto ya existe en el detalle", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (editando)
+            {
+                EditarProductoDetalle(precioventa);
+            }
+            else
+            {
+                bool respuesta = new ServicioVenta().RestarStock(
+                Convert.ToInt32(txtIdProducto.Text),
+                Convert.ToInt32(nupCantidad.Value.ToString()));
+
+                if (respuesta)
+                {
+                    AgregarProductoDetalle(precioventa);
+                }
+
+                calcularTotal();
+                limpiarProducto();
+                txtCodigoProducto.Select();
+            }
+        }
+
+        private void EliminarProducto(int indice)
+        {
+            if (indice >= 0)
+            {
+                bool respuesta = new ServicioVenta().SumarStock(
+                        Convert.ToInt32(dgvDetallesVenta.Rows[indice].Cells["idProducto"].Value.ToString()),
+                        Convert.ToInt32(dgvDetallesVenta.Rows[indice].Cells["cantidad"].Value.ToString()));
+
+                if (respuesta)
+                {
+                    dgvDetallesVenta.Rows.RemoveAt(indice);
+                    calcularTotal();
+
+                    if (editando)
+                    {
+                        limpiarProducto();
+                        btnAgregarDetalle.Text = "Agregar Producto";
+                        editando = false;
+                        habilitarCamposProducto(true);
+                    }
+                }
+            }
+        }
+
+        private void dgvDetallesVenta_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDetallesVenta.SelectedCells.Count > 0)
+            {
+                int indice = dgvDetallesVenta.SelectedCells[0].RowIndex;
+                if (indice >= 0)
+                {
+                    DataGridViewRow filaSeleccionada = dgvDetallesVenta.Rows[indice];
+                    if (filaSeleccionada.Cells["codigo"].Value != null)
+                    {
+                        txtCodigoProducto.Texts = filaSeleccionada.Cells["codigo"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void formVentas_Resize(object sender, EventArgs e)
         {
@@ -200,36 +324,7 @@ namespace GUI
             AgregarDetalle();
         }
 
-        private void AgregarDetalle()
-        {
-            if (!ValidarDatosProducto(out decimal precioventa)) return;
-
-            if (ProductoExisteEnDetalle() && !editando)
-            {
-                MessageBox.Show("El producto ya existe en el detalle", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            if (editando)
-            {
-                EditarProductoDetalle(precioventa);
-            }
-            else
-            {
-                bool respuesta = new ServicioVenta().RestarStock(
-                Convert.ToInt32(txtIdProducto.Text),
-                Convert.ToInt32(nupCantidad.Value.ToString()));
-
-                if (respuesta)
-                {
-                    AgregarProductoDetalle(precioventa);
-                }
-
-                calcularTotal();
-                limpiarProducto();
-                txtCodigoProducto.Select();
-            }
-        }
+        /// ---------------------------------------
 
         private bool ValidarDatosProducto(out decimal precioventa)
         {
@@ -445,46 +540,6 @@ namespace GUI
             {
                 // Manejar el caso en el que el producto no se encuentre
                 txtStock.Texts = "0";
-            }
-        }
-
-        private void EliminarProducto(int indice)
-        {
-            if (indice >= 0)
-            {
-                bool respuesta = new ServicioVenta().SumarStock(
-                        Convert.ToInt32(dgvDetallesVenta.Rows[indice].Cells["idProducto"].Value.ToString()),
-                        Convert.ToInt32(dgvDetallesVenta.Rows[indice].Cells["cantidad"].Value.ToString()));
-
-                if (respuesta)
-                {
-                    dgvDetallesVenta.Rows.RemoveAt(indice);
-                    calcularTotal();
-
-                    if (editando)
-                    {
-                        limpiarProducto();
-                        btnAgregarDetalle.Text = "Agregar Producto";
-                        editando = false;
-                        habilitarCamposProducto(true);
-                    }
-                }
-            }
-        }
-
-        private void dgvDetallesVenta_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDetallesVenta.SelectedCells.Count > 0)
-            {
-                int indice = dgvDetallesVenta.SelectedCells[0].RowIndex;
-                if (indice >= 0)
-                {
-                    DataGridViewRow filaSeleccionada = dgvDetallesVenta.Rows[indice];
-                    if (filaSeleccionada.Cells["codigo"].Value != null)
-                    {
-                        txtCodigoProducto.Texts = filaSeleccionada.Cells["codigo"].Value.ToString();
-                    }
-                }
             }
         }
 

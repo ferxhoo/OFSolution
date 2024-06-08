@@ -11,35 +11,6 @@ namespace DAL
 {
     public class DataVenta
     {
-        public int ObtenerCorrelativo()
-        {
-            int idCorrelativo = 0;
-
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT ISNULL(MAX(IdVenta), 0) + 1 FROM VENTAS");
-                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
-                    comando.CommandType = CommandType.Text;
-
-                    conexion.Open();
-
-                    idCorrelativo = Convert.ToInt32(comando.ExecuteScalar());
-                }
-                catch (Exception ex)
-                {
-                    // Registro del error (puede ser en un log, base de datos, etc.)
-                    Console.WriteLine($"Error al obtener el correlativo: {ex.Message}");
-                    // O lanzar una excepción específica si es necesario
-                    throw new ApplicationException("Error al obtener el correlativo de la venta.", ex);
-                }
-            }
-
-            return idCorrelativo;
-        }
-
 
 
         public bool RestarStock(int idProducto, int cantidad)
@@ -133,6 +104,42 @@ namespace DAL
 
             return respuesta;
         }
+
+
+
+
+
+        public int ObtenerCorrelativo()
+        {
+            int idCorrelativo = 0;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT ISNULL(MAX(IdVenta), 0) + 1 FROM VENTAS");
+                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
+                    comando.CommandType = CommandType.Text;
+
+                    conexion.Open();
+
+                    idCorrelativo = Convert.ToInt32(comando.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    // Registro del error (puede ser en un log, base de datos, etc.)
+                    Console.WriteLine($"Error al obtener el correlativo: {ex.Message}");
+                    // O lanzar una excepción específica si es necesario
+                    throw new ApplicationException("Error al obtener el correlativo de la venta.", ex);
+                }
+            }
+
+            return idCorrelativo;
+        }
+
+
+
 
         public bool Registrar(Venta venta, DataTable DetalleVenta, out string Mensaje)
         {
