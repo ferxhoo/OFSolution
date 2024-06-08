@@ -35,8 +35,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dgvDetallesCompra = new System.Windows.Forms.DataGridView();
+            this.dgvDetallesVenta = new System.Windows.Forms.DataGridView();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtPagaCon = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtCambio = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnDescargar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.txtTotal = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -55,33 +61,29 @@
             this.txtTipoDoc = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFecha = new GUI.Componentes_Personalizad.DateTimePickerOFSolution();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMesero = new GUI.Componentes_Personalizad.TextBoxOFSolution();
+            this.txtMesa = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.panelCentrado = new System.Windows.Forms.Panel();
             this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtMesero = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.txtDocMesero = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesVenta)).BeginInit();
             this.panel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.panelCentrado.SuspendLayout();
             this.panelOFSolution1.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -128,18 +130,18 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dgvDetallesCompra);
+            this.panel4.Controls.Add(this.dgvDetallesVenta);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(20, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1197, 359);
             this.panel4.TabIndex = 3;
             // 
-            // dgvDetallesCompra
+            // dgvDetallesVenta
             // 
-            this.dgvDetallesCompra.AllowUserToAddRows = false;
-            this.dgvDetallesCompra.AllowUserToResizeRows = false;
-            this.dgvDetallesCompra.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetallesVenta.AllowUserToAddRows = false;
+            this.dgvDetallesVenta.AllowUserToResizeRows = false;
+            this.dgvDetallesVenta.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,9 +150,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallesCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDetallesCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetallesCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetallesVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDetallesVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallesVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.producto,
             this.cantidad,
             this.precioVenta,
@@ -162,12 +164,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetallesCompra.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetallesCompra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetallesCompra.Location = new System.Drawing.Point(0, 0);
-            this.dgvDetallesCompra.MultiSelect = false;
-            this.dgvDetallesCompra.Name = "dgvDetallesCompra";
-            this.dgvDetallesCompra.ReadOnly = true;
+            this.dgvDetallesVenta.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetallesVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetallesVenta.Location = new System.Drawing.Point(0, 0);
+            this.dgvDetallesVenta.MultiSelect = false;
+            this.dgvDetallesVenta.Name = "dgvDetallesVenta";
+            this.dgvDetallesVenta.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,15 +177,52 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallesCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDetallesCompra.RowHeadersVisible = false;
-            this.dgvDetallesCompra.RowHeadersWidth = 49;
-            this.dgvDetallesCompra.RowTemplate.Height = 30;
-            this.dgvDetallesCompra.Size = new System.Drawing.Size(1197, 359);
-            this.dgvDetallesCompra.TabIndex = 4;
+            this.dgvDetallesVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetallesVenta.RowHeadersVisible = false;
+            this.dgvDetallesVenta.RowHeadersWidth = 49;
+            this.dgvDetallesVenta.RowTemplate.Height = 30;
+            this.dgvDetallesVenta.Size = new System.Drawing.Size(1197, 359);
+            this.dgvDetallesVenta.TabIndex = 4;
+            // 
+            // producto
+            // 
+            this.producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.producto.FillWeight = 150F;
+            this.producto.HeaderText = "Producto";
+            this.producto.MinimumWidth = 150;
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.MinimumWidth = 100;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 120;
+            // 
+            // precioVenta
+            // 
+            this.precioVenta.HeaderText = "Precio de Venta";
+            this.precioVenta.MinimumWidth = 100;
+            this.precioVenta.Name = "precioVenta";
+            this.precioVenta.ReadOnly = true;
+            this.precioVenta.Width = 200;
+            // 
+            // subtotal
+            // 
+            this.subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.subtotal.FillWeight = 80F;
+            this.subtotal.HeaderText = "SubTotal";
+            this.subtotal.MinimumWidth = 80;
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.txtPagaCon);
+            this.panel5.Controls.Add(this.txtCambio);
             this.panel5.Controls.Add(this.btnDescargar);
             this.panel5.Controls.Add(this.txtTotal);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -191,6 +230,46 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1197, 67);
             this.panel5.TabIndex = 2;
+            // 
+            // txtPagaCon
+            // 
+            this.txtPagaCon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPagaCon.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtPagaCon.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtPagaCon.BorderRadius = 15;
+            this.txtPagaCon.BorderSize = 2;
+            this.txtPagaCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPagaCon.Location = new System.Drawing.Point(23, 17);
+            this.txtPagaCon.Multiline = false;
+            this.txtPagaCon.Name = "txtPagaCon";
+            this.txtPagaCon.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPagaCon.PasswordChar = false;
+            this.txtPagaCon.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPagaCon.PlaceholderText = "Paga Con";
+            this.txtPagaCon.Size = new System.Drawing.Size(149, 35);
+            this.txtPagaCon.TabIndex = 6;
+            this.txtPagaCon.Texts = "";
+            this.txtPagaCon.UnderlinedStyle = true;
+            // 
+            // txtCambio
+            // 
+            this.txtCambio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCambio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtCambio.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtCambio.BorderRadius = 15;
+            this.txtCambio.BorderSize = 2;
+            this.txtCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCambio.Location = new System.Drawing.Point(230, 17);
+            this.txtCambio.Multiline = false;
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCambio.PasswordChar = false;
+            this.txtCambio.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtCambio.PlaceholderText = "Cambio";
+            this.txtCambio.Size = new System.Drawing.Size(149, 35);
+            this.txtCambio.TabIndex = 5;
+            this.txtCambio.Texts = "";
+            this.txtCambio.UnderlinedStyle = true;
             // 
             // btnDescargar
             // 
@@ -218,6 +297,7 @@
             this.btnDescargar.TextColor = System.Drawing.Color.White;
             this.btnDescargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDescargar.UseVisualStyleBackColor = false;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
             // txtTotal
             // 
@@ -228,13 +308,13 @@
             this.txtTotal.BorderSize = 2;
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(19, 17);
+            this.txtTotal.Location = new System.Drawing.Point(445, 17);
             this.txtTotal.Multiline = false;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtTotal.PasswordChar = false;
             this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtTotal.PlaceholderText = "Total a Pagar";
+            this.txtTotal.PlaceholderText = "Total del Pago";
             this.txtTotal.Size = new System.Drawing.Size(149, 35);
             this.txtTotal.TabIndex = 3;
             this.txtTotal.Texts = "";
@@ -350,6 +430,7 @@
             this.btnBuscar.TabIndex = 34;
             this.btnBuscar.TextColor = System.Drawing.Color.White;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBusqueda
             // 
@@ -497,6 +578,60 @@
             this.dtpFecha.TabIndex = 2;
             this.dtpFecha.TextColor = System.Drawing.Color.White;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.txtMesero);
+            this.groupBox3.Controls.Add(this.txtMesa);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Location = new System.Drawing.Point(637, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(583, 85);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Información del Mesero";
+            // 
+            // txtMesero
+            // 
+            this.txtMesero.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMesero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtMesero.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtMesero.BorderRadius = 15;
+            this.txtMesero.BorderSize = 2;
+            this.txtMesero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMesero.Location = new System.Drawing.Point(244, 36);
+            this.txtMesero.Multiline = false;
+            this.txtMesero.Name = "txtMesero";
+            this.txtMesero.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtMesero.PasswordChar = false;
+            this.txtMesero.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMesero.PlaceholderText = "Nombre del Cliente";
+            this.txtMesero.Size = new System.Drawing.Size(260, 35);
+            this.txtMesero.TabIndex = 3;
+            this.txtMesero.Texts = "";
+            this.txtMesero.UnderlinedStyle = true;
+            // 
+            // txtMesa
+            // 
+            this.txtMesa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMesa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtMesa.BorderFocusColor = System.Drawing.Color.Red;
+            this.txtMesa.BorderRadius = 15;
+            this.txtMesa.BorderSize = 2;
+            this.txtMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMesa.Location = new System.Drawing.Point(46, 36);
+            this.txtMesa.Multiline = false;
+            this.txtMesa.Name = "txtMesa";
+            this.txtMesa.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtMesa.PasswordChar = false;
+            this.txtMesa.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMesa.PlaceholderText = "N° de Mesa";
+            this.txtMesa.Size = new System.Drawing.Size(152, 35);
+            this.txtMesa.TabIndex = 2;
+            this.txtMesa.Texts = "";
+            this.txtMesa.UnderlinedStyle = true;
+            // 
             // panelCentrado
             // 
             this.panelCentrado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -550,95 +685,6 @@
             this.panelPrincipal.Size = new System.Drawing.Size(1261, 741);
             this.panelPrincipal.TabIndex = 2;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.txtMesero);
-            this.groupBox3.Controls.Add(this.txtDocMesero);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(637, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(583, 85);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Información del Mesero";
-            // 
-            // txtMesero
-            // 
-            this.txtMesero.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMesero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtMesero.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtMesero.BorderRadius = 15;
-            this.txtMesero.BorderSize = 2;
-            this.txtMesero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMesero.Location = new System.Drawing.Point(244, 36);
-            this.txtMesero.Multiline = false;
-            this.txtMesero.Name = "txtMesero";
-            this.txtMesero.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtMesero.PasswordChar = false;
-            this.txtMesero.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtMesero.PlaceholderText = "Nombre del Cliente";
-            this.txtMesero.Size = new System.Drawing.Size(260, 35);
-            this.txtMesero.TabIndex = 3;
-            this.txtMesero.Texts = "";
-            this.txtMesero.UnderlinedStyle = true;
-            // 
-            // txtDocMesero
-            // 
-            this.txtDocMesero.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDocMesero.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtDocMesero.BorderFocusColor = System.Drawing.Color.Red;
-            this.txtDocMesero.BorderRadius = 15;
-            this.txtDocMesero.BorderSize = 2;
-            this.txtDocMesero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocMesero.Location = new System.Drawing.Point(22, 36);
-            this.txtDocMesero.Multiline = false;
-            this.txtDocMesero.Name = "txtDocMesero";
-            this.txtDocMesero.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDocMesero.PasswordChar = false;
-            this.txtDocMesero.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDocMesero.PlaceholderText = "N° de Documento";
-            this.txtDocMesero.Size = new System.Drawing.Size(203, 35);
-            this.txtDocMesero.TabIndex = 2;
-            this.txtDocMesero.Texts = "";
-            this.txtDocMesero.UnderlinedStyle = true;
-            // 
-            // producto
-            // 
-            this.producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.producto.FillWeight = 150F;
-            this.producto.HeaderText = "Producto";
-            this.producto.MinimumWidth = 150;
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MinimumWidth = 100;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 120;
-            // 
-            // precioVenta
-            // 
-            this.precioVenta.HeaderText = "Precio de Venta";
-            this.precioVenta.MinimumWidth = 100;
-            this.precioVenta.Name = "precioVenta";
-            this.precioVenta.ReadOnly = true;
-            this.precioVenta.Width = 200;
-            // 
-            // subtotal
-            // 
-            this.subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.subtotal.FillWeight = 80F;
-            this.subtotal.HeaderText = "SubTotal";
-            this.subtotal.MinimumWidth = 80;
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
             // formVerDetallesVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -651,7 +697,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesVenta)).EndInit();
             this.panel5.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -660,10 +706,10 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.panelCentrado.ResumeLayout(false);
             this.panelOFSolution1.ResumeLayout(false);
             this.panelPrincipal.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -674,7 +720,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dgvDetallesCompra;
+        private System.Windows.Forms.DataGridView dgvDetallesVenta;
         private System.Windows.Forms.Panel panel5;
         private Componentes_Personalizad.IconButtonOFSolution btnDescargar;
         private Componentes_Personalizad.TextBoxOFSolution txtTotal;
@@ -701,10 +747,12 @@
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.GroupBox groupBox3;
         private Componentes_Personalizad.TextBoxOFSolution txtMesero;
-        private Componentes_Personalizad.TextBoxOFSolution txtDocMesero;
+        private Componentes_Personalizad.TextBoxOFSolution txtMesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private Componentes_Personalizad.TextBoxOFSolution txtPagaCon;
+        private Componentes_Personalizad.TextBoxOFSolution txtCambio;
     }
 }

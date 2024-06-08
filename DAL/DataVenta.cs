@@ -192,7 +192,7 @@ namespace DAL
                     query.AppendLine("v.documentoCliente, v.nombreCliente,");
                     query.AppendLine("v.tipoDocumento, v.numeroDocumento,");
                     query.AppendLine("v.montoPago, v.montoCambio, v.montoTotal,");
-                    query.AppendLine("v.NumeroMesa,"); 
+                    query.AppendLine("v.NumeroMesa,");
                     query.AppendLine("CONVERT(char(10), v.fechaRegistro, 103) AS fechaRegistro");
                     query.AppendLine("FROM VENTAS v");
                     query.AppendLine("INNER JOIN MESEROS m ON m.idMesero = v.idMesero");
@@ -205,7 +205,7 @@ namespace DAL
 
                     using (SqlDataReader reader = comando.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
                             venta = new Venta()
                             {
@@ -224,14 +224,19 @@ namespace DAL
                                 montoCambio = Convert.ToDecimal(reader["montoCambio"].ToString()),
                                 montoTotal = Convert.ToDecimal(reader["montoTotal"].ToString()),
                                 fechaRegistro = reader["fechaRegistro"].ToString(),
-                                numeroMesa = Convert.ToInt32(reader["NumeroMesa"].ToString()) 
+                                numeroMesa = Convert.ToInt32(reader["NumeroMesa"].ToString())
                             };
                         }
+                    }
+
+                    // Obtener los detalles de la venta si se encontró la venta
+                    if (venta != null)
+                    {
+                        venta.detallesVenta = ObtenerDetalleVenta(venta.idVenta);
                     }
                 }
                 catch (Exception ex)
                 {
-                   
                     Console.WriteLine($"Error al obtener la venta: {ex.Message}");
                     venta = new Venta();
                 }
@@ -239,6 +244,7 @@ namespace DAL
 
             return venta;
         }
+
 
 
         public List<DetalleVenta> ObtenerDetalleVenta(int idVenta)
@@ -252,7 +258,7 @@ namespace DAL
                     conexion.Open();
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT p.nombre, dv.precioVenta, dv.cantidad, dv.subTotal");
-                    query.AppendLine("FROM DETALLES_VENTA dv");
+                    query.AppendLine("FROM DETALLES_VENTAS dv");
                     query.AppendLine("INNER JOIN PRODUCTOS p ON p.idProducto = dv.idProducto");
                     query.AppendLine("WHERE dv.idVenta = @idVenta");
 

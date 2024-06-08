@@ -22,6 +22,10 @@ namespace GUI
         {
             InitializeComponent();
             this.Resize += new EventHandler(formVerDetallesCompra_Resize);
+
+            // Agregar manejadores de eventos para el DataGridView
+            dgvDetallesCompra.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dgvDetallesCompra_DataBindingComplete);
+            dgvDetallesCompra.Click += new EventHandler(dgvDetallesCompra_Click);
         }
 
         private void formVerDetallesCompra_Resize(object sender, EventArgs e)
@@ -49,9 +53,7 @@ namespace GUI
 
             if (compra.idCompra != 0)
             {
-
                 txtNumeroDoc.Text = compra.numeroDocumento;
-
                 dtpFecha.Text = compra.fechaRegistro;
                 txtTipoDoc.Texts = compra.tipoDocumento;
                 txtUsuarioResponsable.Texts = compra.usuario.nombreCompleto;
@@ -61,19 +63,19 @@ namespace GUI
                 dgvDetallesCompra.Rows.Clear();
                 foreach (DetalleCompra detallesCompra in compra.detallesCompra)
                 {
-                    dgvDetallesCompra.Rows.Add(new object[] { 
-                        detallesCompra.producto.nombre, 
-                        detallesCompra.cantidad, 
-                        detallesCompra.precioCompra, 
-                        detallesCompra.montoTotal
-                    });
+                    dgvDetallesCompra.Rows.Add(new object[] {
+                    detallesCompra.producto.nombre,
+                    detallesCompra.cantidad,
+                    detallesCompra.precioCompra,
+                    detallesCompra.montoTotal
+                });
                 }
 
                 txtTotal.Texts = compra.montoTotal.ToString("0.00");
-                
-            }
-            //dgvDetallesCompra.SelectedCells.Clear();
 
+                // Limpiar la selección del DataGridView después de cargar los datos
+                dgvDetallesCompra.ClearSelection();
+            }
         }
 
         private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
@@ -87,6 +89,21 @@ namespace GUI
 
             dgvDetallesCompra.Rows.Clear();
             txtTotal.Texts = "0.00";
+
+            // Limpiar la selección del DataGridView
+            dgvDetallesCompra.ClearSelection();
+        }
+
+        // Manejador del evento DataBindingComplete
+        private void dgvDetallesCompra_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDetallesCompra.ClearSelection();
+        }
+
+        // Manejador del evento Click
+        private void dgvDetallesCompra_Click(object sender, EventArgs e)
+        {
+            dgvDetallesCompra.ClearSelection();
         }
 
         private void btnDescargar_Click(object sender, EventArgs e)
@@ -97,7 +114,7 @@ namespace GUI
                 return;
             }
 
-            string Texto_Html = Properties.Resources.plantillaCompra.ToString();
+            string Texto_Html = Properties.Resources.plantillaCompraOFSolution.ToString();
             Negocio datos = new ServicioNegocio().ObtenerDatos();
 
             Texto_Html = Texto_Html.Replace("@nombrenegocio", datos.Nombre.ToUpper());

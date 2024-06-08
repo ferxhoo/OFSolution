@@ -385,6 +385,9 @@
     <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoClaro.ico" />
     <Content Include="RecursoVisual\LOGO ICONO\OFSolution-IconoOscuro.ico" />
     <Content Include="RecursoVisual\Plantillas\plantillaCompra.html" />
+    <Content Include="RecursoVisual\Plantillas\plantillaCompraOFSolution.html" />
+    <Content Include="RecursoVisual\Plantillas\plantillaVenta.html" />
+    <Content Include="RecursoVisual\Plantillas\plantillaVentaOFSolution.html" />
     <Content Include="RecursoVisual\SIN FONDO\OFSolution - Claro.png" />
     <Content Include="RecursoVisual\SIN FONDO\OFSolution - Oscuro.png" />
     <Content Include="RecursoVisual\SnapAsisstImage\Left-Bottom.png" />
