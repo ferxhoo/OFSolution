@@ -17,8 +17,8 @@ namespace GUI
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new formLogin());
-            Application.Run(new formMenuPrincipal());
+            Application.Run(new formLogin());
+            //Application.Run(new formMenuPrincipal());
         }
     }
 }

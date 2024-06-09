@@ -25,6 +25,7 @@ namespace GUI
         private void InicializarComponentesPersonalizados()
         {
             // Suscribirse al evento Resize del formulario
+            this.DoubleBuffered = true;
             this.Resize += new EventHandler(formNegocio_Resize);
         }
 

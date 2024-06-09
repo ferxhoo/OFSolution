@@ -19,6 +19,7 @@ namespace GUI
         public formProveedores()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void formProveedores_Load(object sender, EventArgs e)

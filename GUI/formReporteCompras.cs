@@ -18,6 +18,7 @@ namespace GUI
         public formReporteCompras()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void formReporteCompras_Load(object sender, EventArgs e)

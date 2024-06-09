@@ -21,6 +21,7 @@ namespace GUI
         public formVerDetallesCompra()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.Resize += new EventHandler(formVerDetallesCompra_Resize);
 
             // Agregar manejadores de eventos para el DataGridView

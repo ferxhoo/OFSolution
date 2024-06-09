@@ -20,6 +20,7 @@ namespace GUI
         public formReporteVentas()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
 
         }
 

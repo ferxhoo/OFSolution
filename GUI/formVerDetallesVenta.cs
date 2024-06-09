@@ -21,6 +21,7 @@ namespace GUI
         public formVerDetallesVenta()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.Resize += new EventHandler(formVerDetallesVenta_Resize);
             // Agregar manejadores de eventos para el DataGridView
             dgvDetallesVenta.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dgvDetallesVenta_DataBindingComplete);

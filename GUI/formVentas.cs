@@ -22,6 +22,7 @@ namespace GUI
         public formVentas(Usuario usuario = null)
         {
             responsableVenta = usuario;
+            this.DoubleBuffered = true;
             InitializeComponent();
             this.Resize += new EventHandler(formVentas_Resize);
         }
@@ -431,6 +432,7 @@ namespace GUI
             txtIdProducto.Enabled = habilitar;
             txtCodigoProducto.Enabled = habilitar;
             txtNombreProducto.Enabled = habilitar;
+            btnBuscarProducto.Enabled = habilitar;
             nupCantidad.Select();
         }
 

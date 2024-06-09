@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -142,42 +142,43 @@
             this.dgvDetallesVenta.AllowUserToAddRows = false;
             this.dgvDetallesVenta.AllowUserToResizeRows = false;
             this.dgvDetallesVenta.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallesVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallesVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetallesVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallesVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.producto,
             this.cantidad,
             this.precioVenta,
             this.subtotal});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetallesVenta.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetallesVenta.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetallesVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetallesVenta.Enabled = false;
             this.dgvDetallesVenta.Location = new System.Drawing.Point(0, 0);
             this.dgvDetallesVenta.MultiSelect = false;
             this.dgvDetallesVenta.Name = "dgvDetallesVenta";
             this.dgvDetallesVenta.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallesVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallesVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetallesVenta.RowHeadersVisible = false;
             this.dgvDetallesVenta.RowHeadersWidth = 49;
             this.dgvDetallesVenta.RowTemplate.Height = 30;
@@ -238,6 +239,7 @@
             this.txtPagaCon.BorderFocusColor = System.Drawing.Color.Red;
             this.txtPagaCon.BorderRadius = 15;
             this.txtPagaCon.BorderSize = 2;
+            this.txtPagaCon.Enabled = false;
             this.txtPagaCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPagaCon.Location = new System.Drawing.Point(23, 17);
             this.txtPagaCon.Multiline = false;
@@ -258,6 +260,7 @@
             this.txtCambio.BorderFocusColor = System.Drawing.Color.Red;
             this.txtCambio.BorderRadius = 15;
             this.txtCambio.BorderSize = 2;
+            this.txtCambio.Enabled = false;
             this.txtCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCambio.Location = new System.Drawing.Point(230, 17);
             this.txtCambio.Multiline = false;
@@ -354,6 +357,7 @@
             this.txtNumeroDoc.Name = "txtNumeroDoc";
             this.txtNumeroDoc.Size = new System.Drawing.Size(67, 22);
             this.txtNumeroDoc.TabIndex = 4;
+            this.txtNumeroDoc.Visible = false;
             // 
             // txtCliente
             // 
@@ -362,6 +366,7 @@
             this.txtCliente.BorderFocusColor = System.Drawing.Color.Red;
             this.txtCliente.BorderRadius = 15;
             this.txtCliente.BorderSize = 2;
+            this.txtCliente.Enabled = false;
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.Location = new System.Drawing.Point(279, 30);
             this.txtCliente.Multiline = false;
@@ -382,6 +387,7 @@
             this.txtDocumentoCliente.BorderFocusColor = System.Drawing.Color.Red;
             this.txtDocumentoCliente.BorderRadius = 15;
             this.txtDocumentoCliente.BorderSize = 2;
+            this.txtDocumentoCliente.Enabled = false;
             this.txtDocumentoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumentoCliente.Location = new System.Drawing.Point(61, 30);
             this.txtDocumentoCliente.Multiline = false;
@@ -522,6 +528,7 @@
             this.txtUsuarioResponsable.BorderFocusColor = System.Drawing.Color.Red;
             this.txtUsuarioResponsable.BorderRadius = 15;
             this.txtUsuarioResponsable.BorderSize = 2;
+            this.txtUsuarioResponsable.Enabled = false;
             this.txtUsuarioResponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioResponsable.Location = new System.Drawing.Point(378, 36);
             this.txtUsuarioResponsable.Multiline = false;
@@ -542,6 +549,7 @@
             this.txtTipoDoc.BorderFocusColor = System.Drawing.Color.Red;
             this.txtTipoDoc.BorderRadius = 15;
             this.txtTipoDoc.BorderSize = 2;
+            this.txtTipoDoc.Enabled = false;
             this.txtTipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoDoc.Location = new System.Drawing.Point(191, 36);
             this.txtTipoDoc.Multiline = false;
@@ -568,6 +576,7 @@
             // 
             this.dtpFecha.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpFecha.BorderSize = 0;
+            this.dtpFecha.Enabled = false;
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecha.Location = new System.Drawing.Point(20, 36);
@@ -599,6 +608,7 @@
             this.txtMesero.BorderFocusColor = System.Drawing.Color.Red;
             this.txtMesero.BorderRadius = 15;
             this.txtMesero.BorderSize = 2;
+            this.txtMesero.Enabled = false;
             this.txtMesero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMesero.Location = new System.Drawing.Point(244, 36);
             this.txtMesero.Multiline = false;
@@ -619,6 +629,7 @@
             this.txtMesa.BorderFocusColor = System.Drawing.Color.Red;
             this.txtMesa.BorderRadius = 15;
             this.txtMesa.BorderSize = 2;
+            this.txtMesa.Enabled = false;
             this.txtMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMesa.Location = new System.Drawing.Point(46, 36);
             this.txtMesa.Multiline = false;

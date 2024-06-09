@@ -15,6 +15,7 @@ namespace GUI
         public formInformacion()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
     }
 }

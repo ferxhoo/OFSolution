@@ -51,16 +51,18 @@ namespace GUI
         #endregion
 
         #region Configuracion Inicial del menu
-        //public formMenuPrincipal(Usuario usuarioLogueado)
-        public formMenuPrincipal(Usuario usuarioLogueado = null)
+        public formMenuPrincipal(Usuario usuarioLogueado)
+        //public formMenuPrincipal(Usuario usuarioLogueado = null)
         {
+
             InitializeComponent();
+            this.DoubleBuffered = true;
 
-            if (usuarioLogueado == null)
-                usuarioActual = new Usuario() { nombreCompleto = "User Root", idUsuario = 1 };
-            else usuarioActual = usuarioActual = usuarioLogueado;
+            //if (usuarioLogueado == null)
+            //    usuarioActual = new Usuario() { nombreCompleto = "User Root", idUsuario = 1 };
+            //else usuarioActual = usuarioActual = usuarioLogueado;
 
-            //usuarioActual = usuarioLogueado;
+            usuarioActual = usuarioLogueado;
 
             customizeDesing();
 
@@ -69,7 +71,7 @@ namespace GUI
 
             // Asignar el evento Paint a los botones del menú principal
             AssignPaintEventToMenuButtons();
-            this.DoubleBuffered = true;
+            
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
 
@@ -89,6 +91,20 @@ namespace GUI
                 {
                     ventasForm.RevertirCambios();
                     
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true; // Cancelar el cierre del formulario principal
+                }
+            }
+
+            if (currentFormSecundario is formCompras comprasForm && comprasForm.HasUnsavedChanges())
+            {
+                var result = MessageBox.Show("Hay cambios no guardados en el formulario de ventas. ¿Desea revertir los cambios antes de salir?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    comprasForm.RevertirCambios();
+
                 }
                 else if (result == DialogResult.Cancel)
                 {
@@ -169,9 +185,36 @@ namespace GUI
                 }
                 else
                 {
+                    ActivateButton(btnRegistrarVenta, RGBColors.ColorSeleccion);
+                    panelFacturas.Visible = true;
+                    panelVentas.Visible = true;
+                    panelCompras.Visible = false;
+                    panelReportes.Visible = false;
+                    panelAjustes.Visible = false;
                     return; // Cancelar la acción de abrir el nuevo formulario
                 }
             }
+
+            if (currentFormSecundario is formCompras comprasForm && comprasForm.HasUnsavedChanges())
+            {
+                var result = MessageBox.Show("¿Desea salir sin guardar? Se revertirán los cambios realizados.", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    comprasForm.RevertirCambios();
+                }
+                else
+                {
+                    ActivateButton(btnRegistrarCompra, RGBColors.ColorSeleccion);
+                    panelFacturas.Visible = true;
+                    panelVentas.Visible = false;
+                    panelCompras.Visible = true;
+                    panelReportes.Visible = false;
+                    panelAjustes.Visible = false;
+                    return; // Cancelar la acción de abrir el nuevo formulario
+                }
+            }
+
+
 
             if (currentFormSecundario != null)
             {
@@ -186,48 +229,6 @@ namespace GUI
             formSecundario.BringToFront();
             formSecundario.Show();
         }
-
-
-        //private void OpenFormSecundario(Form formSecundario)
-        //{
-        //    if (currentFormSecundario != null)
-        //    {
-        //        // Cierra el formulario secundario actual si está abierto
-        //        currentFormSecundario.Close();
-        //    }
-        //    currentFormSecundario = formSecundario;
-        //    formSecundario.TopLevel = false;
-        //    formSecundario.FormBorderStyle = FormBorderStyle.None;
-        //    formSecundario.Dock = DockStyle.Fill;
-        //    panelVistaFormularios.Controls.Add(formSecundario);
-        //    panelVistaFormularios.Tag = formSecundario;
-        //    formSecundario.BringToFront();
-        //    formSecundario.Show();
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //----------------------------------------------------------
 
 
         private void formMenuPrincipal_Load(object sender, EventArgs e)

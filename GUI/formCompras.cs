@@ -23,34 +23,44 @@ namespace GUI
         {
             responsableCompra = usuario;
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.Resize += new EventHandler(formCompras_Resize);
-            this.FormClosing += formVentas_FormClosing; // Registra el controlador de eventos
         }
 
-        private void formVentas_FormClosing(object sender, FormClosingEventArgs e)
+        private void formCompras_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!CanCloseForm())
+            if (dgvDetallesCompra.Rows.Count > 0)
             {
-                e.Cancel = true; // Cancela el cierre del formulario
+                var result = MessageBox.Show("¿Desea salir sin guardar? Se revertirán los cambios realizados.", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    RevertirCambios();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
-        public bool CanCloseForm()
+        public void RevertirCambios()
         {
-            if (MessageBox.Show("¿Está seguro de que desea cerrar?", "Confirmar Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            foreach (DataGridViewRow row in dgvDetallesCompra.Rows)
             {
-                return false;
+                if (row.Cells["idProducto"].Value != null && row.Cells["cantidad"].Value != null)
+                {
+                    int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
+                    int cantidad = Convert.ToInt32(row.Cells["cantidad"].Value);
+                    new ServicioVenta().SumarStock(idProducto, cantidad);
+                }
             }
-
-            GuardarCambios();
-            return true;
+            dgvDetallesCompra.Rows.Clear();
         }
 
-        private void GuardarCambios()
+        public bool HasUnsavedChanges()
         {
-            // Aquí no guardaremos cambios
+            return dgvDetallesCompra.Rows.Count > 0;
         }
-
 
 
         private void formCompras_Load(object sender, EventArgs e)
@@ -138,7 +148,9 @@ namespace GUI
             txtIdProducto.Text = producto.idProducto.ToString();
             txtCodigoProducto.Texts = producto.codigo;
             txtNombreProducto.Texts = producto.nombre;
+            txtPrecioVenta.Texts = Convert.ToDecimal(producto.precioVenta).ToString();
             txtPrecioCompra.Select();
+
         }
 
         private void txtCodigoProducto_KeyDown(object sender, KeyEventArgs e)
@@ -408,6 +420,7 @@ namespace GUI
             txtIdProducto.Enabled = habilitar;
             txtCodigoProducto.Enabled = habilitar;
             txtNombreProducto.Enabled = habilitar;
+            btnBuscarProducto.Enabled = habilitar;
             txtPrecioCompra.Select();
         }
 
