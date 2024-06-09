@@ -336,7 +336,7 @@
             this.btnReportesPorCompras.Name = "btnReportesPorCompras";
             this.btnReportesPorCompras.Size = new System.Drawing.Size(197, 40);
             this.btnReportesPorCompras.TabIndex = 6;
-            this.btnReportesPorCompras.Text = "Por Compras";
+            this.btnReportesPorCompras.Text = "De Compras";
             this.btnReportesPorCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportesPorCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportesPorCompras.UseVisualStyleBackColor = false;
@@ -360,7 +360,7 @@
             this.btnReportesPorVenta.Name = "btnReportesPorVenta";
             this.btnReportesPorVenta.Size = new System.Drawing.Size(197, 40);
             this.btnReportesPorVenta.TabIndex = 5;
-            this.btnReportesPorVenta.Text = "Por Ventas";
+            this.btnReportesPorVenta.Text = "De Ventas";
             this.btnReportesPorVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportesPorVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportesPorVenta.UseVisualStyleBackColor = false;
@@ -383,7 +383,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(197, 40);
             this.btnReportes.TabIndex = 31;
-            this.btnReportes.Text = "Reportes";
+            this.btnReportes.Text = "Contabilidad";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportes.UseVisualStyleBackColor = true;
