@@ -24,5 +24,6 @@ namespace ENTITY
             this.cantidad = cantidad;
             this.fechaRegistro = fechaRegistro;
         }
+
     }
 }

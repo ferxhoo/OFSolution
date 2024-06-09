@@ -21,6 +21,7 @@ namespace ENTITY
             this.idProveedor = idProveedor;
             this.razonSocial = razonSocial;
         }
+
     }
 
 }

@@ -36,7 +36,7 @@ namespace BLL
 
         public Venta ObtenerVenta(string numero)
         {
-            Venta venta = dataVenta.ObtenerVenta(numero);
+            Venta venta = dataVenta.ObtenerFactura(numero);
 
             if (venta.idVenta != 0)
             {
@@ -46,7 +46,6 @@ namespace BLL
 
             return venta;
         }
-
 
     }
 }

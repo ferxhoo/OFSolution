@@ -32,7 +32,6 @@ namespace GUI.formulariosModales
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvProveedores.Columns)
             {
 
@@ -48,10 +47,8 @@ namespace GUI.formulariosModales
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvProveedores.Rows.Clear();
 
-            // Mostrar todos los usuarios
             List<Proveedor> lista = new ServicioProveedor().Listar();
 
             foreach (Proveedor item in lista)
@@ -65,7 +62,6 @@ namespace GUI.formulariosModales
                 });
             }
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -132,7 +128,6 @@ namespace GUI.formulariosModales
                 this.Close();
             }
         }
-
 
         private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

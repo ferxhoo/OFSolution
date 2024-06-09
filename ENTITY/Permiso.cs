@@ -12,5 +12,6 @@ namespace ENTITY
         public Rol rol { get; set; }
         public string nombreMenu { get; set; }
         public string fechaRegistro { get; set; }
+
     }
 }

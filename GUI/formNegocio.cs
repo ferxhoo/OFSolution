@@ -24,14 +24,12 @@ namespace GUI
 
         private void InicializarComponentesPersonalizados()
         {
-            // Suscribirse al evento Resize del formulario
             this.DoubleBuffered = true;
             this.Resize += new EventHandler(formNegocio_Resize);
         }
 
         private void CentrarPanel()
         {
-            // Calcular la posición para centrar el panel
             int x = (this.ClientSize.Width - panelPrincipal.Width) / 2;
             int y = (this.ClientSize.Height - panelPrincipal.Height) / 2;
             panelPrincipal.Location = new System.Drawing.Point(x, y);
@@ -79,7 +77,7 @@ namespace GUI
             Negocio datos = new ServicioNegocio().ObtenerDatos();
 
             txtNombre.Texts = datos.Nombre;
-            txtRUC.Texts = datos.RUC;
+            txtRUC.Texts = datos.RUT;
             txtDireccion.Texts = datos.Direccion;
         }
 
@@ -91,7 +89,6 @@ namespace GUI
             }
         }
 
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -99,7 +96,7 @@ namespace GUI
             Negocio dato = new Negocio()
             {
                 Nombre = txtNombre.Texts,
-                RUC = txtRUC.Texts,
+                RUT = txtRUC.Texts,
                 Direccion = txtDireccion.Texts
             };
 
@@ -110,5 +107,6 @@ namespace GUI
             else
                 MessageBox.Show("No se pudo guardar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
     }
 }

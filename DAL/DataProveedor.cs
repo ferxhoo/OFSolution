@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataProveedor
+    public class DataProveedor : ICrudDB<Proveedor>
     {
 
         public List<Proveedor> Listar()
@@ -62,7 +62,6 @@ namespace DAL
             return lista;
 
         }
-
 
         public int Registrar(Proveedor nuevoProveedor, out string mensaje)
         {
@@ -170,7 +169,6 @@ namespace DAL
 
             return resultado;
         }
-
 
     }
 }

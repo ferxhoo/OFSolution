@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataProducto
+    public class DataProducto : ICrudDB<Producto>
     {
 
         public List<Producto> Listar()
@@ -56,7 +56,6 @@ namespace DAL
                 catch (Exception ex)
                 {
                     lista = new List<Producto>();
-                    // Log exception if necessary
                 }
             }
 

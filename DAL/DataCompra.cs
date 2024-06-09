@@ -10,8 +10,9 @@ using System.Collections;
 
 namespace DAL
 {
-    public class DataCompra
+    public class DataCompra : IFacturaDB<Compra>
     {
+
         public int ObtenerCorrelativo()
         {
             int idCorrelativo = 0;
@@ -78,7 +79,7 @@ namespace DAL
             return Respuesta;
         }
 
-        public Compra ObtenerCompra(string numero)
+        public Compra ObtenerFactura(string numero)
         {
             Compra compra = null;
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
@@ -166,5 +167,6 @@ namespace DAL
             }
             return lista;
         }
+
     }
 }

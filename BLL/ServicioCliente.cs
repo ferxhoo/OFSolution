@@ -10,7 +10,7 @@ namespace BLL
 {
     public class ServicioCliente
     {
-        private DataCliente dataCliente = new DataCliente();
+        private ICrudDB<Cliente> dataCliente = new DataCliente();
 
         public List<Cliente> Listar()
         {
@@ -31,5 +31,6 @@ namespace BLL
         {
             return dataCliente.Eliminar(cliente, out Mensaje);
         }
+
     }
 }

@@ -10,7 +10,7 @@ namespace BLL
 {
     public class ServicioUsuario
     {
-        private DataUsuario dataUsuario = new DataUsuario();
+        private ICrudDB<Usuario> dataUsuario = new DataUsuario();
 
         public List<Usuario> Listar()
         {

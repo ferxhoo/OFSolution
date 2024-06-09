@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DataRol
     {
+
         public List<Rol> Listar()
         {
             List<Rol> lista = new List<Rol>();
@@ -47,7 +48,7 @@ namespace DAL
             }
 
             return lista;
-
         }
+
     }
 }

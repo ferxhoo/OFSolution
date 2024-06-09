@@ -25,7 +25,7 @@ namespace BLL
 
         public Compra ObtenerCompra(string numero)
         {
-            Compra compra = dataCompra.ObtenerCompra(numero);
+            Compra compra = dataCompra.ObtenerFactura(numero);
 
             if (compra != null && compra.idCompra != 0)
             {
@@ -35,6 +35,7 @@ namespace BLL
 
             return compra;
         }
+
     }
 
 }

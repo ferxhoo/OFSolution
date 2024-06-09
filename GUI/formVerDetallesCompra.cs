@@ -24,7 +24,6 @@ namespace GUI
             this.DoubleBuffered = true;
             this.Resize += new EventHandler(formVerDetallesCompra_Resize);
 
-            // Agregar manejadores de eventos para el DataGridView
             dgvDetallesCompra.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dgvDetallesCompra_DataBindingComplete);
             dgvDetallesCompra.Click += new EventHandler(dgvDetallesCompra_Click);
         }
@@ -38,7 +37,7 @@ namespace GUI
         {
             if (panelPrincipal != null && panelCentrado != null)
             {
-                panelCentrado.Width = 1261; // Mantener el ancho fijo
+                panelCentrado.Width = 1261; 
                 panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
 
                 int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
@@ -74,7 +73,6 @@ namespace GUI
 
                 txtTotal.Texts = compra.montoTotal.ToString("0.00");
 
-                // Limpiar la selección del DataGridView después de cargar los datos
                 dgvDetallesCompra.ClearSelection();
             }
         }
@@ -91,17 +89,14 @@ namespace GUI
             dgvDetallesCompra.Rows.Clear();
             txtTotal.Texts = "0.00";
 
-            // Limpiar la selección del DataGridView
             dgvDetallesCompra.ClearSelection();
         }
 
-        // Manejador del evento DataBindingComplete
         private void dgvDetallesCompra_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDetallesCompra.ClearSelection();
         }
 
-        // Manejador del evento Click
         private void dgvDetallesCompra_Click(object sender, EventArgs e)
         {
             dgvDetallesCompra.ClearSelection();
@@ -119,7 +114,7 @@ namespace GUI
             Negocio datos = new ServicioNegocio().ObtenerDatos();
 
             Texto_Html = Texto_Html.Replace("@nombrenegocio", datos.Nombre.ToUpper());
-            Texto_Html = Texto_Html.Replace("@docnegocio", datos.RUC);
+            Texto_Html = Texto_Html.Replace("@docnegocio", datos.RUT);
             Texto_Html = Texto_Html.Replace("@direcnegocio", datos.Direccion);
 
             Texto_Html = Texto_Html.Replace("@tipodocumento", txtTipoDoc.Texts.ToUpper());

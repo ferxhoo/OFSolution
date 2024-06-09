@@ -36,5 +36,6 @@ namespace ENTITY
             this.precioVenta = precioVenta;
             this.fechaRegistro = fechaRegistro;
         }
+
     }
 }

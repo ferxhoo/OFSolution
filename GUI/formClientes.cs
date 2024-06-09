@@ -33,7 +33,6 @@ namespace GUI
 
         private void CargarCmbEstado()
         {
-            //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "Inactivo" });
             cmbEstado.DisplayMember = "Texto";
@@ -43,7 +42,6 @@ namespace GUI
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvClientes.Columns)
             {
 
@@ -59,10 +57,8 @@ namespace GUI
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvClientes.Rows.Clear();
 
-            // Mostrar todos los usuarios
             List<Cliente> lista = new ServicioCliente().Listar();
 
             foreach (Cliente item in lista)
@@ -157,7 +153,7 @@ namespace GUI
                     return comboBox.Items.IndexOf(opcionComboBox);
                 }
             }
-            return -1; // Retornar -1 si no se encuentra el valor
+            return -1; 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -310,7 +306,6 @@ namespace GUI
 
                     if (respuesta)
                     {
-                        //dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
                         ActualizarUI();
                     }
                     else
@@ -348,5 +343,6 @@ namespace GUI
                 row.Visible = true;
             }
         }
+
     }
 }

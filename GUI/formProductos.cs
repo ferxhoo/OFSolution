@@ -35,7 +35,6 @@ namespace GUI
 
         private void CargarCmbEstado()
         {
-            //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "No Activo" });
             cmbEstado.DisplayMember = "Texto";
@@ -45,7 +44,6 @@ namespace GUI
 
         private void CargarCmbCategoria()
         {
-            //cargar combobox rol
             List<Categoria> listaCategoria = new ServicioCategoria().Listar();
 
             foreach (Categoria item in listaCategoria)
@@ -59,7 +57,6 @@ namespace GUI
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvProductos.Columns)
             {
 
@@ -75,7 +72,6 @@ namespace GUI
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvProductos.Rows.Clear();
 
             List<Producto> lista = new ServicioProducto().Listar();
@@ -119,7 +115,6 @@ namespace GUI
             }
 
             dgvProductos.ClearSelection();
-
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -134,7 +129,6 @@ namespace GUI
                     ActualizarControlesProducto(producto, indice);
                 }
             }
-
         }
 
         private Producto ObtenerProductoDeFila(DataGridViewRow fila)
@@ -166,10 +160,8 @@ namespace GUI
             cmbCategoria.SelectedIndex = ObtenerIndiceComboBox(cmbCategoria, producto.categoria.idCategoria);
             cmbEstado.SelectedIndex = ObtenerIndiceComboBox(cmbEstado, producto.estado ? 1 : 0);
 
-
             btnGuardar.Text = "Editar";
             btnGuardar.BackColor = Color.FromArgb(108, 196, 228);
-
         }
 
         private int ObtenerIndiceComboBox(ComboBoxOFSolution comboBox, int valor)
@@ -181,7 +173,7 @@ namespace GUI
                     return comboBox.Items.IndexOf(opcionComboBox);
                 }
             }
-            return -1; // Retornar -1 si no se encuentra el valor
+            return -1; 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -313,7 +305,6 @@ namespace GUI
             txtCodigo.Select();
             btnGuardar.Text = "Guardar";
             btnGuardar.BackColor = Color.FromArgb(23, 145, 200);
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -333,7 +324,6 @@ namespace GUI
 
                     if (respuesta)
                     {
-                        //dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
                         ActualizarUI();
                     }
                     else
@@ -429,5 +419,6 @@ namespace GUI
 
             }
         }
+
     }
 }

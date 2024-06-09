@@ -49,14 +49,12 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de excepciones
                     return compras;
                 }
             }
 
             return compras;
         }
-
 
         public decimal ObtenerGastosEntreFechas(DateTime fechaInicio, DateTime fechaFin)
         {
@@ -85,14 +83,12 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores
                     return totalGastos;
                 }
             }
 
             return totalGastos;
         }
-
 
         public List<Venta> ObtenerVentasEntreFechas(DateTime fechaInicio, DateTime fechaFin)
         {
@@ -132,7 +128,6 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de excepciones
                     return ventas;
                 }
             }
@@ -161,7 +156,6 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de excepciones
                     return ganancias;
                 }
             }

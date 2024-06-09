@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+
     public class Conexion
     {
         public static string cadena = ConfigurationManager.ConnectionStrings["cadena_conexion"].ToString();
     }
+
 }

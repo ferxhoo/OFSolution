@@ -10,10 +10,9 @@ using System.Reflection;
 
 namespace DAL
 {
-    public class DataUsuario
+    public class DataUsuario : ICrudDB<Usuario>
     {
 
-        #region code
         public List<Usuario> Listar()
         {
             List<Usuario> lista = new List<Usuario>();
@@ -64,16 +63,12 @@ namespace DAL
             }
 
             return lista;
-
         }
-
-        #endregion
 
         public int Registrar(Usuario nuevoUsuario, out string Mensaje)
         {
             int idUsuarioGenerado = 0;
             Mensaje = string.Empty;
-
 
             try
             {
@@ -110,8 +105,6 @@ namespace DAL
                 Mensaje = ex.Message;
             }
 
-
-
             return idUsuarioGenerado;
         }
 
@@ -119,7 +112,6 @@ namespace DAL
         {
             bool respuesta = false;
             Mensaje = string.Empty;
-
 
             try
             {
@@ -157,17 +149,13 @@ namespace DAL
                 Mensaje = ex.Message;
             }
 
-
-
             return respuesta;
         }
-
 
         public bool Eliminar(Usuario eliminarUsuario, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
-
 
             try
             {
@@ -200,7 +188,6 @@ namespace DAL
 
             return respuesta;
         }
-
 
     }
 

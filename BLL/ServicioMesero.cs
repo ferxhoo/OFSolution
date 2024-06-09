@@ -10,7 +10,7 @@ namespace BLL
 {
     public class ServicioMesero
     {
-        private DataMesero dataMesero = new DataMesero();
+        private ICrudDB<Mesero> dataMesero = new DataMesero();
 
         public List<Mesero> Listar()
         {

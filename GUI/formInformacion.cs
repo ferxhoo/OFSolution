@@ -12,10 +12,12 @@ namespace GUI
 {
     public partial class formInformacion : Form
     {
+
         public formInformacion()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
         }
+
     }
 }

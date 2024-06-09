@@ -23,7 +23,6 @@ namespace GUI
             InitializeComponent();
             this.DoubleBuffered = true;
             this.Resize += new EventHandler(formVerDetallesVenta_Resize);
-            // Agregar manejadores de eventos para el DataGridView
             dgvDetallesVenta.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dgvDetallesVenta_DataBindingComplete);
             dgvDetallesVenta.Click += new EventHandler(dgvDetallesVenta_Click);
         }
@@ -37,7 +36,7 @@ namespace GUI
         {
             if (panelPrincipal != null && panelCentrado != null)
             {
-                panelCentrado.Width = 1261; // Mantener el ancho fijo
+                panelCentrado.Width = 1261; 
                 panelCentrado.Height = panelPrincipal.Height >= 741 ? panelPrincipal.Height : 741;
 
                 int x = (panelPrincipal.Width > 1261) ? (panelPrincipal.Width - 1261) / 2 : 0;
@@ -85,7 +84,6 @@ namespace GUI
                 txtCambio.Texts = venta.montoCambio.ToString("0.00");
                 txtTotal.Texts = venta.montoTotal.ToString("0.00");
 
-                // Limpiar la selección del DataGridView después de cargar los datos
                 dgvDetallesVenta.ClearSelection();
             }
             else
@@ -93,8 +91,6 @@ namespace GUI
                 MessageBox.Show("Venta no encontrada o ID de venta no válido.");
             }
         }
-
-
 
         private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
         {
@@ -112,17 +108,14 @@ namespace GUI
             txtCambio.Texts = "0.00";
             txtTotal.Texts = "0.00";
 
-            // Limpiar la selección del DataGridView
             dgvDetallesVenta.ClearSelection();
         }
 
-        // Manejador del evento DataBindingComplete
         private void dgvDetallesVenta_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDetallesVenta.ClearSelection();
         }
 
-        // Manejador del evento Click
         private void dgvDetallesVenta_Click(object sender, EventArgs e)
         {
             dgvDetallesVenta.ClearSelection();
@@ -140,7 +133,7 @@ namespace GUI
             Negocio datos = new ServicioNegocio().ObtenerDatos();
 
             Texto_Html = Texto_Html.Replace("@nombrenegocio", datos.Nombre.ToUpper());
-            Texto_Html = Texto_Html.Replace("@docnegocio", datos.RUC);
+            Texto_Html = Texto_Html.Replace("@docnegocio", datos.RUT);
             Texto_Html = Texto_Html.Replace("@direcnegocio", datos.Direccion);
 
             Texto_Html = Texto_Html.Replace("@tipodocumento", txtTipoDoc.Texts.ToUpper());
@@ -206,5 +199,6 @@ namespace GUI
                 }
             }
         }
+
     }
 }

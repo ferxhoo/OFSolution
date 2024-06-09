@@ -26,5 +26,6 @@ namespace ENTITY
             this.montoTotal = montoTotal;
             this.fechaRegistro = fechaRegistro;
         }
+
     }
 }

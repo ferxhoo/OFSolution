@@ -33,7 +33,6 @@ namespace GUI
 
         private void CargarCmbEstado()
         {
-            //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "Inactivo" });
             cmbEstado.DisplayMember = "Texto";
@@ -43,7 +42,6 @@ namespace GUI
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvMeseros.Columns)
             {
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
@@ -58,10 +56,8 @@ namespace GUI
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvMeseros.Rows.Clear();
 
-            // Mostrar todos los meseros
             List<Mesero> lista = new ServicioMesero().Listar();
 
             foreach (Mesero item in lista)
@@ -96,7 +92,6 @@ namespace GUI
             }
 
             dgvMeseros.ClearSelection();
-
         }
 
         private void dgvMeseros_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,7 +147,7 @@ namespace GUI
                     return comboBox.Items.IndexOf(opcionComboBox);
                 }
             }
-            return -1; // Retornar -1 si no se encuentra el valor
+            return -1; 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -339,5 +334,6 @@ namespace GUI
                 row.Visible = true;
             }
         }
+
     }
 }

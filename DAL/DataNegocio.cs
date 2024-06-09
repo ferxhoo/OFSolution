@@ -23,7 +23,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT idNegocio, nombre, RUC, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
+                    string query = "SELECT idNegocio, nombre, RUT, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.CommandType = CommandType.Text;
 
@@ -35,7 +35,7 @@ namespace DAL
                             {
                                 IdNegocio = int.Parse(reader["idNegocio"].ToString()),
                                 Nombre = reader["nombre"].ToString(),
-                                RUC = reader["RUC"].ToString(),
+                                RUT = reader["RUT"].ToString(),
                                 Direccion = reader["direccion"].ToString()
                             };
                         }
@@ -50,14 +50,11 @@ namespace DAL
                 negocio = new Negocio();
             }
 
-
-
             return negocio;
         }
 
         public bool GuardarDatos(Negocio negocio, out string mensaje)
         {
-
             mensaje = string.Empty;
             bool respuesta = true;
 
@@ -71,13 +68,13 @@ namespace DAL
 
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("UPDATE DATOSNEGOCIO SET nombre = @nombre,");
-                    query.AppendLine("RUC = @ruc,");
+                    query.AppendLine("RUT = @rut,");
                     query.AppendLine("direccion = @direccion");
                     query.AppendLine("WHERE idNegocio = 1;");
 
                     SqlCommand comando = new SqlCommand(query.ToString(), conexion);
                     comando.Parameters.AddWithValue("@nombre", negocio.Nombre);
-                    comando.Parameters.AddWithValue("@ruc", negocio.RUC);
+                    comando.Parameters.AddWithValue("@rut", negocio.RUT);
                     comando.Parameters.AddWithValue("@direccion", negocio.Direccion);
                     comando.CommandType = CommandType.Text;
 
@@ -98,7 +95,6 @@ namespace DAL
             return respuesta;
 
         }
-
 
         public byte[] ObtenerLogo(out bool obtenido)
         {
@@ -168,7 +164,7 @@ namespace DAL
             }
 
             return respuesta;
-
         }
+
     }
 }

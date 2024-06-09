@@ -11,7 +11,7 @@ namespace BLL
     public class ServicioProducto
     {
 
-        private DataProducto dataProducto = new DataProducto();
+        private ICrudDB<Producto> dataProducto = new DataProducto();
 
         public List<Producto> Listar()
         {

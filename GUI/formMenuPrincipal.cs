@@ -20,20 +20,14 @@ namespace GUI
 
         private static Usuario usuarioActual;
 
-        #region propiedades graficas
-
-        #region propiedades de botones de menu
         private IconButton currentBtn = null;
         private Form currentFormSecundario = null;
         private Color borderLeftColor = Color.Transparent;
-        // Almacenar los colores originales de los botones
-        private Dictionary<IconButton, Color> originalColors = new Dictionary<IconButton, Color>();
-        #endregion
 
-        #region redimencionamiento
+        private Dictionary<IconButton, Color> originalColors = new Dictionary<IconButton, Color>();
+
         private MenuSnapAsisstOFSolution menuSnap;
 
-        // Constantes para el redimensionamiento
         private const int HTLEFT = 10;
         private const int HTRIGHT = 11;
         private const int HTTOP = 12;
@@ -46,11 +40,6 @@ namespace GUI
         private const int HTCLIENT = 1;
         private const int WM_NCHITTEST = 0x84;
         private const int WM_NCLBUTTONDOWN = 0xA1;
-        #endregion
-
-        #endregion
-
-        #region Configuracion Inicial del menu
         public formMenuPrincipal(Usuario usuarioLogueado)
         //public formMenuPrincipal(Usuario usuarioLogueado = null)
         {
@@ -66,21 +55,14 @@ namespace GUI
 
             customizeDesing();
 
-            // Inicializar menuSnap
             menuSnap = new MenuSnapAsisstOFSolution(this);
 
-            // Asignar el evento Paint a los botones del menú principal
             AssignPaintEventToMenuButtons();
             
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-
-
-
             this.FormClosing += new FormClosingEventHandler(formMenuPrincipal_FormClosing);
         }
-
-        //---------------parte implicada-----------------------------
 
         private void formMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -94,7 +76,7 @@ namespace GUI
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    e.Cancel = true; // Cancelar el cierre del formulario principal
+                    e.Cancel = true; 
                 }
             }
 
@@ -114,43 +96,34 @@ namespace GUI
 
         }
 
-
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void ActivateButton(IconButton senderBtn, Color color)
         {
             if (senderBtn != null)
             {
-                // Desactivar el botón anterior
                 DisableButton();
 
-                // Activar el nuevo botón
                 currentBtn = senderBtn;
 
-                // Almacenar el color original si no ha sido almacenado antes
                 if (!originalColors.ContainsKey(currentBtn))
                 {
                     originalColors[currentBtn] = currentBtn.BackColor;
                 }
 
-                // Establecer el color del borde izquierdo
                 borderLeftColor = color;
 
-                // Ajustar el padding para dejar espacio al borde izquierdo
-                currentBtn.Padding = new Padding(10, 0, 0, 0); // 10 píxeles de padding a la izquierda
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81); // Establecer el color de fondo
-                currentBtn.ForeColor = color; // Color del texto
+                currentBtn.Padding = new Padding(10, 0, 0, 0); 
+                currentBtn.BackColor = Color.FromArgb(37, 36, 81); 
+                currentBtn.ForeColor = color; 
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = color; // Color del icono
+                currentBtn.IconColor = color; 
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
-                // Redibujar el botón para aplicar el borde izquierdo
                 currentBtn.Invalidate();
             }
         }
@@ -159,7 +132,6 @@ namespace GUI
         {
             if (currentBtn != null)
             {
-                // Restaurar el color original del botón
                 currentBtn.BackColor = originalColors[currentBtn];
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -191,7 +163,7 @@ namespace GUI
                     panelCompras.Visible = false;
                     panelReportes.Visible = false;
                     panelAjustes.Visible = false;
-                    return; // Cancelar la acción de abrir el nuevo formulario
+                    return; 
                 }
             }
 
@@ -210,11 +182,9 @@ namespace GUI
                     panelCompras.Visible = true;
                     panelReportes.Visible = false;
                     panelAjustes.Visible = false;
-                    return; // Cancelar la acción de abrir el nuevo formulario
+                    return; 
                 }
             }
-
-
 
             if (currentFormSecundario != null)
             {
@@ -229,7 +199,6 @@ namespace GUI
             formSecundario.BringToFront();
             formSecundario.Show();
         }
-
 
         private void formMenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -250,10 +219,8 @@ namespace GUI
 
         public List<IconButton> botonesMenu()
         {
-            // Inicializa la lista
             List<IconButton> listaBotones = new List<IconButton>();
 
-            // Agrega elementos a la lista
             listaBotones.Add(btnProductos);
             listaBotones.Add(btnFacturas);
             listaBotones.Add(btnClientes);
@@ -265,17 +232,11 @@ namespace GUI
             return listaBotones;
         }
 
-
-        #endregion
-
-        #region barra de titulos y redimensionamiento
         private void btnMaximizar_MouseEnter(object sender, EventArgs e)
         {
-            // Calcular la posición para mostrar el menú en la parte inferior del botón
             Point menuPosition = btnMaximizar.PointToScreen(new Point(0, btnMaximizar.Height));
             menuSnap.ShowMenu(this, menuPosition);
 
-            // Detener el temporizador si está en ejecución
             menuSnap.StopCloseMenuTimer();
         }
 
@@ -288,13 +249,10 @@ namespace GUI
         {
             if (menuSnap.IsMenuVisible())
             {
-                // Calcular la nueva posición del menú
                 Point menuPosition = btnMaximizar.PointToScreen(new Point(0, btnMaximizar.Height));
                 menuSnap.UpdateMenuPosition(menuPosition);
             }
         }
-
-        //------------------ close
 
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
@@ -317,7 +275,6 @@ namespace GUI
         {
             if (e.Button == MouseButtons.Left)
             {
-                // Llamar al método de arrastrar ventana
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
@@ -417,9 +374,6 @@ namespace GUI
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        #endregion
-
-        #region menudesplegable
         private void customizeDesing()
         {
             panelFacturas.Visible = false;
@@ -440,7 +394,7 @@ namespace GUI
 
         private void showSubmenu(Panel subMenu)
         {
-            hideSubmenu(); // Oculta todos los submenús antes de mostrar el submenú deseado
+            hideSubmenu(); 
 
             if (!subMenu.Visible)
             {
@@ -454,13 +408,11 @@ namespace GUI
 
         private void AdjustPanelFacturaSize()
         {
-            // Si ninguno de los paneles de compras o ventas es visible
-            // Ajustar el tamaño del panel de facturas para que quepa el espacio de los botones más una separación
             int buttonWidth = btnVentas.Width + btnCompras.Width;
             int buttonHeight = btnVentas.Height + btnCompras.Height;
-            int separation = 10; // Separación entre botones
-            int totalWidth = 2 * buttonWidth + separation; // Ancho total del panel
-            int totalHeight = buttonHeight + separation; // Alto total del panel
+            int separation = 10;
+            int totalWidth = 2 * buttonWidth + separation;
+            int totalHeight = buttonHeight + separation; 
 
             if (!panelCompras.Visible && !panelVentas.Visible)
             {
@@ -468,14 +420,10 @@ namespace GUI
             }
             else
             {
-                // Si alguno de los paneles de compras o ventas es visible
-                // Ajustar el tamaño del panel de facturas para que coincida con el tamaño del panel
                 panelFacturas.Size = new Size(totalWidth + 197, totalHeight + 87);
             }
         }
-        #endregion
-
-        #region diseño de activacion y desactivacion de botones de menu
+        
         private void AssignPaintEventToMenuButtons()
         {
             btnProductos.Paint += new PaintEventHandler(this.Button_Paint);
@@ -511,14 +459,6 @@ namespace GUI
             }
         }
          
-        //------------- va aqui los btones y el form
-
-
-        
-
-        #endregion
-
-        #region eventos click de botones de menu
         private void btnProductos_Click(object sender, EventArgs e)
         {
             ActivateButton(btnProductos, RGBColors.ColorSeleccion);
@@ -642,8 +582,5 @@ namespace GUI
             OpenFormSecundario(new formInformacion());
         }
 
-        #endregion
-
-        
     }
 }

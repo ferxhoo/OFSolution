@@ -26,7 +26,7 @@ namespace BLL
             if (negocio.Nombre == "")
                 Mensaje += "Es necesario el nombre\n";
 
-            if (negocio.RUC == "")
+            if (negocio.RUT == "")
                 Mensaje += "Es necesario el numero de RUC\n";
             
             if (negocio.Direccion == "")

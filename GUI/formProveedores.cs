@@ -33,7 +33,6 @@ namespace GUI
 
         private void CargarCmbEstado()
         {
-            //cargar combobox estado
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 1, Texto = "Activo" });
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "No Activo" });
             cmbEstado.DisplayMember = "Texto";
@@ -43,7 +42,6 @@ namespace GUI
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvProveedores.Columns)
             {
 
@@ -59,10 +57,8 @@ namespace GUI
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvProveedores.Rows.Clear();
 
-            // Mostrar todos los usuarios
             List<Proveedor> lista = new ServicioProveedor().Listar();
 
             foreach (Proveedor item in lista)
@@ -101,7 +97,6 @@ namespace GUI
             }
 
             dgvProveedores.ClearSelection();
-
         }
 
         private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -161,7 +156,7 @@ namespace GUI
                     return comboBox.Items.IndexOf(opcionComboBox);
                 }
             }
-            return -1; // Retornar -1 si no se encuentra el valor
+            return -1; 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -278,7 +273,6 @@ namespace GUI
             lblCheck.Text = string.Empty;
         }
 
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -299,7 +293,6 @@ namespace GUI
             txtDocumento.Select();
             btnGuardar.Text = "Guardar";
             btnGuardar.BackColor = Color.FromArgb(23, 145, 200);
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -319,7 +312,6 @@ namespace GUI
 
                     if (respuesta)
                     {
-                        //dgvUsuarios.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
                         ActualizarUI();
                     }
                     else
@@ -358,6 +350,5 @@ namespace GUI
             }
         }
 
-        
     }
 }

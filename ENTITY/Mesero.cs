@@ -19,6 +19,7 @@ namespace ENTITY
         {
             this.idMesero = idMesero;
         }
+
     }
 
 }

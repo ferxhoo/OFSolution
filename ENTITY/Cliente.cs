@@ -8,6 +8,7 @@ namespace ENTITY
 {
     public class Cliente : Persona
     {
+
         public int idCliente { get; set; }
 
         public Cliente()
@@ -19,6 +20,7 @@ namespace ENTITY
         {
             this.idCliente = idCliente;
         }
+
     }
 
 }

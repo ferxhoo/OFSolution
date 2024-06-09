@@ -31,7 +31,6 @@ namespace GUI.formulariosModales
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvProductos.Columns)
             {
 
@@ -47,7 +46,6 @@ namespace GUI.formulariosModales
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvProductos.Rows.Clear();
 
             List<Producto> lista = new ServicioProducto().Listar();
@@ -147,8 +145,6 @@ namespace GUI.formulariosModales
             HandleCellClick(e);
         }
 
-
-        #region barra de titulo
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -174,9 +170,5 @@ namespace GUI.formulariosModales
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
-
-        #endregion
-
-        
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataCategoria
+    public class DataCategoria : ICrudDB<Categoria>
     {
 
         public List<Categoria> Listar()
@@ -87,7 +87,6 @@ namespace DAL
             return idCategoriaGenerado;
         }
 
-
         public bool Editar(Categoria CategoriaEditada, out string mensaje)
         {
             bool respuesta = false;
@@ -153,8 +152,6 @@ namespace DAL
 
             return respuesta;
         }
-
-
 
     }
 

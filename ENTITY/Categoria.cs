@@ -24,5 +24,6 @@ namespace ENTITY
             this.estado = estado;
             this.fechaRegistro = fechaRegistro;
         }
+
     }
 }

@@ -10,12 +10,13 @@ namespace BLL
 {
     public class ServicioPermiso
     {
-        private DataPermiso dataPermiso = new DataPermiso();
 
+        private DataPermiso dataPermiso = new DataPermiso();
 
         public List<Permiso> Listar(int idUsuario)
         {
             return dataPermiso.Listar(idUsuario);
         }
+
     }
 }

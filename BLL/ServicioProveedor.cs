@@ -10,8 +10,7 @@ namespace BLL
 {
     public class ServicioProveedor
     {
-        private DataProveedor dataProveedor = new DataProveedor();
-
+        private ICrudDB<Proveedor> dataProveedor = new DataProveedor();
 
         public List<Proveedor> Listar()
         {
@@ -23,16 +22,15 @@ namespace BLL
             return dataProveedor.Registrar(proveedor, out Mensaje);
         }
 
-
         public bool Editar(Proveedor proveedor, out string Mensaje)
         {
             return dataProveedor.Editar(proveedor, out Mensaje);
         }
 
-
         public bool Eliminar(Proveedor proveedor, out string Mensaje)
         {
             return dataProveedor.Eliminar(proveedor, out Mensaje);
         }
+
     }
 }

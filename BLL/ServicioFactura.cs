@@ -27,10 +27,10 @@ namespace BLL
             return dataFactura.ObtenerVentasEntreFechas(fechaInicio, fechaFin);
         }
 
-
         public decimal ObtenerGananciasEntreFechas(DateTime fechaInicio, DateTime fechaFin)
         {
             return dataFactura.ObtenerGananciasEntreFechas(fechaInicio, fechaFin);
         }
+
     }
 }

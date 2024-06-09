@@ -9,99 +9,8 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataVenta
+    public class DataVenta : IFacturaDB<Venta>
     {
-
-
-        public bool RestarStock(int idProducto, int cantidad)
-        {
-            bool respuesta = true;
-
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("UPDATE PRODUCTOS SET stock = stock - @cantidad WHERE idProducto = @idProducto");
-
-                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
-                    comando.Parameters.AddWithValue("@cantidad", cantidad);
-                    comando.Parameters.AddWithValue("@idProducto", idProducto);
-                    comando.CommandType = CommandType.Text;
-
-                    conexion.Open();
-
-                    using (SqlTransaction transaccion = conexion.BeginTransaction())
-                    {
-                        comando.Transaction = transaccion;
-
-                        int filasAfectadas = comando.ExecuteNonQuery();
-                        if (filasAfectadas > 0)
-                        {
-                            transaccion.Commit();
-                        }
-                        else
-                        {
-                            transaccion.Rollback();
-                            respuesta = false;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error al restar el stock: {ex.Message}");
-                    respuesta = false;
-                }
-            }
-
-            return respuesta;
-        }
-
-        public bool SumarStock(int idProducto, int cantidad)
-        {
-            bool respuesta = true;
-
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("UPDATE PRODUCTOS SET stock = stock + @cantidad WHERE idProducto = @idProducto");
-
-                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
-                    comando.Parameters.AddWithValue("@cantidad", cantidad);
-                    comando.Parameters.AddWithValue("@idProducto", idProducto);
-                    comando.CommandType = CommandType.Text;
-
-                    conexion.Open();
-
-               
-                    using (SqlTransaction transaccion = conexion.BeginTransaction())
-                    {
-                        comando.Transaction = transaccion;
-
-                        int filasAfectadas = comando.ExecuteNonQuery();
-                        if (filasAfectadas > 0)
-                        {
-                            transaccion.Commit();
-                        }
-                        else
-                        {
-                            transaccion.Rollback();
-                            respuesta = false;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    
-                    Console.WriteLine($"Error al sumar el stock: {ex.Message}");
-                    respuesta = false;
-                }
-            }
-
-            return respuesta;
-        }
 
         public int ObtenerCorrelativo()
         {
@@ -176,7 +85,7 @@ namespace DAL
             return Respuesta;
         }
 
-        public Venta ObtenerVenta(string numero)
+        public Venta ObtenerFactura(string numero)
         {
             Venta venta = null;
 
@@ -245,8 +154,6 @@ namespace DAL
             return venta;
         }
 
-
-
         public List<DetalleVenta> ObtenerDetalleVenta(int idVenta)
         {
             List<DetalleVenta> lista = new List<DetalleVenta>();
@@ -288,6 +195,96 @@ namespace DAL
                 }
             }
             return lista;
+        }
+
+        public bool RestarStock(int idProducto, int cantidad)
+        {
+            bool respuesta = true;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("UPDATE PRODUCTOS SET stock = stock - @cantidad WHERE idProducto = @idProducto");
+
+                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
+                    comando.Parameters.AddWithValue("@cantidad", cantidad);
+                    comando.Parameters.AddWithValue("@idProducto", idProducto);
+                    comando.CommandType = CommandType.Text;
+
+                    conexion.Open();
+
+                    using (SqlTransaction transaccion = conexion.BeginTransaction())
+                    {
+                        comando.Transaction = transaccion;
+
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        if (filasAfectadas > 0)
+                        {
+                            transaccion.Commit();
+                        }
+                        else
+                        {
+                            transaccion.Rollback();
+                            respuesta = false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al restar el stock: {ex.Message}");
+                    respuesta = false;
+                }
+            }
+
+            return respuesta;
+        }
+
+        public bool SumarStock(int idProducto, int cantidad)
+        {
+            bool respuesta = true;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("UPDATE PRODUCTOS SET stock = stock + @cantidad WHERE idProducto = @idProducto");
+
+                    SqlCommand comando = new SqlCommand(query.ToString(), conexion);
+                    comando.Parameters.AddWithValue("@cantidad", cantidad);
+                    comando.Parameters.AddWithValue("@idProducto", idProducto);
+                    comando.CommandType = CommandType.Text;
+
+                    conexion.Open();
+
+
+                    using (SqlTransaction transaccion = conexion.BeginTransaction())
+                    {
+                        comando.Transaction = transaccion;
+
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        if (filasAfectadas > 0)
+                        {
+                            transaccion.Commit();
+                        }
+                        else
+                        {
+                            transaccion.Rollback();
+                            respuesta = false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine($"Error al sumar el stock: {ex.Message}");
+                    respuesta = false;
+                }
+            }
+
+            return respuesta;
         }
 
     }

@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DataPermiso
     {
+
         public List<Permiso> Listar(int idUsuario)
         {
             List<Permiso> lista = new List<Permiso>();
@@ -60,5 +61,6 @@ namespace DAL
             return lista;
 
         }
+
     }
 }

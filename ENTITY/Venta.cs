@@ -8,6 +8,7 @@ namespace ENTITY
 {
     public class Venta : Factura
     {
+
         public int idVenta { get; set; }
         public Mesero mesero { get; set; }
         public int numeroMesa { get; set; }

@@ -55,6 +55,8 @@
     <Compile Include="DataRol.cs" />
     <Compile Include="DataUsuario.cs" />
     <Compile Include="DataVenta.cs" />
+    <Compile Include="ICrudDB.cs" />
+    <Compile Include="IFacturaDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

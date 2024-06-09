@@ -16,6 +16,7 @@ namespace GUI
 {
     public partial class formVentas : Form
     {
+
         private Usuario responsableVenta = null;
         private bool editando = false;
 
@@ -61,7 +62,6 @@ namespace GUI
         {
             return dgvDetallesVenta.Rows.Count > 0;
         }
-
 
         private void AgregarDetalle()
         {
@@ -306,8 +306,6 @@ namespace GUI
             AgregarDetalle();
         }
 
-        /// ---------------------------------------
-
         private bool ValidarDatosProducto(out decimal precioventa)
         {
             precioventa = 0;
@@ -355,11 +353,9 @@ namespace GUI
                 {
                     DataGridViewRow filaSeleccionada = dgvDetallesVenta.Rows[indice];
 
-                    // Obtener la cantidad anterior
                     int cantidadAnterior = Convert.ToInt32(filaSeleccionada.Cells["cantidad"].Value);
                     int nuevaCantidad = Convert.ToInt32(nupCantidad.Value);
 
-                    // Calcular la diferencia y ajustar el stock
                     int diferenciaCantidad = nuevaCantidad - cantidadAnterior;
                     bool respuesta = new ServicioVenta().RestarStock(
                         Convert.ToInt32(txtIdProducto.Text), diferenciaCantidad);
@@ -391,16 +387,15 @@ namespace GUI
         private void AgregarProductoDetalle(decimal precioventa)
         {
             dgvDetallesVenta.Rows.Add(new object[] {
-        null,
-        txtIdProducto.Text,
-        txtCodigoProducto.Texts,
-        txtNombreProducto.Texts,
-        nupCantidad.Value.ToString(),
-        precioventa.ToString("0.00"),
-        (nupCantidad.Value * precioventa).ToString("0.00")
-    });
+            null,
+            txtIdProducto.Text,
+            txtCodigoProducto.Texts,
+            txtNombreProducto.Texts,
+            nupCantidad.Value.ToString(),
+            precioventa.ToString("0.00"),
+            (nupCantidad.Value * precioventa).ToString("0.00")
+            });
         }
-
 
         private void limpiarProducto()
         {
@@ -493,27 +488,22 @@ namespace GUI
         {
             ServicioProducto servicio = new ServicioProducto();
 
-            // Asignar valores a los campos de texto desde la fila seleccionada
             txtIdProducto.Text = fila.Cells["idProducto"].Value.ToString();
             txtCodigoProducto.Texts = fila.Cells["codigo"].Value.ToString();
             txtNombreProducto.Texts = fila.Cells["producto"].Value.ToString();
             txtPrecioVenta.Texts = fila.Cells["precioVenta"].Value.ToString();
 
-            // Validar y asignar el valor de la cantidad
             if (int.TryParse(fila.Cells["cantidad"].Value.ToString(), out int cantidad))
             {
                 nupCantidad.Value = cantidad;
             }
             else
             {
-                // Manejar el caso en el que la cantidad no sea un número válido
-                nupCantidad.Value = 0; // O cualquier valor predeterminado que consideres apropiado
+                nupCantidad.Value = 0; 
             }
 
-            // Obtener el ID del producto desde la fila seleccionada
             int idProducto = Convert.ToInt32(fila.Cells["idProducto"].Value);
 
-            // Obtener el stock del producto usando LINQ
             var producto = servicio.Listar().FirstOrDefault(p => p.idProducto == idProducto);
             if (producto != null)
             {
@@ -521,7 +511,6 @@ namespace GUI
             }
             else
             {
-                // Manejar el caso en el que el producto no se encuentre
                 txtStock.Texts = "0";
             }
         }
@@ -598,10 +587,8 @@ namespace GUI
             }
         }
 
-
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
-            // Validar los campos necesarios
             if (string.IsNullOrWhiteSpace(txtDocumentoCliente.Texts))
             {
                 MessageBox.Show("Debe ingresar documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -632,7 +619,6 @@ namespace GUI
                 return;
             }
 
-            // Crear la tabla de detalle de venta
             DataTable detalle_venta = new DataTable();
             detalle_venta.Columns.Add("idProducto", typeof(int));
             detalle_venta.Columns.Add("precioVenta", typeof(decimal));
@@ -649,14 +635,11 @@ namespace GUI
         });
             }
 
-            // Obtener el correlativo del número de documento
             int idCorrelativo = new ServicioVenta().ObtenerCorrelativo();
             string numeroDocumento = string.Format("{0:00000}", idCorrelativo);
 
-            // Calcular el cambio (presumiblemente esta función ya existe)
             calcularcambio();
 
-            // Crear el objeto venta
             Venta venta = new Venta()
             {
                 usuario = new Usuario() { idUsuario = responsableVenta.idUsuario },
@@ -671,11 +654,9 @@ namespace GUI
                 montoTotal = Convert.ToDecimal(txtTotal.Texts)
             };
 
-            // Registrar la venta
             string mensaje = string.Empty;
             bool respuesta = new ServicioVenta().Registrar(venta, detalle_venta, out mensaje);
 
-            // Manejar el resultado del registro
             if (respuesta)
             {
                 var result = MessageBox.Show("Numero de venta generada:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -683,7 +664,6 @@ namespace GUI
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(numeroDocumento);
 
-                // Limpiar el formulario
                 txtMesa.Texts = string.Empty;
                 txtIdMesero.Text = string.Empty;
                 txtMesero.Texts = string.Empty;
@@ -700,7 +680,6 @@ namespace GUI
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
 
     }
 }

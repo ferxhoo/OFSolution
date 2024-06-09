@@ -15,7 +15,6 @@ namespace GUI.formulariosModales
 {
     public partial class ModalformMesero : Form
     {
-
         public Mesero meseroSeleccionado { get; set; }
 
         public ModalformMesero()
@@ -32,7 +31,6 @@ namespace GUI.formulariosModales
 
         private void CargarCmbBuscar()
         {
-            //cargar combobox busqueda
             foreach (DataGridViewColumn columna in dgvMeseros.Columns)
             {
 
@@ -48,10 +46,8 @@ namespace GUI.formulariosModales
 
         private void CargarDataTable()
         {
-            // Limpiar las filas existentes en el DataGridView
             dgvMeseros.Rows.Clear();
 
-            // Mostrar todos los meseros
             List<Mesero> lista = new ServicioMesero().Listar();
 
             foreach (Mesero item in lista)
@@ -168,5 +164,6 @@ namespace GUI.formulariosModales
         {
             this.Close();
         }
+
     }
 }

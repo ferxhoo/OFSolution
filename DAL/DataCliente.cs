@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataCliente
+    public class DataCliente : ICrudDB<Cliente>
     {
 
         public List<Cliente> Listar()
@@ -57,7 +57,6 @@ namespace DAL
             return lista;
 
         }
-
 
         public int Registrar(Cliente nuevoCliente, out string mensaje)
         {
@@ -157,8 +156,6 @@ namespace DAL
 
             return respuesta;
         }
-
-
 
     }
 }

@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataMesero
+    public class DataMesero : ICrudDB<Mesero>
     {
-
         public List<Mesero> Listar()
         {
             List<Mesero> lista = new List<Mesero>();
@@ -49,7 +48,6 @@ namespace DAL
 
             return lista;
         }
-
 
         public int Registrar(Mesero nuevoMesero, out string mensaje)
         {

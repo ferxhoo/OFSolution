@@ -10,11 +10,13 @@ namespace BLL
 {
     public class ServicioRol
     {
+
         private DataRol dataRol = new DataRol();
 
         public List<Rol> Listar()
         {
             return dataRol.Listar();
         }
+
     }
 }

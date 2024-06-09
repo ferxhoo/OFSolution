@@ -14,20 +14,15 @@ namespace GUI
 {
     public partial class formLogin : Form
     {
+       
+        private const int DISTANCIA_MINIMA = 10; 
 
-        #region propiedades de personalizacion
-        private const int DISTANCIA_MINIMA = 10; // Distancia mínima para activar el ajuste a la esquina
-        #endregion
-
-        #region constructor
         public formLogin()
         {
             InitializeComponent();
             ConfiguracionInicial();
         }
-        #endregion
-
-        #region Configuracion Inicial
+        
         public void ConfiguracionInicial()
         {
             this.DoubleBuffered = true;
@@ -46,12 +41,87 @@ namespace GUI
             txtUsuario.Texts = string.Empty;
             txtPassword.Texts = string.Empty;
         }
-        #endregion
 
-        #region funciones de redimencionamiento
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+            Usuario usuario = new ServicioUsuario().Listar().Where(u => u.nombreUsuario == txtUsuario.Texts && u.clave == txtPassword.Texts).FirstOrDefault();
+
+            if (usuario != null)
+            {
+                formMenuPrincipal menu = new formMenuPrincipal(usuario);
+                menu.Show();
+                this.Hide();
+
+                menu.FormClosing += frm_closing;
+            }
+            else
+            {
+                InformacionCampoUsuario.ForeColor = Color.Red;
+                InformacionCampoUsuario.Text = "No se encontro el usuario";
+            }
+
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            ConfiguracionInicial();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frm_closing(object sender, FormClosingEventArgs e)
+        {
+            txtUsuario.Texts = string.Empty;
+            txtPassword.Texts = string.Empty;
+            this.Show();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            MinimizarFormulario();
+        }
+
         private void MinimizarFormulario()
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BarraTitulos_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.X <= DISTANCIA_MINIMA && e.Y <= DISTANCIA_MINIMA)
+                {
+                    ButtonQuarterTopLeftScreen(sender, e);
+                }
+                else if (e.X >= this.Width - DISTANCIA_MINIMA && e.Y <= DISTANCIA_MINIMA)
+                {
+                    ButtonQuarterTopRightScreen(sender, e);
+                }
+                else if (e.X <= DISTANCIA_MINIMA && e.Y >= this.Height - DISTANCIA_MINIMA)
+                {
+                    ButtonQuarterLeftScreen(sender, e);
+                }
+                else if (e.X >= this.Width - DISTANCIA_MINIMA && e.Y >= this.Height - DISTANCIA_MINIMA)
+                {
+                    ButtonQuarterRightScreen(sender, e);
+                }
+                else
+                {
+                    ReleaseCapture();
+                    SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                }
+            }
         }
 
         private void ButtonQuarterRightScreen(object sender, EventArgs e)
@@ -126,88 +196,6 @@ namespace GUI
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        #endregion
-
-        #region barra de titulos
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            MinimizarFormulario();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BarraTitulos_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (e.X <= DISTANCIA_MINIMA && e.Y <= DISTANCIA_MINIMA) // Esquina superior izquierda
-                {
-                    ButtonQuarterTopLeftScreen(sender, e);
-                }
-                else if (e.X >= this.Width - DISTANCIA_MINIMA && e.Y <= DISTANCIA_MINIMA) // Esquina superior derecha
-                {
-                    ButtonQuarterTopRightScreen(sender, e);
-                }
-                else if (e.X <= DISTANCIA_MINIMA && e.Y >= this.Height - DISTANCIA_MINIMA) // Esquina inferior izquierda
-                {
-                    ButtonQuarterLeftScreen(sender, e);
-                }
-                else if (e.X >= this.Width - DISTANCIA_MINIMA && e.Y >= this.Height - DISTANCIA_MINIMA) // Esquina inferior derecha
-                {
-                    ButtonQuarterRightScreen(sender, e);
-                }
-                else
-                {
-                    ReleaseCapture();
-                    SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                }
-            }
-        }
-        #endregion
-
-        #region botones de login 
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-
-            Usuario usuario = new ServicioUsuario().Listar().Where(u => u.nombreUsuario == txtUsuario.Texts && u.clave == txtPassword.Texts).FirstOrDefault();
-
-            if (usuario != null)
-            {
-                formMenuPrincipal menu = new formMenuPrincipal(usuario);
-                menu.Show();
-                this.Hide();
-
-                menu.FormClosing += frm_closing;
-            }
-            else
-            {
-                InformacionCampoUsuario.ForeColor = Color.Red;
-                InformacionCampoUsuario.Text = "No se encontro el usuario";
-            }
-
-
-        }
-
-        private void frm_closing(object sender, FormClosingEventArgs e)
-        {
-            txtUsuario.Texts = string.Empty;
-            txtPassword.Texts = string.Empty;
-            this.Show();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            ConfiguracionInicial();
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
-
+        
     }
 }

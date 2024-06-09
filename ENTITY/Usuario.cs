@@ -8,6 +8,7 @@ namespace ENTITY
 {
     public class Usuario : Persona
     {
+
         public int idUsuario { get; set; }
         public string nombreUsuario { get; set; }
         public string clave { get; set; }
@@ -25,6 +26,7 @@ namespace ENTITY
             this.clave = clave;
             this.rol = rol;
         }
+
     }
 
 }
