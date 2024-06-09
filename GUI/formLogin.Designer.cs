@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BarraTitulos = new System.Windows.Forms.Panel();
             this.LogoBarraTitulo = new System.Windows.Forms.PictureBox();
             this.Titulo = new System.Windows.Forms.Label();
@@ -37,19 +38,32 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.panelLoginBajo = new System.Windows.Forms.Panel();
+            this.InformacionCampoPassword = new System.Windows.Forms.Label();
+            this.InformacionCampoUsuario = new System.Windows.Forms.Label();
             this.btnCerrar = new GUI.Componentes_Personalizad.ButtonOFSolution();
             this.btnCancelar = new GUI.Componentes_Personalizad.ButtonOFSolution();
             this.btnIngresar = new GUI.Componentes_Personalizad.ButtonOFSolution();
             this.txtPassword = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.txtUsuario = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.InformacionCampoPassword = new System.Windows.Forms.Label();
-            this.InformacionCampoUsuario = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.BarraTitulos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).BeginInit();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelLoginBajo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelLoginBajo);
+            this.panel1.Controls.Add(this.panelLogo);
+            this.panel1.Controls.Add(this.BarraTitulos);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(400, 600);
+            this.panel1.TabIndex = 0;
             // 
             // BarraTitulos
             // 
@@ -62,8 +76,8 @@
             this.BarraTitulos.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulos.Name = "BarraTitulos";
             this.BarraTitulos.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.BarraTitulos.Size = new System.Drawing.Size(400, 30);
-            this.BarraTitulos.TabIndex = 1;
+            this.BarraTitulos.Size = new System.Drawing.Size(398, 30);
+            this.BarraTitulos.TabIndex = 3;
             this.BarraTitulos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulos_MouseDown);
             // 
             // LogoBarraTitulo
@@ -98,7 +112,7 @@
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 20;
-            this.btnMinimizar.Location = new System.Drawing.Point(320, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(318, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 30);
             this.btnMinimizar.TabIndex = 1;
@@ -116,7 +130,7 @@
             this.btnClose.IconColor = System.Drawing.Color.White;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(360, 0);
+            this.btnClose.Location = new System.Drawing.Point(358, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 30);
             this.btnClose.TabIndex = 0;
@@ -129,8 +143,8 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 30);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(400, 220);
-            this.panelLogo.TabIndex = 2;
+            this.panelLogo.Size = new System.Drawing.Size(398, 220);
+            this.panelLogo.TabIndex = 4;
             // 
             // Logo
             // 
@@ -154,8 +168,28 @@
             this.panelLoginBajo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLoginBajo.Location = new System.Drawing.Point(0, 250);
             this.panelLoginBajo.Name = "panelLoginBajo";
-            this.panelLoginBajo.Size = new System.Drawing.Size(400, 350);
-            this.panelLoginBajo.TabIndex = 3;
+            this.panelLoginBajo.Size = new System.Drawing.Size(398, 348);
+            this.panelLoginBajo.TabIndex = 5;
+            // 
+            // InformacionCampoPassword
+            // 
+            this.InformacionCampoPassword.AutoSize = true;
+            this.InformacionCampoPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InformacionCampoPassword.Location = new System.Drawing.Point(95, 118);
+            this.InformacionCampoPassword.Name = "InformacionCampoPassword";
+            this.InformacionCampoPassword.Size = new System.Drawing.Size(41, 15);
+            this.InformacionCampoPassword.TabIndex = 13;
+            this.InformacionCampoPassword.Text = "label1";
+            // 
+            // InformacionCampoUsuario
+            // 
+            this.InformacionCampoUsuario.AutoSize = true;
+            this.InformacionCampoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InformacionCampoUsuario.Location = new System.Drawing.Point(95, 53);
+            this.InformacionCampoUsuario.Name = "InformacionCampoUsuario";
+            this.InformacionCampoUsuario.Size = new System.Drawing.Size(34, 15);
+            this.InformacionCampoUsuario.TabIndex = 11;
+            this.InformacionCampoUsuario.Text = "label";
             // 
             // btnCerrar
             // 
@@ -257,35 +291,13 @@
             this.txtUsuario.Texts = "";
             this.txtUsuario.UnderlinedStyle = true;
             // 
-            // InformacionCampoPassword
-            // 
-            this.InformacionCampoPassword.AutoSize = true;
-            this.InformacionCampoPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InformacionCampoPassword.Location = new System.Drawing.Point(95, 118);
-            this.InformacionCampoPassword.Name = "InformacionCampoPassword";
-            this.InformacionCampoPassword.Size = new System.Drawing.Size(41, 15);
-            this.InformacionCampoPassword.TabIndex = 13;
-            this.InformacionCampoPassword.Text = "label1";
-            // 
-            // InformacionCampoUsuario
-            // 
-            this.InformacionCampoUsuario.AutoSize = true;
-            this.InformacionCampoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InformacionCampoUsuario.Location = new System.Drawing.Point(95, 53);
-            this.InformacionCampoUsuario.Name = "InformacionCampoUsuario";
-            this.InformacionCampoUsuario.Size = new System.Drawing.Size(34, 15);
-            this.InformacionCampoUsuario.TabIndex = 11;
-            this.InformacionCampoUsuario.Text = "label";
-            // 
             // formLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 600);
-            this.Controls.Add(this.panelLoginBajo);
-            this.Controls.Add(this.panelLogo);
-            this.Controls.Add(this.BarraTitulos);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(400, 600);
@@ -293,6 +305,7 @@
             this.Name = "formLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OFSolution";
+            this.panel1.ResumeLayout(false);
             this.BarraTitulos.ResumeLayout(false);
             this.BarraTitulos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).EndInit();
@@ -306,6 +319,7 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel BarraTitulos;
         private System.Windows.Forms.PictureBox LogoBarraTitulo;
         private System.Windows.Forms.Label Titulo;
@@ -314,12 +328,12 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Panel panelLoginBajo;
+        private Componentes_Personalizad.ButtonOFSolution btnCerrar;
+        private Componentes_Personalizad.ButtonOFSolution btnCancelar;
+        private Componentes_Personalizad.ButtonOFSolution btnIngresar;
+        private Componentes_Personalizad.TextBoxOFSolution txtPassword;
         private Componentes_Personalizad.TextBoxOFSolution txtUsuario;
         private System.Windows.Forms.Label InformacionCampoPassword;
         private System.Windows.Forms.Label InformacionCampoUsuario;
-        private Componentes_Personalizad.ButtonOFSolution btnIngresar;
-        private Componentes_Personalizad.TextBoxOFSolution txtPassword;
-        private Componentes_Personalizad.ButtonOFSolution btnCerrar;
-        private Componentes_Personalizad.ButtonOFSolution btnCancelar;
     }
 }

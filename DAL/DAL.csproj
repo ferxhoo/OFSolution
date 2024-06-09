@@ -52,6 +52,7 @@
     <Compile Include="DataPermiso.cs" />
     <Compile Include="DataProducto.cs" />
     <Compile Include="DataProveedor.cs" />
+    <Compile Include="DataReporte.cs" />
     <Compile Include="DataRol.cs" />
     <Compile Include="DataUsuario.cs" />
     <Compile Include="DataVenta.cs" />

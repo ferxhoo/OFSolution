@@ -160,7 +160,7 @@
             this.btnSobreMi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSobreMi.Font = new System.Drawing.Font("Microsoft Tai Le", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSobreMi.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSobreMi.IconChar = FontAwesome.Sharp.IconChar.Info;
+            this.btnSobreMi.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.btnSobreMi.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnSobreMi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSobreMi.IconSize = 32;
@@ -169,7 +169,7 @@
             this.btnSobreMi.Name = "btnSobreMi";
             this.btnSobreMi.Size = new System.Drawing.Size(197, 40);
             this.btnSobreMi.TabIndex = 35;
-            this.btnSobreMi.Text = "Acerca de";
+            this.btnSobreMi.Text = "Informe";
             this.btnSobreMi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSobreMi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSobreMi.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             // 
             // btnNegocio
             // 
-            this.btnNegocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnNegocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnNegocio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNegocio.FlatAppearance.BorderSize = 0;
             this.btnNegocio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -214,7 +214,7 @@
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -238,7 +238,7 @@
             // 
             // btnMeseros
             // 
-            this.btnMeseros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnMeseros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnMeseros.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMeseros.FlatAppearance.BorderSize = 0;
             this.btnMeseros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -262,7 +262,7 @@
             // 
             // btnCategorias
             // 
-            this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnCategorias.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCategorias.FlatAppearance.BorderSize = 0;
             this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -320,15 +320,15 @@
             // 
             // btnReportesPorCompras
             // 
-            this.btnReportesPorCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnReportesPorCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnReportesPorCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportesPorCompras.FlatAppearance.BorderSize = 0;
             this.btnReportesPorCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnReportesPorCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportesPorCompras.Font = new System.Drawing.Font("Microsoft Tai Le", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportesPorCompras.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReportesPorCompras.IconChar = FontAwesome.Sharp.IconChar.ChartGantt;
-            this.btnReportesPorCompras.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReportesPorCompras.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
+            this.btnReportesPorCompras.IconColor = System.Drawing.Color.White;
             this.btnReportesPorCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportesPorCompras.IconSize = 32;
             this.btnReportesPorCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,14 +344,14 @@
             // 
             // btnReportesPorVenta
             // 
-            this.btnReportesPorVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnReportesPorVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnReportesPorVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportesPorVenta.FlatAppearance.BorderSize = 0;
             this.btnReportesPorVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnReportesPorVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportesPorVenta.Font = new System.Drawing.Font("Microsoft Tai Le", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportesPorVenta.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReportesPorVenta.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.btnReportesPorVenta.IconChar = FontAwesome.Sharp.IconChar.ArrowUpWideShort;
             this.btnReportesPorVenta.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnReportesPorVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportesPorVenta.IconSize = 32;
@@ -374,7 +374,7 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Tai Le", 8.765218F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.Coins;
             this.btnReportes.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 32;
@@ -507,7 +507,7 @@
             // 
             // btnCompras
             // 
-            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCompras.FlatAppearance.BorderSize = 0;
             this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -588,7 +588,7 @@
             // 
             // btnVentas
             // 
-            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(29)))));
+            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));

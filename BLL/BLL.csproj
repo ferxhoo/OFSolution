@@ -51,6 +51,7 @@
     <Compile Include="ServicioPermiso.cs" />
     <Compile Include="ServicioProducto.cs" />
     <Compile Include="ServicioProveedor.cs" />
+    <Compile Include="ServicioReporte.cs" />
     <Compile Include="ServicioRol.cs" />
     <Compile Include="ServicioUsuario.cs" />
     <Compile Include="ServicioVenta.cs" />
