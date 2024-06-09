@@ -31,6 +31,7 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCorreo = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnGuardar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.txtDireccion = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.txtRUC = new GUI.Componentes_Personalizad.TextBoxOFSolution();
@@ -74,6 +75,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Silver;
+            this.groupBox1.Controls.Add(this.txtCorreo);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.txtRUC);
@@ -88,6 +90,26 @@
             this.groupBox1.Size = new System.Drawing.Size(739, 447);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCorreo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtCorreo.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.txtCorreo.BorderRadius = 15;
+            this.txtCorreo.BorderSize = 2;
+            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(341, 178);
+            this.txtCorreo.Multiline = false;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCorreo.PasswordChar = false;
+            this.txtCorreo.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txtCorreo.PlaceholderText = "Correo";
+            this.txtCorreo.Size = new System.Drawing.Size(367, 31);
+            this.txtCorreo.TabIndex = 35;
+            this.txtCorreo.Texts = "";
+            this.txtCorreo.UnderlinedStyle = true;
             // 
             // btnGuardar
             // 
@@ -123,7 +145,7 @@
             this.txtDireccion.BorderRadius = 15;
             this.txtDireccion.BorderSize = 2;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(341, 181);
+            this.txtDireccion.Location = new System.Drawing.Point(341, 137);
             this.txtDireccion.Multiline = false;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -143,13 +165,13 @@
             this.txtRUC.BorderRadius = 15;
             this.txtRUC.BorderSize = 2;
             this.txtRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRUC.Location = new System.Drawing.Point(341, 128);
+            this.txtRUC.Location = new System.Drawing.Point(341, 97);
             this.txtRUC.Multiline = false;
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtRUC.PasswordChar = false;
             this.txtRUC.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txtRUC.PlaceholderText = "RUC";
+            this.txtRUC.PlaceholderText = "RUT";
             this.txtRUC.Size = new System.Drawing.Size(367, 31);
             this.txtRUC.TabIndex = 32;
             this.txtRUC.Texts = "";
@@ -163,7 +185,7 @@
             this.txtNombre.BorderRadius = 15;
             this.txtNombre.BorderSize = 2;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(341, 74);
+            this.txtNombre.Location = new System.Drawing.Point(341, 57);
             this.txtNombre.Multiline = false;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -265,5 +287,6 @@
         private Componentes_Personalizad.TextBoxOFSolution txtNombre;
         private Componentes_Personalizad.TextBoxOFSolution txtDireccion;
         private Componentes_Personalizad.IconButtonOFSolution btnGuardar;
+        private Componentes_Personalizad.TextBoxOFSolution txtCorreo;
     }
 }

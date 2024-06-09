@@ -79,6 +79,7 @@ namespace GUI
             txtNombre.Texts = datos.Nombre;
             txtRUC.Texts = datos.RUT;
             txtDireccion.Texts = datos.Direccion;
+            txtCorreo.Texts = datos.Correo;
         }
 
         public Image ByteToImage(byte[] imageBytes)
@@ -97,6 +98,7 @@ namespace GUI
             {
                 Nombre = txtNombre.Texts,
                 RUT = txtRUC.Texts,
+                Correo = txtCorreo.Texts,
                 Direccion = txtDireccion.Texts
             };
 
