@@ -80,6 +80,7 @@ namespace GUI
             txtRUC.Texts = datos.RUT;
             txtDireccion.Texts = datos.Direccion;
             txtCorreo.Texts = datos.Correo;
+            txtContraseña.Texts = datos.Contraseña;
         }
 
         public Image ByteToImage(byte[] imageBytes)
@@ -99,7 +100,9 @@ namespace GUI
                 Nombre = txtNombre.Texts,
                 RUT = txtRUC.Texts,
                 Correo = txtCorreo.Texts,
+                Contraseña = txtContraseña.Texts,
                 Direccion = txtDireccion.Texts
+                
             };
 
             bool respuesta = new ServicioNegocio().GuardarDatos(dato, out mensaje);

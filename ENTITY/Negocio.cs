@@ -12,18 +12,20 @@ namespace ENTITY
         public string Nombre { get; set; }
         public string RUT { get; set; }
         public string Correo { get; set; }
+        public string Contraseña { get; set; }
         public string Direccion { get; set; }
 
         public Negocio()
         {
         }
 
-        public Negocio(int idNegocio, string nombre, string rUT, string correo, string direccion)
+        public Negocio(int idNegocio, string nombre, string rUT, string correo, string contraseña, string direccion)
         {
             IdNegocio = idNegocio;
             Nombre = nombre;
             RUT = rUT;
             Correo = correo;
+            Contraseña = contraseña;
             Direccion = direccion;
         }
 

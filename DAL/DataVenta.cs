@@ -118,7 +118,7 @@ namespace DAL
                         {
                             venta = new Venta()
                             {
-                                idVenta = int.Parse(reader["idVenta"].ToString()),
+                                idVenta = reader["idVenta"] != DBNull.Value ? Convert.ToInt32(reader["idVenta"]) : 0,
                                 usuario = new Usuario() { nombreCompleto = reader["nombreUsuario"].ToString() },
                                 mesero = new Mesero()
                                 {
@@ -129,25 +129,19 @@ namespace DAL
                                 nombreCliente = reader["nombreCliente"].ToString(),
                                 tipoDocumento = reader["tipoDocumento"].ToString(),
                                 numeroDocumento = reader["numeroDocumento"].ToString(),
-                                montoPago = Convert.ToDecimal(reader["montoPago"].ToString()),
-                                montoCambio = Convert.ToDecimal(reader["montoCambio"].ToString()),
-                                montoTotal = Convert.ToDecimal(reader["montoTotal"].ToString()),
+                                montoPago = reader["montoPago"] != DBNull.Value ? Convert.ToDecimal(reader["montoPago"]) : 0,
+                                montoCambio = reader["montoCambio"] != DBNull.Value ? Convert.ToDecimal(reader["montoCambio"]) : 0,
+                                montoTotal = reader["montoTotal"] != DBNull.Value ? Convert.ToDecimal(reader["montoTotal"]) : 0,
                                 fechaRegistro = reader["fechaRegistro"].ToString(),
-                                numeroMesa = Convert.ToInt32(reader["NumeroMesa"].ToString())
+                                numeroMesa = reader["NumeroMesa"] != DBNull.Value ? Convert.ToInt32(reader["NumeroMesa"]) : 0
                             };
                         }
-                    }
-
-                    // Obtener los detalles de la venta si se encontró la venta
-                    if (venta != null)
-                    {
-                        venta.detallesVenta = ObtenerDetalleVenta(venta.idVenta);
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error al obtener la venta: {ex.Message}");
-                    venta = new Venta();
+                    venta = null;
                 }
             }
 

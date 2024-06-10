@@ -23,7 +23,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT idNegocio, nombre, RUT, correo, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
+                    string query = "SELECT idNegocio, nombre, RUT, correo, contraseña, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.CommandType = CommandType.Text;
 
@@ -37,6 +37,7 @@ namespace DAL
                                 Nombre = reader["nombre"].ToString(),
                                 RUT = reader["RUT"].ToString(),
                                 Correo = reader["correo"].ToString(),
+                                Contraseña = reader["contraseña"].ToString(),
                                 Direccion = reader["direccion"].ToString()
                             };
                         }

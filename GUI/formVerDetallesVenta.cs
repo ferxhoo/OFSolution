@@ -1,5 +1,6 @@
 ﻿using BLL;
 using ENTITY;
+using GUI.formulariosModales;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
@@ -199,6 +200,111 @@ namespace GUI
                 }
             }
         }
+
+        private string GenerarPDF()
+        {
+            string Texto_Html = Properties.Resources.plantillaVentaOFSolution.ToString();
+            Negocio datos = new ServicioNegocio().ObtenerDatos();
+
+            Texto_Html = Texto_Html.Replace("@nombrenegocio", datos.Nombre.ToUpper());
+            Texto_Html = Texto_Html.Replace("@docnegocio", datos.RUT);
+            Texto_Html = Texto_Html.Replace("@direcnegocio", datos.Direccion);
+
+            Texto_Html = Texto_Html.Replace("@tipodocumento", txtTipoDoc.Texts.ToUpper());
+            Texto_Html = Texto_Html.Replace("@numerodocumento", txtNumeroDoc.Text);
+
+            Texto_Html = Texto_Html.Replace("@doccliente", txtDocumentoCliente.Texts);
+            Texto_Html = Texto_Html.Replace("@nombrecliente", txtCliente.Texts);
+            Texto_Html = Texto_Html.Replace("@fecharegistro", dtpFecha.Text);
+            Texto_Html = Texto_Html.Replace("@usuarioregistro", txtUsuarioResponsable.Texts);
+            Texto_Html = Texto_Html.Replace("@mesero", txtMesero.Texts);
+            Texto_Html = Texto_Html.Replace("@mesa", txtMesa.Texts);
+
+            string filas = string.Empty;
+            foreach (DataGridViewRow row in dgvDetallesVenta.Rows)
+            {
+                filas += "<tr>";
+                filas += "<td>" + row.Cells["Producto"].Value.ToString() + "</td>";
+                filas += "<td>" + Convert.ToDecimal(row.Cells["PrecioVenta"].Value).ToString("0.00") + "</td>";
+                filas += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
+                filas += "<td>" + Convert.ToDecimal(row.Cells["SubTotal"].Value).ToString("0.00") + "</td>";
+                filas += "</tr>";
+            }
+            Texto_Html = Texto_Html.Replace("@filas", filas);
+            Texto_Html = Texto_Html.Replace("@montototal", txtTotal.Texts);
+            Texto_Html = Texto_Html.Replace("@pagocon", txtPagaCon.Texts);
+            Texto_Html = Texto_Html.Replace("@cambio", txtCambio.Texts);
+
+            string tempFilePath = Path.Combine(Path.GetTempPath(), $"Venta_{txtNumeroDoc.Text}.pdf");
+
+            using (FileStream stream = new FileStream(tempFilePath, FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+
+                bool obtenido = true;
+                byte[] byteImage = new ServicioNegocio().ObtenerLogo(out obtenido);
+
+                if (obtenido)
+                {
+                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteImage);
+                    img.ScaleToFit(60, 60);
+                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                    img.SetAbsolutePosition(pdfDoc.Left, pdfDoc.GetTop(51));
+                    pdfDoc.Add(img);
+                }
+
+                using (StringReader sr = new StringReader(Texto_Html))
+                {
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                }
+
+                pdfDoc.Close();
+            }
+
+            return tempFilePath;
+        }
+
+
+        private void btnEnviarAlCorreo_Click(object sender, EventArgs e)
+        {
+            Venta venta = new ServicioVenta().ObtenerVenta(txtBuscarDoc.Texts);
+
+            if (venta != null)
+            {
+                string documentoCliente = venta.documentoCliente;
+                List<Cliente> listaClientes = new ServicioCliente().Listar();
+                Cliente cliente = listaClientes.FirstOrDefault(c => c.documento == documentoCliente);
+
+                if (cliente != null)
+                {
+                    string nombreCliente = txtCliente.Texts;
+                    string correo = cliente.correo;
+                    string pdfFilePath = GenerarPDF();
+
+                    using (var modal = new ModalCorreo( nombreCliente , correo, pdfFilePath))
+                    {
+                        var result = modal.ShowDialog();
+
+                        if (result != DialogResult.OK)
+                        {
+                            txtBuscarDoc.Select();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el cliente. No debe estar registrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Venta no encontrada o ID de venta no válido.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
 
     }
 }

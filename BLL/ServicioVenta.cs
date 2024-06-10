@@ -38,10 +38,14 @@ namespace BLL
         {
             Venta venta = dataVenta.ObtenerFactura(numero);
 
-            if (venta.idVenta != 0)
+            if (venta != null && venta.idVenta != 0) // Verifica si la venta no es null y si idVenta no es 0
             {
                 List<DetalleVenta> detalleVenta = dataVenta.ObtenerDetalleVenta(venta.idVenta);
                 venta.detallesVenta = detalleVenta;
+            }
+            else
+            {
+                venta = null; // Esta línea es redundante porque venta ya es null
             }
 
             return venta;
