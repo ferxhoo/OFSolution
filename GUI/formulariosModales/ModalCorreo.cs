@@ -66,7 +66,7 @@ namespace GUI.formulariosModales
             MailMessage mail = new MailMessage();
             SmtpClient smtp = new SmtpClient();
 
-            mail.From = new MailAddress(miCorreo); // Cambiar por tu email
+            mail.From = new MailAddress(miCorreo);
             mail.To.Add(correo);
 
             mail.Subject = txtAsunto.Texts;
@@ -75,17 +75,15 @@ namespace GUI.formulariosModales
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
             mail.AlternateViews.Add(htmlView);
 
-            // Verifica si hay un archivo adjunto
             if (!string.IsNullOrEmpty(pdfFilePath))
             {
                 Attachment attachment = new Attachment(pdfFilePath);
                 mail.Attachments.Add(attachment);
             }
 
-            // Configuración del cliente SMTP
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential(miCorreo, miContraseña); // Cambiar por tus credenciales
+            smtp.Credentials = new NetworkCredential(miCorreo, miContraseña); 
             smtp.EnableSsl = true;
 
             try
@@ -100,7 +98,6 @@ namespace GUI.formulariosModales
 
         }
 
-        #region barra
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -121,7 +118,6 @@ namespace GUI.formulariosModales
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
-        #endregion
 
         
     }

@@ -40,18 +40,18 @@ namespace GUI
         private const int HTCLIENT = 1;
         private const int WM_NCHITTEST = 0x84;
         private const int WM_NCLBUTTONDOWN = 0xA1;
-        //public formMenuPrincipal(Usuario usuarioLogueado)
-        public formMenuPrincipal(Usuario usuarioLogueado = null)
+        public formMenuPrincipal(Usuario usuarioLogueado)
+        //public formMenuPrincipal(Usuario usuarioLogueado = null)
         {
 
             InitializeComponent();
             this.DoubleBuffered = true;
 
-            if (usuarioLogueado == null)
-                usuarioActual = new Usuario() { nombreCompleto = "User Root", idUsuario = 1 };
-            else usuarioActual = usuarioActual = usuarioLogueado;
+            //if (usuarioLogueado == null)
+            //    usuarioActual = new Usuario() { nombreCompleto = "User Root", idUsuario = 1 };
+            //else usuarioActual = usuarioActual = usuarioLogueado;
 
-            //usuarioActual = usuarioLogueado;
+            usuarioActual = usuarioLogueado;
 
             customizeDesing();
 
