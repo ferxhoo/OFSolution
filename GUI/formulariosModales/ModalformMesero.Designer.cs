@@ -32,11 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel = new System.Windows.Forms.Panel();
-            this.Titulo = new System.Windows.Forms.Label();
-            this.BarraTitulos = new System.Windows.Forms.Panel();
-            this.LogoBarraTitulo = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
-            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,14 +51,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Titulo = new System.Windows.Forms.Label();
+            this.BarraTitulos = new System.Windows.Forms.Panel();
+            this.LogoBarraTitulo = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panel.SuspendLayout();
-            this.BarraTitulos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).BeginInit();
             this.panelOFSolution1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeseros)).BeginInit();
             this.panel14.SuspendLayout();
+            this.BarraTitulos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
@@ -76,79 +76,6 @@
             this.panel.Padding = new System.Windows.Forms.Padding(8);
             this.panel.Size = new System.Drawing.Size(782, 575);
             this.panel.TabIndex = 5;
-            // 
-            // Titulo
-            // 
-            this.Titulo.AutoSize = true;
-            this.Titulo.Font = new System.Drawing.Font("Microsoft Tai Le", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.Location = new System.Drawing.Point(41, 9);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(66, 16);
-            this.Titulo.TabIndex = 2;
-            this.Titulo.Text = "OFSolution";
-            // 
-            // BarraTitulos
-            // 
-            this.BarraTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.BarraTitulos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BarraTitulos.Controls.Add(this.LogoBarraTitulo);
-            this.BarraTitulos.Controls.Add(this.Titulo);
-            this.BarraTitulos.Controls.Add(this.btnMinimizar);
-            this.BarraTitulos.Controls.Add(this.btnClose);
-            this.BarraTitulos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulos.Location = new System.Drawing.Point(0, 0);
-            this.BarraTitulos.Name = "BarraTitulos";
-            this.BarraTitulos.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.BarraTitulos.Size = new System.Drawing.Size(782, 30);
-            this.BarraTitulos.TabIndex = 4;
-            this.BarraTitulos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulos_MouseDown);
-            // 
-            // LogoBarraTitulo
-            // 
-            this.LogoBarraTitulo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LogoBarraTitulo.Image = global::GUI.Properties.Resources.IconoTitulo_Sin_Fondo__OFSolution;
-            this.LogoBarraTitulo.Location = new System.Drawing.Point(5, 0);
-            this.LogoBarraTitulo.Name = "LogoBarraTitulo";
-            this.LogoBarraTitulo.Size = new System.Drawing.Size(30, 28);
-            this.LogoBarraTitulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoBarraTitulo.TabIndex = 3;
-            this.LogoBarraTitulo.TabStop = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMinimizar.IconColor = System.Drawing.Color.White;
-            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMinimizar.IconSize = 20;
-            this.btnMinimizar.Location = new System.Drawing.Point(700, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(40, 28);
-            this.btnMinimizar.TabIndex = 1;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.btnClose.IconColor = System.Drawing.Color.White;
-            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(740, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(40, 28);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panelOFSolution1
             // 
@@ -196,6 +123,7 @@
             // 
             this.dgvMeseros.AllowUserToAddRows = false;
             this.dgvMeseros.AllowUserToResizeRows = false;
+            this.dgvMeseros.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,6 +359,79 @@
             this.panel4.Size = new System.Drawing.Size(764, 20);
             this.panel4.TabIndex = 0;
             // 
+            // Titulo
+            // 
+            this.Titulo.AutoSize = true;
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Tai Le", 6.886957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.Location = new System.Drawing.Point(41, 9);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(66, 16);
+            this.Titulo.TabIndex = 2;
+            this.Titulo.Text = "OFSolution";
+            // 
+            // BarraTitulos
+            // 
+            this.BarraTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.BarraTitulos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BarraTitulos.Controls.Add(this.LogoBarraTitulo);
+            this.BarraTitulos.Controls.Add(this.Titulo);
+            this.BarraTitulos.Controls.Add(this.btnMinimizar);
+            this.BarraTitulos.Controls.Add(this.btnClose);
+            this.BarraTitulos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BarraTitulos.Location = new System.Drawing.Point(0, 0);
+            this.BarraTitulos.Name = "BarraTitulos";
+            this.BarraTitulos.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.BarraTitulos.Size = new System.Drawing.Size(782, 30);
+            this.BarraTitulos.TabIndex = 4;
+            this.BarraTitulos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulos_MouseDown);
+            // 
+            // LogoBarraTitulo
+            // 
+            this.LogoBarraTitulo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LogoBarraTitulo.Image = global::GUI.Properties.Resources.IconoTitulo_Sin_Fondo__OFSolution;
+            this.LogoBarraTitulo.Location = new System.Drawing.Point(5, 0);
+            this.LogoBarraTitulo.Name = "LogoBarraTitulo";
+            this.LogoBarraTitulo.Size = new System.Drawing.Size(30, 28);
+            this.LogoBarraTitulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoBarraTitulo.TabIndex = 3;
+            this.LogoBarraTitulo.TabStop = false;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMinimizar.IconColor = System.Drawing.Color.White;
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimizar.IconSize = 20;
+            this.btnMinimizar.Location = new System.Drawing.Point(700, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(40, 28);
+            this.btnMinimizar.TabIndex = 1;
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.btnClose.IconColor = System.Drawing.Color.White;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 20;
+            this.btnClose.Location = new System.Drawing.Point(740, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(40, 28);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ModalformMesero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,15 +445,15 @@
             this.Text = "ModalformMesero";
             this.Load += new System.EventHandler(this.ModalformMesero_Load);
             this.panel.ResumeLayout(false);
-            this.BarraTitulos.ResumeLayout(false);
-            this.BarraTitulos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).EndInit();
             this.panelOFSolution1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeseros)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            this.BarraTitulos.ResumeLayout(false);
+            this.BarraTitulos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBarraTitulo)).EndInit();
             this.ResumeLayout(false);
 
         }
