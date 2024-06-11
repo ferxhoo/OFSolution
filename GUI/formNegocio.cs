@@ -102,7 +102,7 @@ namespace GUI
                 Correo = txtCorreo.Texts,
                 Contraseña = txtContraseña.Texts,
                 Direccion = txtDireccion.Texts
-                
+
             };
 
             bool respuesta = new ServicioNegocio().GuardarDatos(dato, out mensaje);

@@ -58,7 +58,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_REGISTRARMESERO", conexion);
+                    SqlCommand comando = new SqlCommand("REGISTRARMESERO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@documento", nuevoMesero.documento);
@@ -94,7 +94,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_EDITARMESERO", conexion);
+                    SqlCommand comando = new SqlCommand("EDITARMESERO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idMesero", meseroEditado.idMesero);
@@ -131,7 +131,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_ELIMINARMESERO", conexion);
+                    SqlCommand comando = new SqlCommand("ELIMINARMESERO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idMesero", mesero.idMesero);

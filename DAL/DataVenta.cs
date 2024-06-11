@@ -159,7 +159,7 @@ namespace DAL
                     conexion.Open();
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT p.nombre, dv.precioVenta, dv.cantidad, dv.subTotal");
-                    query.AppendLine("FROM DETALLES_VENTAS dv");
+                    query.AppendLine("FROM DETALLES_VENTA dv");
                     query.AppendLine("INNER JOIN PRODUCTOS p ON p.idProducto = dv.idProducto");
                     query.AppendLine("WHERE dv.idVenta = @idVenta");
 

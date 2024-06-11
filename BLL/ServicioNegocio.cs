@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+
     public class ServicioNegocio
     {
 
@@ -29,7 +30,7 @@ namespace BLL
             if (negocio.RUT == "")
                 Mensaje += "Es necesario el numero de RUT\n";
 
-            if(negocio.Correo == "")
+            if (negocio.Correo == "")
                 Mensaje += "Es necesario el Correo\n";
 
             if (negocio.Direccion == "")
@@ -53,4 +54,6 @@ namespace BLL
         }
 
     }
+
+
 }

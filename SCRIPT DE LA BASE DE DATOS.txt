@@ -1,0 +1,906 @@
+CREATE DATABASE OFSolutionDB;
+GO
+
+USE OFSolutionDB;
+GO
+
+CREATE TABLE ROLES (
+    idRol int PRIMARY KEY IDENTITY, 
+    descripcion varchar(50),
+    fechaRegistro datetime DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE PERMISOS (
+    idPermiso int PRIMARY KEY IDENTITY, 
+    idRol int,
+    nombreMenu varchar(50),
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idRol) REFERENCES ROLES(idRol)
+);
+GO
+
+CREATE TABLE USUARIOS (
+    idUsuario int PRIMARY KEY IDENTITY, 
+    documento varchar(50),
+    nombreCompleto varchar(50),
+    nombreUsuario varchar(50),
+    clave varchar(50),
+    idRol int,
+    correo varchar(50),
+    telefono varchar(50),
+    estado bit,
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idRol) REFERENCES ROLES(idRol)
+);
+GO
+
+CREATE TABLE PROVEEDORES (
+    idProveedor int PRIMARY KEY IDENTITY, 
+    documento varchar(50),
+    nombreCompleto varchar(50),
+    correo varchar(50),
+    telefono varchar(50),
+    estado bit,
+    razonSocial varchar(50),
+    fechaRegistro datetime DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE CLIENTES (
+    idCliente int PRIMARY KEY IDENTITY, 
+    documento varchar(50),
+    nombreCompleto varchar(50),
+    correo varchar(50),
+    telefono varchar(50),
+    estado bit,
+    fechaRegistro datetime DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE CATEGORIAS (
+    idCategoria int PRIMARY KEY IDENTITY, 
+    descripcion varchar(100),
+    estado bit,
+    fechaRegistro datetime DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE PRODUCTOS (
+    idProducto int PRIMARY KEY IDENTITY, 
+    codigo varchar(50),
+    nombre varchar(50),
+    descripcion varchar(50),
+    idCategoria int,
+    stock int NOT NULL DEFAULT 0,
+    estado bit,
+    precioCompra decimal(10,2) DEFAULT 0,
+    precioVenta decimal(10,2) DEFAULT 0,
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idCategoria) REFERENCES CATEGORIAS(idCategoria)
+);
+GO
+
+CREATE TABLE COMPRAS (
+    idCompra int PRIMARY KEY IDENTITY, 
+    idUsuario int,
+    idProveedor int,
+    tipoDocumento varchar(50),
+    numeroDocumento varchar(50),
+    montoTotal decimal(10,2),
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUsuario),
+    FOREIGN KEY (idProveedor) REFERENCES PROVEEDORES(idProveedor)
+);
+GO
+
+CREATE TABLE DETALLES_COMPRA (
+    idDetalleCompra int PRIMARY KEY IDENTITY, 
+    idCompra int,
+    idProducto int,
+    precioCompra decimal(10,2) DEFAULT 0,
+    precioVenta decimal(10,2) DEFAULT 0,
+    cantidad int,
+    montoTotal decimal(10,2),
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idCompra) REFERENCES COMPRAS(idCompra),
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto)
+);
+GO
+
+CREATE TABLE MESEROS (
+    idMesero int PRIMARY KEY IDENTITY,
+    documento varchar(50),
+    nombreCompleto varchar(50),
+    correo varchar(50),
+    telefono varchar(50),
+    estado bit,
+    fechaRegistro datetime DEFAULT GETDATE()
+);
+GO
+
+CREATE TABLE VENTAS (
+    idVenta int PRIMARY KEY IDENTITY, 
+    idUsuario int,
+    idMesero int,
+    NumeroMesa int,
+    tipoDocumento varchar(50),
+    numeroDocumento varchar(50),
+    documentoCliente varchar(50),
+    nombreCliente varchar(50),
+    montoCambio decimal(10,2),
+    montoPago decimal(10,2),
+    montoTotal decimal(10,2),
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUsuario),
+    FOREIGN KEY (idMesero) REFERENCES MESEROS(idMesero)
+);
+GO
+
+CREATE TABLE DETALLES_VENTA (
+    idDetalleVenta int PRIMARY KEY IDENTITY, 
+    idVenta int,
+    idProducto int,
+    precioVenta decimal(10,2),
+    cantidad int,
+    subTotal decimal(10,2),
+    fechaRegistro datetime DEFAULT GETDATE(),
+    FOREIGN KEY (idVenta) REFERENCES VENTAS(idVenta),
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto)
+);
+GO
+
+CREATE TABLE DATOSNEGOCIO (
+    idNegocio INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    RUT VARCHAR(60),
+    correo varchar(50),
+    clave varchar(50),
+    direccion VARCHAR(60),
+    logo VARBINARY(MAX) NULL
+);
+GO
+
+INSERT INTO ROLES(descripcion)
+VALUES('Administrador')
+
+INSERT INTO ROLES(descripcion)
+VALUES('Facturador')
+
+INSERT INTO PERMISOS(idRol, nombreMenu) VALUES (1, 'btnProductos'),
+(1, 'btnFacturas'), (1, 'btnClientes'), 
+(1, 'btnProveedores'), (1, 'btnReportes'), (1, 'btnAjustes'), (1, 'btnSobreMi')
+
+INSERT INTO PERMISOS(idRol, nombreMenu) VALUES (2, 'btnProductos'),
+(2, 'btnFacturas'), (2, 'btnClientes'), 
+(2, 'btnProveedores'), (2, 'btnReportes')
+
+select * from PERMISOS
+
+INSERT INTO USUARIOS(documento, nombreCompleto, nombreUsuario, clave, correo, telefono, idRol, estado)
+VALUES('1111111111','Administrador','admin','123','admin@example.com','3123456789',1,1)
+
+INSERT INTO USUARIOS(documento, nombreCompleto, nombreUsuario, clave, correo, telefono, idRol, estado)
+VALUES('1111111112','Facturador','biller','123','biller@example.com','3123456789',2,1)
+
+CREATE PROC REGISTRARUSUARIO(
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @nombreUsuario varchar(50),
+    @clave varchar(50),
+    @idRol int,
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @idUsuarioResultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @idUsuarioResultado = 0
+    SET @mensaje = ''
+
+    IF NOT EXISTS (SELECT * FROM USUARIOS WHERE documento = @documento)
+    BEGIN
+        INSERT INTO USUARIOS(documento, nombreCompleto, nombreUsuario, clave, idRol, correo, telefono, estado) 
+        VALUES (@documento, @nombreCompleto, @nombreUsuario, @clave, @idRol, @correo, @telefono, @estado)
+        
+        SET @idUsuarioResultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'No se puede repetir el documento para más de un usuario'
+    END
+END
+GO
+
+CREATE PROC EDITARUSUARIO(
+    @idUsuario int,
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @nombreUsuario varchar(50),
+    @clave varchar(50),
+    @idRol int,
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @respuesta bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @respuesta = 0
+    SET @mensaje = ''
+
+    IF NOT EXISTS (SELECT * FROM USUARIOS WHERE documento = @documento AND idUsuario != @idUsuario)
+    BEGIN
+        UPDATE USUARIOS SET
+            documento = @documento, 
+            nombreCompleto = @nombreCompleto, 
+            nombreUsuario = @nombreUsuario, 
+            clave = @clave, 
+            idRol = @idRol, 
+            correo = @correo, 
+            telefono = @telefono, 
+            estado = @estado
+        WHERE idUsuario = @idUsuario
+        
+        SET @respuesta = 1
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'No se puede repetir el documento para más de un usuario'
+    END
+END
+GO
+
+CREATE PROC ELIMINARUSUARIO (
+    @idUsuario int,
+    @respuesta bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @respuesta = 0
+    SET @mensaje = ''
+    DECLARE @aprobacion bit = 1
+
+    IF EXISTS (
+        SELECT * FROM COMPRAS C
+        INNER JOIN USUARIOS U ON U.idUsuario = C.idUsuario
+        WHERE U.IDUSUARIO = @idUsuario
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @respuesta = 0
+        SET @mensaje = @mensaje + 'No se puede eliminar porque el usuario se encuentra relacionado a una COMPRA\n'
+    END
+
+    IF EXISTS (
+        SELECT * FROM VENTAS V
+        INNER JOIN USUARIOS U ON U.idUsuario = V.IdUsuario
+        WHERE U.IDUSUARIO = @IdUsuario
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @respuesta = 0
+        SET @mensaje = @mensaje + 'No se puede eliminar porque el usuario se encuentra relacionado a una VENTA\n'
+    END
+
+    IF @aprobacion = 1
+    BEGIN
+        DELETE FROM USUARIOS WHERE idUsuario = @idUsuario
+        SET @respuesta = 1
+    END
+END
+GO
+
+
+CREATE PROC REGISTRARCATEGORIA(
+    @descripcion varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+    IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE descripcion = @descripcion)
+    BEGIN
+        INSERT INTO CATEGORIAS(descripcion, estado) VALUES (@descripcion, @estado)
+        SET @resultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya esta categoria existe'
+    END
+END
+GO
+
+CREATE PROC EDITARCATEGORIA(
+    @idCategoria int,
+    @descripcion varchar(50),
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+
+    -- Comprobar si existe otra categoría con la misma descripción
+    IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE descripcion = @descripcion AND idCategoria != @idCategoria)
+    BEGIN
+        UPDATE CATEGORIAS
+        SET descripcion = @descripcion, estado = @estado
+        WHERE idCategoria = @idCategoria
+    END
+    ELSE
+    BEGIN
+        SET @resultado = 0
+        SET @mensaje = 'Error al editar la descripción'
+    END
+END
+GO
+
+CREATE PROC ELIMINARCATEGORIA(
+    @idCategoria int,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+
+    -- Comprobar si la categoría está relacionada con algún producto
+    IF NOT EXISTS (
+        SELECT * FROM CATEGORIAS c 
+        INNER JOIN PRODUCTOS p ON p.idCategoria = c.idCategoria
+        WHERE c.idCategoria = @idCategoria
+    )
+    BEGIN
+        -- Eliminar la categoría si no está relacionada
+        DELETE FROM CATEGORIAS WHERE idCategoria = @idCategoria
+    END
+    ELSE
+    BEGIN
+        -- Establecer el mensaje y resultado si la categoría está relacionada
+        SET @resultado = 0
+        SET @mensaje = 'La Categoría está relacionada a un Producto'
+    END
+END
+GO
+
+CREATE PROC REGISTRARPRODUCTO(
+    @codigo varchar(50),
+    @nombre varchar(50),
+    @descripcion varchar(50),
+    @idCategoria int,
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    -- Verificar si ya existe un producto con el mismo código
+    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE codigo = @codigo)
+    BEGIN
+        INSERT INTO PRODUCTOS (codigo, nombre, descripcion, idCategoria, estado)
+        VALUES (@codigo, @nombre, @descripcion, @idCategoria, @estado)
+        
+        SET @resultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya existe un producto con ese código'
+    END
+END
+GO
+
+
+
+
+
+CREATE PROC EDITARPRODUCTO(
+    @idProducto int,
+    @codigo varchar(50),
+    @nombre varchar(50),
+    @descripcion varchar(50),
+    @idCategoria int,
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    -- Verificar si existe otro producto con el mismo código
+    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE codigo = @codigo AND idProducto != @idProducto)
+    BEGIN
+        UPDATE PRODUCTOS
+        SET codigo = @codigo,
+            nombre = @nombre,
+            descripcion = @descripcion,
+            idCategoria = @idCategoria,
+            estado = @estado
+        WHERE idProducto = @idProducto
+
+        SET @resultado = 1
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya existe un producto con el mismo código'
+    END
+END
+GO
+
+
+
+CREATE PROC ELIMINARPRODUCTO (
+    @idProducto int,
+    @respuesta bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @respuesta = 0
+    SET @mensaje = ''
+    DECLARE @aprobacion bit = 1
+
+    -- Verificar si el producto está relacionado a una compra
+    IF EXISTS (
+        SELECT * FROM DETALLES_COMPRA dc
+        INNER JOIN PRODUCTOS p ON p.idProducto = dc.idProducto
+        WHERE p.idProducto = @idProducto
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @mensaje = @mensaje + 'No se puede eliminar porque el producto se encuentra relacionado a una COMPRA. '
+    END
+
+    -- Verificar si el producto está relacionado a una venta
+    IF EXISTS (
+        SELECT * FROM DETALLES_VENTA dv
+        INNER JOIN PRODUCTOS p ON p.idProducto = dv.idProducto
+        WHERE p.idProducto = @idProducto
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @mensaje = @mensaje + 'No se puede eliminar porque el producto se encuentra relacionado a una VENTA. '
+    END
+
+    -- Eliminar el producto si no está relacionado
+    IF @aprobacion = 1
+    BEGIN
+        DELETE FROM PRODUCTOS WHERE idProducto = @idProducto
+        SET @respuesta = 1
+    END
+END
+GO
+
+CREATE PROC REGISTRARCLIENTE(
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    -- Verificar si ya existe un cliente con el mismo documento
+    IF NOT EXISTS (SELECT * FROM CLIENTES WHERE documento = @documento)
+    BEGIN
+        INSERT INTO CLIENTES (documento, nombreCompleto, correo, telefono, estado)
+        VALUES (@documento, @nombreCompleto, @correo, @telefono, @estado)
+
+        SET @resultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya existe un cliente con ese documento'
+    END
+END
+GO
+
+CREATE PROC EDITARCLIENTE(
+    @idCliente int,
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+    
+    -- Verificar si ya existe un cliente con el mismo documento
+    IF NOT EXISTS (SELECT * FROM CLIENTES WHERE documento = @documento AND idCliente != @idCliente)
+    BEGIN
+        UPDATE CLIENTES SET
+            documento = @documento, 
+            nombreCompleto = @nombreCompleto, 
+            correo = @correo, 
+            telefono = @telefono, 
+            estado = @estado
+        WHERE idCliente = @idCliente
+    END
+    ELSE
+    BEGIN
+        SET @resultado = 0
+        SET @mensaje = 'Ya existe un cliente con ese documento'
+    END
+END
+GO
+
+CREATE PROC REGISTRARPROVEEDOR(
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @razonSocial varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    -- Verificar si ya existe un proveedor con el mismo documento
+    IF NOT EXISTS (SELECT * FROM PROVEEDORES WHERE documento = @documento)
+    BEGIN
+        INSERT INTO PROVEEDORES(documento, nombreCompleto, razonSocial, correo, telefono, estado)
+        VALUES (@documento, @nombreCompleto, @razonSocial, @correo, @telefono, @estado)
+
+        SET @resultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya existe un proveedor con ese documento'
+    END
+END
+GO
+
+CREATE PROC EDITARPROVEEDOR(
+    @idProveedor int,
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @razonSocial varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+    
+    -- Verificar si ya existe un proveedor con el mismo documento
+    IF NOT EXISTS (SELECT * FROM PROVEEDORES WHERE documento = @documento AND idProveedor != @idProveedor)
+    BEGIN
+        UPDATE PROVEEDORES SET
+            documento = @documento, 
+            nombreCompleto = @nombreCompleto, 
+            razonSocial = @razonSocial,
+            correo = @correo, 
+            telefono = @telefono, 
+            estado = @estado
+        WHERE idProveedor = @idProveedor
+    END
+    ELSE
+    BEGIN
+        SET @resultado = 0
+        SET @mensaje = 'Ya existe un proveedor con ese documento'
+    END
+END
+GO
+
+CREATE PROC ELIMINARPROVEEDOR (
+    @idProveedor int,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+    DECLARE @aprobacion bit = 1
+
+    -- Verificar si el proveedor está relacionado con alguna compra
+    IF EXISTS (
+        SELECT * FROM COMPRAS 
+        WHERE idProveedor = @idProveedor
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @resultado = 0
+        SET @mensaje = 'No se puede eliminar porque el proveedor se encuentra relacionado a una COMPRA.'
+    END
+
+    -- Si no está relacionado, eliminar el proveedor
+    IF @aprobacion = 1
+    BEGIN
+        DELETE FROM PROVEEDORES WHERE idProveedor = @idProveedor
+    END
+END
+GO
+
+CREATE PROC REGISTRARMESERO(
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado int output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 0
+    SET @mensaje = ''
+
+    -- Verificar si ya existe un mesero con el mismo documento
+    IF NOT EXISTS (SELECT * FROM MESEROS WHERE documento = @documento)
+    BEGIN
+        INSERT INTO MESEROS (documento, nombreCompleto, correo, telefono, estado)
+        VALUES (@documento, @nombreCompleto, @correo, @telefono, @estado)
+
+        SET @resultado = SCOPE_IDENTITY()
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'Ya existe un mesero con ese documento'
+    END
+END
+GO
+
+CREATE PROC EDITARMESERO(
+    @idMesero int,
+    @documento varchar(50),
+    @nombreCompleto varchar(50),
+    @correo varchar(50),
+    @telefono varchar(50),
+    @estado bit,
+    @resultado bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @resultado = 1
+    SET @mensaje = ''
+    
+    -- Verificar si ya existe un mesero con el mismo documento
+    IF NOT EXISTS (SELECT * FROM MESEROS WHERE documento = @documento AND idMesero != @idMesero)
+    BEGIN
+        UPDATE MESEROS SET
+            documento = @documento, 
+            nombreCompleto = @nombreCompleto, 
+            correo = @correo, 
+            telefono = @telefono, 
+            estado = @estado
+        WHERE idMesero = @idMesero
+    END
+    ELSE
+    BEGIN
+        SET @resultado = 0
+        SET @mensaje = 'Ya existe un mesero con ese documento'
+    END
+END
+GO
+
+CREATE PROC ELIMINARMESERO (
+    @idMesero int,
+    @respuesta bit output,
+    @mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @respuesta = 0
+    SET @mensaje = ''
+    DECLARE @aprobacion bit = 1
+
+    -- Verificar si el mesero está relacionado con alguna venta
+    IF EXISTS (
+        SELECT * FROM VENTAS V
+        INNER JOIN MESEROS M ON M.idMesero = V.idMesero
+        WHERE M.idMesero = @idMesero
+    )
+    BEGIN
+        SET @aprobacion = 0
+        SET @respuesta = 0
+        SET @mensaje = 'No se puede eliminar porque el mesero se encuentra relacionado a una VENTA'
+    END
+
+    -- Si no hay relación con ventas, proceder con la eliminación
+    IF @aprobacion = 1
+    BEGIN
+        DELETE FROM MESEROS WHERE idMesero = @idMesero
+        SET @respuesta = 1
+    END
+END
+GO
+
+
+INSERT INTO DATOSNEGOCIO (idNegocio, nombre, correo, clave, RUT, direccion, logo)
+VALUES (1, '', '', '', '', '', NULL);
+GO
+
+CREATE TYPE [dbo].[sDetalle_Compra] AS TABLE
+(
+    [idProducto] int NULL,
+    [precioCompra] decimal(18,2) NULL,
+    [precioVenta] decimal(18,2) NULL,
+    [cantidad] int NULL,
+    [montoTotal] decimal(18,2) NULL
+)
+GO
+
+CREATE PROCEDURE sp_RegistrarCompra
+    (
+        @idUsuario int,
+        @idProveedor int,
+        @tipoDocumento varchar(500),
+        @numeroDocumento varchar(500),
+        @montoTotal decimal (18,2),
+        @detalleCompra sDetalle_Compra READONLY,
+        @resultado bit OUTPUT,
+        @mensaje varchar(500) OUTPUT
+    )
+AS
+BEGIN
+    BEGIN TRY
+        DECLARE @idcompra int = 0;
+        SET @resultado = 1;
+        SET @mensaje = '';
+        BEGIN TRANSACTION registro;
+
+        INSERT INTO COMPRAS(idUsuario, idProveedor, tipoDocumento, numeroDocumento, montoTotal)
+        VALUES(@idUsuario, @idProveedor, @tipoDocumento, @numeroDocumento, @montoTotal);
+        SET @idcompra = SCOPE_IDENTITY();
+
+        INSERT INTO DETALLES_COMPRA(IdCompra, IdProducto, PrecioCompra, PrecioVenta, Cantidad, MontoTotal)
+        SELECT @idcompra, idProducto, precioCompra, precioVenta, cantidad, montoTotal
+        FROM @detalleCompra;
+
+        UPDATE p
+        SET p.Stock = p.Stock + dc.cantidad,
+            p.PrecioCompra = dc.precioCompra,
+            p.PrecioVenta = dc.precioVenta
+        FROM PRODUCTOS p
+        INNER JOIN @detalleCompra dc ON dc.idProducto = p.IdProducto;
+
+        COMMIT TRANSACTION registro;
+    END TRY
+    BEGIN CATCH
+        SET @resultado = 0;
+        SET @mensaje = ERROR_MESSAGE();
+        ROLLBACK TRANSACTION registro;
+    END CATCH;
+END
+
+-- Definir el tipo de tabla para los detalles de una venta
+CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
+    [idProducto] INT NULL,
+    [precioVenta] DECIMAL(18,2) NULL,
+    [cantidad] INT NULL,
+    [subTotal] DECIMAL(18,2) NULL
+)
+GO
+
+-- Crear el procedimiento almacenado para registrar una venta
+CREATE PROCEDURE usp_RegistrarVenta(
+    @idUsuario INT,
+    @idMesero INT,
+    @numeroMesa INT,
+    @tipoDocumento VARCHAR(500),
+    @numeroDocumento VARCHAR(500),
+    @documentoCliente VARCHAR(500),
+    @nombreCliente VARCHAR(500),
+    @montoPago DECIMAL(18,2),
+    @montoCambio DECIMAL(18,2),
+    @montoTotal DECIMAL(18,2),
+    @detalleVenta [EDetalle_Venta] READONLY,
+    @resultado BIT OUTPUT,
+    @mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Iniciar la transacción
+        BEGIN TRANSACTION registro
+
+        -- Insertar en la tabla VENTAS
+        INSERT INTO VENTAS(idUsuario, idMesero, NumeroMesa, tipoDocumento, numeroDocumento, documentoCliente, nombreCliente, montoPago, montoCambio, montoTotal)
+        VALUES (@idUsuario, @idMesero, @numeroMesa, @tipoDocumento, @numeroDocumento, @documentoCliente, @nombreCliente, @montoPago, @montoCambio, @montoTotal)
+
+        -- Obtener el ID de la venta insertada
+        DECLARE @idventa INT = SCOPE_IDENTITY()
+
+        -- Insertar en la tabla DETALLES_VENTAS
+        INSERT INTO DETALLES_VENTA(idVenta, idProducto, precioVenta, cantidad, subTotal)
+        SELECT @idventa, idProducto, precioVenta, cantidad, subTotal
+        FROM @detalleVenta
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro
+
+        -- Establecer los parámetros de salida para éxito
+        SET @resultado = 1
+        SET @mensaje = 'Transacción completada exitosamente.'
+    END TRY
+    BEGIN CATCH
+        -- Revertir la transacción en caso de error
+        ROLLBACK TRANSACTION registro
+
+        -- Establecer los parámetros de salida para error
+        SET @resultado = 0
+        SET @mensaje = ERROR_MESSAGE()
+    END CATCH
+END
+GO
+
+CREATE PROCEDURE ObtenerComprasEntreFechas
+    @fechainicio DATE,
+    @fechafin DATE
+AS
+BEGIN
+	SET DATEFORMAT dmy;
+    SELECT 
+        CONVERT(CHAR(10), c.fechaRegistro, 103) AS [fechaRegistro],
+        c.tipoDocumento, 
+        c.numeroDocumento,
+        u.nombreCompleto AS [usuarioRegistro],
+        p.documento AS [documentoProveedor],
+        p.razonSocial AS [proveedor],
+        c.montoTotal
+    FROM COMPRAS c
+    INNER JOIN USUARIOS u ON u.idUsuario = c.idUsuario
+    INNER JOIN PROVEEDORES p ON p.idProveedor = c.idProveedor
+    WHERE CONVERT(DATE, c.fechaRegistro) BETWEEN @fechainicio AND @fechafin;
+END
+
+CREATE PROCEDURE ObtenerVentasEntreFechas
+    @fechainicio DATE,
+    @fechafin DATE
+AS
+BEGIN
+	SET DATEFORMAT dmy;
+    SELECT 
+	
+        CONVERT(CHAR(10), v.fechaRegistro, 103) AS [fechaRegistro],
+        v.tipoDocumento, 
+        v.numeroDocumento,
+        u.nombreCompleto AS [usuarioRegistro],
+        m.nombreCompleto AS [mesero],
+        v.NumeroMesa,
+        v.documentoCliente,
+        v.nombreCliente,
+        v.montoPago,
+        v.montoCambio,
+        v.montoTotal
+    FROM VENTAS v
+    INNER JOIN USUARIOS u ON u.idUsuario = v.idUsuario
+    INNER JOIN MESEROS m ON m.idMesero = v.idMesero
+    WHERE CONVERT(DATE, v.fechaRegistro) BETWEEN @fechainicio AND @fechafin;
+END
+

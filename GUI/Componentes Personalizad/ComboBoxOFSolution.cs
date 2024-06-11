@@ -155,7 +155,18 @@ namespace GUI.Componentes_Personalizad
         [Category("Data Propiedades Personalizadas")]
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int SelectedIndex { get => cmbList.SelectedIndex; set { cmbList.SelectedIndex = value; } }
+        public int SelectedIndex
+        {
+            get => cmbList.SelectedIndex;
+            set
+            {
+                if (cmbList.Items.Count > 0) // Ensure there are items before setting the index
+                {
+                    cmbList.SelectedIndex = value;
+                }
+            }
+        }
+
         #endregion
 
         #endregion

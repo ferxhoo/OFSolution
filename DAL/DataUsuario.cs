@@ -76,7 +76,7 @@ namespace DAL
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
 
-                    SqlCommand comando = new SqlCommand("PROC_REGISTRARUSUARIO", conexion);
+                    SqlCommand comando = new SqlCommand("REGISTRARUSUARIO", conexion);
                     comando.Parameters.AddWithValue("documento", nuevoUsuario.documento);
                     comando.Parameters.AddWithValue("nombreCompleto", nuevoUsuario.nombreCompleto);
                     comando.Parameters.AddWithValue("nombreUsuario", nuevoUsuario.nombreUsuario);
@@ -119,7 +119,7 @@ namespace DAL
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
 
-                    SqlCommand comando = new SqlCommand("PROC_EDITARUSUARIO", conexion);
+                    SqlCommand comando = new SqlCommand("EDITARUSUARIO", conexion);
                     comando.Parameters.AddWithValue("idUsuario", usuarioEditado.idUsuario);
                     comando.Parameters.AddWithValue("documento", usuarioEditado.documento);
                     comando.Parameters.AddWithValue("nombreCompleto", usuarioEditado.nombreCompleto);
@@ -164,7 +164,7 @@ namespace DAL
                 {
 
 
-                    SqlCommand comando = new SqlCommand("PROC_ELIMINARUSUARIO", conexion);
+                    SqlCommand comando = new SqlCommand("ELIMINARUSUARIO", conexion);
                     comando.Parameters.AddWithValue("idUsuario", eliminarUsuario.idUsuario);
                     comando.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     comando.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

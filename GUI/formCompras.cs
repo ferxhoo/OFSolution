@@ -530,9 +530,7 @@ namespace GUI
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(numeroDocumento);
 
-                txtIdProveedor.Text = "0";
-                txtDocumentoProveedor.Text = "";
-                txtDocumentoProveedor.Text = "";
+                LimpiarCamposCompra();
                 dgvDetallesCompra.Rows.Clear();
                 calcularTotal();
 

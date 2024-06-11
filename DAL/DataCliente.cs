@@ -67,7 +67,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_REGISTRARCLIENTE", conexion);
+                    SqlCommand comando = new SqlCommand("REGISTRARCLIENTE", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@documento", nuevoCliente.documento);
@@ -103,7 +103,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_EDITARCLIENTE", conexion);
+                    SqlCommand comando = new SqlCommand("EDITARCLIENTE", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idCliente", clienteEditado.idCliente);

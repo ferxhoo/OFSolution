@@ -63,7 +63,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_REGISTRARCATEGORIA", conexion);
+                    SqlCommand comando = new SqlCommand("REGISTRARCATEGORIA", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@descripcion", nuevaCategoria.descripcion);
@@ -96,7 +96,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_EDITARCATEGORIA", conexion);
+                    SqlCommand comando = new SqlCommand("EDITARCATEGORIA", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idCategoria", CategoriaEditada.idCategoria);
@@ -130,7 +130,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_ELIMINARCATEGORIA", conexion);
+                    SqlCommand comando = new SqlCommand("ELIMINARCATEGORIA", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idCategoria", categoria.idCategoria);

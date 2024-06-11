@@ -23,7 +23,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT idNegocio, nombre, RUT, correo, contraseña, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
+                    string query = "SELECT idNegocio, nombre, RUT, correo, clave, direccion FROM DATOSNEGOCIO WHERE idNegocio = 1";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.CommandType = CommandType.Text;
 
@@ -37,7 +37,7 @@ namespace DAL
                                 Nombre = reader["nombre"].ToString(),
                                 RUT = reader["RUT"].ToString(),
                                 Correo = reader["correo"].ToString(),
-                                Contraseña = reader["contraseña"].ToString(),
+                                Contraseña = reader["clave"].ToString(),
                                 Direccion = reader["direccion"].ToString()
                             };
                         }
@@ -72,6 +72,7 @@ namespace DAL
                     query.AppendLine("UPDATE DATOSNEGOCIO SET nombre = @nombre,");
                     query.AppendLine("RUT = @rut,");
                     query.AppendLine("correo = @correo,");
+                    query.AppendLine("clave = @clave,");
                     query.AppendLine("direccion = @direccion");
                     query.AppendLine("WHERE idNegocio = 1;");
 
@@ -79,6 +80,7 @@ namespace DAL
                     comando.Parameters.AddWithValue("@nombre", negocio.Nombre);
                     comando.Parameters.AddWithValue("@rut", negocio.RUT);
                     comando.Parameters.AddWithValue("@correo", negocio.Correo);
+                    comando.Parameters.AddWithValue("@clave", negocio.Contraseña);
                     comando.Parameters.AddWithValue("@direccion", negocio.Direccion);
                     comando.CommandType = CommandType.Text;
 

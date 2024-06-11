@@ -39,7 +39,11 @@ namespace GUI
             cmbEstado.Items.Add(new OpcionComboBox() { Valor = 0, Texto = "No Activo" });
             cmbEstado.DisplayMember = "Texto";
             cmbEstado.ValueMember = "Valor";
-            cmbEstado.SelectedIndex = 0;
+
+            if (cmbEstado.Items.Count > 0) // Verificar si hay elementos antes de establecer el índice
+            {
+                cmbEstado.SelectedIndex = 0;
+            }
         }
 
         private void CargarCmbCategoria()
@@ -52,14 +56,17 @@ namespace GUI
             }
             cmbCategoria.DisplayMember = "Texto";
             cmbCategoria.ValueMember = "Valor";
-            cmbCategoria.SelectedIndex = 0;
+
+            if (cmbCategoria.Items.Count > 0) // Verificar si hay elementos antes de establecer el índice
+            {
+                cmbCategoria.SelectedIndex = 0;
+            }
         }
 
         private void CargarCmbBuscar()
         {
             foreach (DataGridViewColumn columna in dgvProductos.Columns)
             {
-
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
                 {
                     cmbBusqueda.Items.Add(new OpcionComboBox() { Valor = columna.Name, Texto = columna.HeaderText });
@@ -67,7 +74,11 @@ namespace GUI
             }
             cmbBusqueda.DisplayMember = "Texto";
             cmbBusqueda.ValueMember = "Valor";
-            cmbBusqueda.SelectedIndex = 0;
+
+            if (cmbBusqueda.Items.Count > 0) // Verificar si hay elementos antes de establecer el índice
+            {
+                cmbBusqueda.SelectedIndex = 0;
+            }
         }
 
         private void CargarDataTable()

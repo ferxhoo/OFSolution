@@ -71,7 +71,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_REGISTRARPRODUCTO", conexion);
+                    SqlCommand comando = new SqlCommand("REGISTRARPRODUCTO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@codigo", nuevoProducto.codigo);
@@ -107,7 +107,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_EDITARPRODUCTO", conexion);
+                    SqlCommand comando = new SqlCommand("EDITARPRODUCTO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idProducto", productoEditado.idProducto);
@@ -144,7 +144,7 @@ namespace DAL
             {
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand comando = new SqlCommand("PROC_ELIMINARPRODUCTO", conexion);
+                    SqlCommand comando = new SqlCommand("ELIMINARPRODUCTO", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@idProducto", producto.idProducto);

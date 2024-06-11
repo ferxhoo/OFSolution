@@ -51,7 +51,7 @@ namespace GUI
         {
             Compra compra = new ServicioCompra().ObtenerCompra(txtBuscarDoc.Texts);
 
-            if (compra.idCompra != 0)
+            if (compra != null && compra.idCompra != 0) // Add null check here
             {
                 txtNumeroDoc.Text = compra.numeroDocumento;
                 dtpFecha.Text = compra.fechaRegistro;
@@ -64,18 +64,23 @@ namespace GUI
                 foreach (DetalleCompra detallesCompra in compra.detallesCompra)
                 {
                     dgvDetallesCompra.Rows.Add(new object[] {
-                    detallesCompra.producto.nombre,
-                    detallesCompra.cantidad,
-                    detallesCompra.precioCompra,
-                    detallesCompra.montoTotal
-                });
+                detallesCompra.producto.nombre,
+                detallesCompra.cantidad,
+                detallesCompra.precioCompra,
+                detallesCompra.montoTotal
+            });
                 }
 
                 txtTotal.Texts = compra.montoTotal.ToString("0.00");
 
                 dgvDetallesCompra.ClearSelection();
             }
+            else
+            {
+                MessageBox.Show("No se encontró la compra con el número de documento proporcionado.");
+            }
         }
+
 
         private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
         {
