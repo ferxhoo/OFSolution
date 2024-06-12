@@ -690,6 +690,7 @@
             this.txtTelefono.TabIndex = 30;
             this.txtTelefono.Texts = "";
             this.txtTelefono.UnderlinedStyle = true;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTelefono
             // 

@@ -31,6 +31,8 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelOFSolution1 = new GUI.Componentes_Personalizad.PanelOFSolution();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtContraseña = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.txtCorreo = new GUI.Componentes_Personalizad.TextBoxOFSolution();
             this.btnGuardar = new GUI.Componentes_Personalizad.IconButtonOFSolution();
             this.txtDireccion = new GUI.Componentes_Personalizad.TextBoxOFSolution();
@@ -40,8 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtContraseña = new GUI.Componentes_Personalizad.TextBoxOFSolution();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panelOFSolution1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +94,35 @@
             this.groupBox1.Size = new System.Drawing.Size(739, 447);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(348, 225);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(235, 16);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Coloca tu Contraseña de Aplicaciones";
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtContraseña.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
+            this.txtContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
+            this.txtContraseña.BorderRadius = 15;
+            this.txtContraseña.BorderSize = 2;
+            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(341, 244);
+            this.txtContraseña.Multiline = false;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtContraseña.PasswordChar = true;
+            this.txtContraseña.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txtContraseña.PlaceholderText = "Contraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(367, 31);
+            this.txtContraseña.TabIndex = 36;
+            this.txtContraseña.Texts = "";
+            this.txtContraseña.UnderlinedStyle = true;
             // 
             // txtCorreo
             // 
@@ -256,35 +285,6 @@
             this.label1.Size = new System.Drawing.Size(250, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Información del Negocio";
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtContraseña.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(145)))), ((int)(((byte)(200)))));
-            this.txtContraseña.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(196)))), ((int)(((byte)(228)))));
-            this.txtContraseña.BorderRadius = 15;
-            this.txtContraseña.BorderSize = 2;
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(341, 244);
-            this.txtContraseña.Multiline = false;
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtContraseña.PasswordChar = true;
-            this.txtContraseña.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txtContraseña.PlaceholderText = "Contraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(367, 31);
-            this.txtContraseña.TabIndex = 36;
-            this.txtContraseña.Texts = "";
-            this.txtContraseña.UnderlinedStyle = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 225);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 16);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Coloca tu Contraseña de Aplicaciones";
             // 
             // formNegocio
             // 

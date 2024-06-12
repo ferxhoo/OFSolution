@@ -397,5 +397,35 @@ namespace GUI
             }
         }
 
+        private void ValidarEntradaTelefono(KeyPressEventArgs e, string texto)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (e.KeyChar == '+' && !texto.Contains('+') && texto.Length == 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarEntradaTelefono(e, txtTelefono.Texts);
+        }
+
+
+
+
+
+
+
     }
 }
