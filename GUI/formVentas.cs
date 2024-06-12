@@ -619,6 +619,15 @@ namespace GUI
                 return;
             }
 
+            // Verificar si el monto pagado es suficiente
+            decimal montoTotal = Convert.ToDecimal(txtTotal.Texts);
+            decimal montoPagado = string.IsNullOrWhiteSpace(txtPagaCon.Texts) ? 0 : Convert.ToDecimal(txtPagaCon.Texts);
+            if (montoPagado < montoTotal)
+            {
+                MessageBox.Show("El monto pagado debe ser igual o mayor que el monto total de la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             DataTable detalle_venta = new DataTable();
             detalle_venta.Columns.Add("idProducto", typeof(int));
             detalle_venta.Columns.Add("precioVenta", typeof(decimal));
@@ -649,9 +658,9 @@ namespace GUI
                 mesero = new Mesero() { idMesero = Convert.ToInt32(txtIdMesero.Text) },
                 documentoCliente = txtDocumentoCliente.Texts,
                 nombreCliente = txtCliente.Texts,
-                montoPago = Convert.ToDecimal(txtPagaCon.Texts),
+                montoPago = montoPagado,
                 montoCambio = Convert.ToDecimal(txtCambio.Texts),
-                montoTotal = Convert.ToDecimal(txtTotal.Texts)
+                montoTotal = montoTotal
             };
 
             string mensaje = string.Empty;
@@ -680,6 +689,7 @@ namespace GUI
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
 
     }
 }
