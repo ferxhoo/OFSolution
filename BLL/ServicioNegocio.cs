@@ -33,6 +33,9 @@ namespace BLL
             if (negocio.Correo == "")
                 Mensaje += "Es necesario el Correo\n";
 
+            if (negocio.Contraseña == "")
+                Mensaje += "Es necesario que ingrese la contraseña de verificacion en 2 pasos\n";
+
             if (negocio.Direccion == "")
                 Mensaje += "Es necesario la direccion\n";
 

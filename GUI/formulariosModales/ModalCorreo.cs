@@ -66,37 +66,48 @@ namespace GUI.formulariosModales
             MailMessage mail = new MailMessage();
             SmtpClient smtp = new SmtpClient();
 
-            mail.From = new MailAddress(miCorreo);
-            mail.To.Add(correo);
-
-            mail.Subject = txtAsunto.Texts;
-            string html = $"<html><body><p>{txtMensaje.Texts}</p></body></html>";
-
-            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
-            mail.AlternateViews.Add(htmlView);
-
-            if (!string.IsNullOrEmpty(pdfFilePath))
+            if(miCorreo == "")
             {
-                Attachment attachment = new Attachment(pdfFilePath);
-                mail.Attachments.Add(attachment);
+                MessageBox.Show("El correo de el negocio no ha sido registrado");
+                return;
+            }
+            else
+            {
+                mail.From = new MailAddress(miCorreo);
+                mail.To.Add(correo);
+
+                mail.Subject = txtAsunto.Texts;
+                string html = $"<html><body><p>{txtMensaje.Texts}</p></body></html>";
+
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
+                mail.AlternateViews.Add(htmlView);
+
+                if (!string.IsNullOrEmpty(pdfFilePath))
+                {
+                    Attachment attachment = new Attachment(pdfFilePath);
+                    mail.Attachments.Add(attachment);
+                }
+
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.Credentials = new NetworkCredential(miCorreo, miContraseña);
+                smtp.EnableSsl = true;
+
+                try
+                {
+                    smtp.Send(mail);
+                    MessageBox.Show("Correo enviado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al enviar el correo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential(miCorreo, miContraseña); 
-            smtp.EnableSsl = true;
-
-            try
-            {
-                smtp.Send(mail);
-                MessageBox.Show("Correo enviado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al enviar el correo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
 
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
